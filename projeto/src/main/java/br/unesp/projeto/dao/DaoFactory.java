@@ -14,6 +14,9 @@ public class DaoFactory {
         return new  FuncionarioDAOImpl();
     }
     
+     public static AquarioDAO getAquarioDAO(){
+        return new  AquarioDAOImpl();
+    }
     
 }
 
