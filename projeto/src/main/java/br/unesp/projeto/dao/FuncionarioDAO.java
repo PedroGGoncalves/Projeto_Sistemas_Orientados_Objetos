@@ -5,11 +5,24 @@
  */
 package br.unesp.projeto.dao;
 import br.unesp.projeto.model.Funcionario;
+import java.util.List;
 
 public interface FuncionarioDAO {
      final String INSERT_FUNCIONARIO = "INSERT INTO funcionario(nome_completo, RG, CPF, salario, "
             + "data_nascimento, contratacao,  login,  loginn) "
             + "VALUES(?,?,?,?,?,?,?,?,)";
 
+    final String FIND_BY_ID = "SELECT idFuncionario, nome_completo, RG, CPF, salario, data_nascimento, contratacao, login, loginn "
+           + "FROM funcionario WHERE idFuncionario = ?";
+
+    final String FIND_ALL = "SELECT idFuncionario, nome_completo,RG, CPG, salario, data_nascimento, contratacao, login, loginn"
+            + "FROM funcionario";
+     
+     
     public boolean save(Funcionario funcionario);
+    
+    public Funcionario findById(Long idFuncionario);
+
+    public List<Funcionario> findAll();
+
 }
