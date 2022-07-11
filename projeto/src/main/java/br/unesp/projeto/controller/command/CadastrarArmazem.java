@@ -6,6 +6,6 @@
 package br.unesp.projeto.controller.command;
 
 
-public class CadastrarIngresso {
+public class CadastrarArmazem {
     
 }
