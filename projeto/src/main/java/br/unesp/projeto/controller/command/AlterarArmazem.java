@@ -5,6 +5,6 @@
  */
 package br.unesp.projeto.controller.command;
 
-public class AlterarIngresso {
+public class AlterarArmazem {
     
 }
