@@ -1,0 +1,17 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0px;
+    background-color: aliceblue;
+}
+header{
+    position: sticky;
+    background-color: darkslategrey;
+    color: white;
+    font-size: 24pt;
+    height: 70px;
+}
+header img{
+    height: 90%
+}

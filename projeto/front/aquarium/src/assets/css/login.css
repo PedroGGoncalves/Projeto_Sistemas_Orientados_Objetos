@@ -1,0 +1,38 @@
+.home{
+    position: absolute;
+    display: block;
+    height: calc(100vh - 70px);
+    width: 100%;
+}
+
+.login, .decor{
+    float: left;
+    width: 50%;
+    height: 100%;
+    border: 1px black solid;
+}
+.login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.decor img{
+    position: relative;
+    transform: translate(5%, 5%);
+    width: 90%;
+}
+.usr-form, .pwd-form{
+    padding: 2px;
+}
+.usr-form *, .pwd-form *{
+    padding: 5px;
+    font-size: 30px;
+    height: 30px;
+}
+.login input{
+    font-size: 18px;
+    border: 1px black solid;
+    border-radius: 8px;
+}
