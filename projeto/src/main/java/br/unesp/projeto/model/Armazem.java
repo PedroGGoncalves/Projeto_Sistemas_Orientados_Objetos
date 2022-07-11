@@ -17,19 +17,19 @@ public class Armazem {
 
     }
     
-    public long getIdAquario() {
+    public long getIdArmazem() {
         return idArmazem;
     }
 
-    public void setIdAquario(long idAquario) {
-        this.idArmazem = idAquario;
+    public void setIdArmazem(long idArmazem) {
+        this.idArmazem = idArmazem;
     }
     
      public int getquantidade() {
         return quantidade;
     }
 
-    public void setIquantidade(int quantidade) {
+    public void setquantidade(int quantidade) {
         this.quantidade = quantidade;
     }
    

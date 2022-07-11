@@ -4,8 +4,7 @@
  * and open the template in the editor.
  */
 package br.unesp.projeto.dao;
-
-import br.unesp.projeto.model.Login;
+import br.unesp.projeto.model.Medidor_oxigenacao;
 import br.unesp.projeto.utils.FabricaConexao;
 
 import java.sql.Connection;
@@ -14,12 +13,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class LoginDAOImpl implements LoginDAO {
-     LoginDAOImpl() {
+public class medidor_OxigenacaoDAOImpl implements medidor_OxigenaçãoDAO{
+    medidor_OxigenacaoDAOImpl() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     @Override
-    public boolean save(Login login) {
+    public boolean save(Medidor_oxigenacao medidor_oxigenacao) {
 
         boolean b = false;
         Connection con = null;
@@ -30,10 +29,8 @@ public class LoginDAOImpl implements LoginDAO {
 
         if (con != null) {
             try {
-                pstm = con.prepareStatement(INSERT_LOGIN);
-                pstm.setLong(1,login.getIdLogin());
-                pstm.setString(2, login.getID());
-                pstm.setString(3, login.getSenha());
+                pstm = con.prepareStatement(INSERT_Medidor_oxigenacao);
+                pstm.setInt(1,medidor_oxigenacao.getoxigenacao());
 
                 pstm.executeUpdate();
 
