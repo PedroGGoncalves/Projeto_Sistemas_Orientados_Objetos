@@ -10,8 +10,37 @@ public class DaoFactory {
     private DaoFactory(){        
     }
     
-    public static FuncionarioDAO getCategoriaDAO(){
+    public static AquarioDAO getAquarioDAO(){
+        return new  AquarioDAOImpl();
+    }
+    
+    public static ArmazemDAO getArmazemDAO(){
+        return new  ArmazemDAOImpl();
+    }
+    
+    public static FuncionarioDAO getFuncionarioDAO(){
         return new  FuncionarioDAOImpl();
+    }
+    
+    public static LoginDAO getLoginDAO(){
+        return new  LoginDAOImpl();
+    }
+    public static TanqueDAO getTanqueDAO(){
+        return new  TanqueDAOImpl();
+    }
+    
+    public static TermostatoDAO getTermostatoDAO(){
+        return new  TermostatoDAOImpl();
+    }
+    
+    public static medidor_OxigenaçãoDAO getmedidor_OxigenaçãoDAO(){
+        return new  medidor_OxigenacaoDAOImpl();
+    }
+    public static medidor_SalinidadeDAO getmedidor_salinidadeDAO(){
+        return new  medidor_SalinidadeDAOImpl();
+    }
+    public static medidor_pHDAO getmedidor_pHDAO(){
+        return new  medidor_pHDAOImpl();
     }
     
     

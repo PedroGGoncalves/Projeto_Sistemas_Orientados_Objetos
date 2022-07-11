@@ -5,10 +5,7 @@
 package br.unesp.projeto.model;
 import java.util.ArrayList;
 import java.util.List;
-/**
- *
- * @author aluno
- */
+
 public class Tanque {
     // private List<Comida> alimento;
     // private List<Especies> especie;

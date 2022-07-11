@@ -5,10 +5,7 @@
 package br.unesp.projeto.model;
 import java.util.ArrayList;
 import java.util.List;
-/**
- *
- * @author aluno
- */
+
 public class Aquario {
     private long idAquario;
     private String nome;

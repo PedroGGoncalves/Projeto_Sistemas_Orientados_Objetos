@@ -9,7 +9,7 @@ import java.util.List;
  *
  * @author aluno
  */
-class Medidor_oxigenacao {
+public class Medidor_oxigenacao {
     private int oxigenacao;
     
     public Medidor_oxigenacao () {
