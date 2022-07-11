@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package br.unesp.projeto.service;
-
+import br.unesp.projeto.model.Medidor_oxigenacao;
 
 public interface medidor_OxigenaçãoService {
-    
+    boolean save(Medidor_oxigenacao entity);
 }

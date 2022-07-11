@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package br.unesp.projeto.service;
-
+import br.unesp.projeto.model.Medidor_ph;
 
 public interface medidor_pHService {
-    
+    boolean save(Medidor_ph entity);
 }

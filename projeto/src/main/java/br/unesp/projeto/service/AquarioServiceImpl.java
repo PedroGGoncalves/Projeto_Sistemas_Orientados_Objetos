@@ -4,8 +4,22 @@
  * and open the template in the editor.
  */
 package br.unesp.projeto.service;
+import br.unesp.projeto.dao.AquarioDAO;
+import br.unesp.projeto.dao.DaoFactory;
+import br.unesp.projeto.model.Aquario;
 
+public class AquarioServiceImpl implements AquarioService {
+    private AquarioDAO dao = DaoFactory.getAquarioDAO();
 
-public class AquarioServiceImpl {
-    
+    @Override
+    public boolean save(Aquario entity) {
+        boolean b = false;
+
+        if (dao != null) {
+            dao.save(entity);
+            b = true;
+        }
+
+        return b;
+    }
 }

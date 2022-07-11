@@ -3,8 +3,22 @@
  * and open the template in the editor.
  */
 package br.unesp.projeto.service;
+import br.unesp.projeto.dao.medidor_SalinidadeDAO;
+import br.unesp.projeto.dao.DaoFactory;
+import br.unesp.projeto.model.Medidor_salinidade;
 
+public class medidor_SalinidadeServiceImpl implements medidor_SalinidadeService {
+    private medidor_SalinidadeDAO dao = DaoFactory.getmedidor_salinidadeDAO();
 
-public class medidor_SalinidadeServiceImpl {
-    
+    @Override
+    public boolean save(Medidor_salinidade entity) {
+        boolean b = false;
+
+        if (dao != null) {
+            dao.save(entity);
+            b = true;
+        }
+
+        return b;
+    }
 }

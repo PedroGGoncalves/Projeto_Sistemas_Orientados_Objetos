@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package br.unesp.projeto.service;
-
+import br.unesp.projeto.model.Funcionario;
 
 public interface FuncionarioService {
-    
+    boolean save(Funcionario entity);
 }

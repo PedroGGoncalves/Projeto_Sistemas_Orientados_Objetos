@@ -5,7 +5,23 @@
  */
 package br.unesp.projeto.service;
 
+import br.unesp.projeto.dao.TanqueDAO;
+import br.unesp.projeto.dao.DaoFactory;
+import br.unesp.projeto.model.Tanque;
 
-public class TanqueServiceImpl {
-    
+
+public class TanqueServiceImpl  implements TanqueService{
+     private TanqueDAO dao = DaoFactory.getTanqueDAO();
+
+    @Override
+    public boolean save(Tanque entity) {
+        boolean b = false;
+
+        if (dao != null) {
+            dao.save(entity);
+            b = true;
+        }
+
+        return b;
+    }
 }
