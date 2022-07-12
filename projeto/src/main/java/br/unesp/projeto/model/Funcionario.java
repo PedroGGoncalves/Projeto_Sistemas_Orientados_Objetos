@@ -18,6 +18,9 @@ import javax.persistence.ManyToMany;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
 
 
 
@@ -26,6 +29,7 @@ import javax.persistence.OneToOne;
 @Setter
 @EqualsAndHashCode
 @ToString
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Funcionario implements Serializable {
    
     
@@ -35,6 +39,7 @@ public class Funcionario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long idFuncionario;
+   
     private String nome_completo;
     private String RG;
     private String CPF;
