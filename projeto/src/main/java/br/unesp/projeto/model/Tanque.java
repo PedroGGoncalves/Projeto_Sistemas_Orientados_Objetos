@@ -13,14 +13,20 @@ import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import java.io.Serializable;
+import javax.persistence.ManyToMany;
 
 
 @Getter
 @Setter
 @EqualsAndHashCode
 @ToString
-
-public class Tanque {
+public class Tanque implements Serializable {
+    
+    
+    
+    private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     // private List<Comida> alimento;
@@ -38,6 +44,14 @@ public class Tanque {
     private Medidor_salinidade medidor_salinidade;
     private Medidor_oxigenacao medidor_oxigenacao;
     /*temperatura termostato seria a msm do tanque?*/
+    
+    
+  @ManyToMany(cascade = CascadeType.ALL)
+  @JoinTable(name="FUNCIONARIO_TANQUE",
+             joinColumns={@JoinColumn(name="FUNCIONARIO_ID")},
+             inverseJoinColumns={@JoinColumn(name="TANQUE_ID")})
+  private List<Funcionario> funcionarios;
+
     
     public Tanque() {
 
