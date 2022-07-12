@@ -18,6 +18,7 @@ import lombok.ToString;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import org.springframework.data.annotation.Id;
+import java.io.Serializable;
 
 
 @Getter
@@ -25,13 +26,21 @@ import org.springframework.data.annotation.Id;
 @EqualsAndHashCode
 @ToString
 
-public class Armazem {
+public class Armazem implements Serializable {
+     
+     private static final long serialVersionUID = 1L;
+     
+     
      @Id
      @GeneratedValue(strategy = GenerationType.AUTO)
      // private List<Comida> alimento;
      private long idArmazem;
      private int quantidade;
     
+     @ManyToOne
+     private Aquario aquario;
+     
+     
     public Armazem() {
 
     }
