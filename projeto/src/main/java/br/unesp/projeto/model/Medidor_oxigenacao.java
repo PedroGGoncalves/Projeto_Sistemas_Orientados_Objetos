@@ -26,7 +26,7 @@ public class Medidor_oxigenacao implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long idMedidor_Oxigenacao
+    private long idMedidor_Oxigenacao;
     
     private float oxigenacao;
     

@@ -10,31 +10,31 @@ public class ServiceFactory {
     }
     
     public static AquarioService getAquarioService(){
-        return new AquarioServiceImpl();
+        return (AquarioService) new AquarioServiceImpl();
     }
     
     public static ArmazemService getArmazemService(){
-        return new  ArmazemServiceImpl();
+        return (ArmazemService) new  ArmazemServiceImpl();
     }
     public static FuncionarioService getFuncionarioService(){
-        return new  FuncionarioServiceImpl();
+        return (FuncionarioService) new  FuncionarioServiceImpl();
     }
     public static TanqueService getTanqueService(){
-        return new  TanqueServiceImpl();
+        return (TanqueService) new  TanqueServiceImpl();
     }
     public static TermostatoService getTermostatoService(){
-        return new  TermostatoServiceImpl();
+        return (TermostatoService) new  TermostatoServiceImpl();
     }
-    public static loginService getloginService(){
-        return new  loginServiceImpl();
+    public static LoginService getloginService(){
+        return (LoginService) new  loginServiceImpl();
     }
     public static medidor_OxigenaçãoService getmedidor_OxigenaçãoService(){
-        return new  medidor_OxigenaçãoServiceImpl();
+        return (medidor_OxigenaçãoService) new  medidor_OxigenaçãoServiceImpl();
     }
     public static  medidor_SalinidadeService getmedidor_SalinidadeService(){
-        return new  medidor_SalinidadeServiceImpl();
+        return (medidor_SalinidadeService) new  medidor_SalinidadeServiceImpl();
     }
     public static medidor_pHService getmedidor_pHService(){
-        return new  medidor_pHServiceImpl();
+        return (medidor_pHService) new  medidor_pHServiceImpl();
     }
 }

@@ -31,9 +31,8 @@ public class LoginDAOImpl implements LoginDAO {
         if (con != null) {
             try {
                 pstm = con.prepareStatement(INSERT_LOGIN);
-                pstm.setLong(1,login.getIdLogin());
-                pstm.setString(2, login.getID());
-                pstm.setString(3, login.getSenha());
+                pstm.setString(1, login.getID());
+                pstm.setString(2, login.getSenha());
 
                 pstm.executeUpdate();
 

@@ -39,10 +39,10 @@ public class TanqueDAOImpl implements TanqueDAO{
                 pstm.setString(6,tanque.getHorario_alimento());
                 pstm.setBoolean(7, tanque.isFiltro());
                 pstm.setString(8, tanque.getQR_CODE());
-                pstm.setInt(9, tanque.getTermostato().getTemperatura());
-                pstm.setInt(10, tanque.getMedidor_ph().getPh());
-                pstm.setInt(11,tanque.getMedidor_salinidade().getSalinidade());
-                pstm.setInt(12, tanque.getMedidor_oxigenacao().getOxigenacao());
+                pstm.setFloat(9, tanque.getTermostato().getTemperatura());
+                pstm.setFloat(10, tanque.getMedidor_ph().getPh());
+                pstm.setFloat(11,tanque.getMedidor_salinidade().getSalinidade());
+                pstm.setFloat(12, tanque.getMedidor_oxigenacao().getOxigenacao());
 
                 pstm.executeUpdate();
 
