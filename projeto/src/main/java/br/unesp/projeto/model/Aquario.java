@@ -40,26 +40,20 @@ public class Aquario implements Serializable {
     private float precoIngresso;
     
     @OneToMany(
-            cascade = CascadeType.ALL,
-            orphanRemoval = true,
-            fetch = FetchType.EAGER)
+            cascade = CascadeType.ALL)
     @JoinColumn(name = "aquario_idaquario")
     private List<Funcionario> funcionario;
     
     
     
      @OneToMany(
-            cascade = CascadeType.ALL,
-            orphanRemoval = true,
-            fetch = FetchType.EAGER)
+            cascade = CascadeType.ALL)
     @JoinColumn(name = "aquario_idaquario")
     private List<Tanque> tanque;
     
     
      @OneToMany(
-            cascade = CascadeType.ALL,
-            orphanRemoval = true,
-            fetch = FetchType.EAGER)
+            cascade = CascadeType.ALL)
     @JoinColumn(name = "aquario_idaquario")
     private List<Armazem> armazem;
     
