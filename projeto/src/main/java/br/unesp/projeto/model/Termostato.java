@@ -12,11 +12,6 @@ import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import java.io.Serializable;
-import javax.persistence.Entity;
-
-
-@Entity(name = "Termostato")
-
 
 @Getter
 @Setter
