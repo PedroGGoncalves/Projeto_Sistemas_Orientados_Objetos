@@ -11,6 +11,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
 
 @Getter
@@ -19,7 +21,8 @@ import org.springframework.data.annotation.Id;
 @ToString
 
 public class Medidor_oxigenacao {
-     @Id
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int oxigenacao;
     
     public Medidor_oxigenacao () {
