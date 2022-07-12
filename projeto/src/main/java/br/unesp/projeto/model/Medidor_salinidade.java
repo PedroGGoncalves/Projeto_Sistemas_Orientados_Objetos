@@ -6,11 +6,13 @@ package br.unesp.projeto.model;
 import java.util.ArrayList;
 import java.util.List;
 
- import lombok.EqualsAndHashCode;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
 
 @Getter
@@ -19,48 +21,11 @@ import org.springframework.data.annotation.Id;
 @ToString
         
 public class Medidor_salinidade {
-        @Id
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int salinidade;
     
     public Medidor_salinidade () {
        // this.itemTermostato   = new ArrayList<>();
-    }
     
-    public int getsalinidade() {
-        return salinidade;
-    }
-
-    public void setsalinidade(int ph) {
-        this.salinidade = salinidade;
-    }
-    
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 41 * hash + (int) ((this.salinidade >>> 32) ^ this.salinidade);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Medidor_salinidade other = (Medidor_salinidade) obj;
-        if (this.salinidade != other.salinidade) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Medidor_salinidade{" + "salinidade=" + salinidade + '}';
-    }
 }
