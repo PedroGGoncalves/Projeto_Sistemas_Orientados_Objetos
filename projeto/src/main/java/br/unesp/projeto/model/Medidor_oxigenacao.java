@@ -13,13 +13,15 @@ import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Entity;
+
 
 
 @Getter
 @Setter
 @EqualsAndHashCode
 @ToString
-
+@Entity(name="Medidor de oxigenação")
 public class Medidor_oxigenacao implements Serializable {
     
     @Id
