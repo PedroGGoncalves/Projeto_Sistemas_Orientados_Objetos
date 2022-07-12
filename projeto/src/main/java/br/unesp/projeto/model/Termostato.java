@@ -23,7 +23,7 @@ public class Termostato implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int idTermostato
+    private int idTermostato;
     
     
     private float temperatura;
