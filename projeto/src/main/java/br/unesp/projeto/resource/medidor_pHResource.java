@@ -1,7 +1,7 @@
 package br.unesp.projeto.resource;
 
 import br.unesp.projeto.model.Medidor_ph;
-import br.unesp.projeto.service_r.medidor_pHServiceImpl;
+import br.unesp.projeto.service.medidor_pHServiceImpl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;

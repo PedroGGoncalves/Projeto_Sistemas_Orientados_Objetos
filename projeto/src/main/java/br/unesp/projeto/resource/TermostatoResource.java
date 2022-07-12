@@ -1,7 +1,7 @@
 package br.unesp.projeto.resource;
 
 import br.unesp.projeto.model.Termostato;
-import br.unesp.projeto.service_r.TermostatoServiceImpl;
+import br.unesp.projeto.service.TermostatoServiceImpl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;

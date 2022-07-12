@@ -1,7 +1,7 @@
 package br.unesp.projeto.resource;
 
 import br.unesp.projeto.model.Medidor_oxigenacao;
-import br.unesp.projeto.service_r.medidor_OxigenaçãoServiceImpl;
+import br.unesp.projeto.service.medidor_OxigenaçãoServiceImpl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;

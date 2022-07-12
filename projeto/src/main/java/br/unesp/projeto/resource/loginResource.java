@@ -6,7 +6,7 @@
 package br.unesp.projeto.resource;
 
 import br.unesp.projeto.model.Login;
-import br.unesp.projeto.service_r.loginServiceImpl;
+import br.unesp.projeto.service.loginServiceImpl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;

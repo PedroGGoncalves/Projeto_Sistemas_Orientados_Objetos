@@ -1,7 +1,7 @@
 package br.unesp.projeto.resource;
 
 import br.unesp.projeto.model.Tanque;
-import br.unesp.projeto.service_r.TanqueServiceImpl;
+import br.unesp.projeto.service.TanqueServiceImpl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;

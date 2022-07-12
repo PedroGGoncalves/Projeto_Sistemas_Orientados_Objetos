@@ -6,7 +6,7 @@
 package br.unesp.projeto.resource;
 
 import br.unesp.projeto.model.Aquario;
-import br.unesp.projeto.service_r.AquarioServiceImpl;
+import br.unesp.projeto.service.AquarioServiceImpl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
