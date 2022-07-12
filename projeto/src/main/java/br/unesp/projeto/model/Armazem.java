@@ -38,10 +38,6 @@ public class Armazem implements Serializable {
      // private List<Comida> alimento;
      private long idArmazem;
      private int quantidade;
-    
-     @ManyToOne
-     private Aquario aquario;
-     
      
     public Armazem() {
 
