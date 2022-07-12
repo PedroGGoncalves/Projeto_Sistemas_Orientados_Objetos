@@ -10,5 +10,18 @@ public interface AquarioDAO {
      final String INSERT_AQUARIO = "INSERT INTO aquario(nome,endereco,horario_func,contato,precoIngresso) "
             + "VALUES(?,?,?,?,?)";
 
+     final String FIND_BY_ID = "SELECT idAquario, nome, endereco, horario_func, contato, precoIngresso"
+            + "FROM aquario WHERE id_Aquario = ?";
+
+    final String FIND_ALL = "SELECT idAquario, nome, endereco, horario_func, contato, precoIngresso "
+            + "FROM aquario";
+     
+     
     public boolean save(Aquario aquario);
+     
+    public Aquario findById(Long idAquario);
+
+    public List<Aquario> findAll(); 
+     
+    
 }
