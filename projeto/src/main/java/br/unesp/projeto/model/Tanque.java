@@ -16,7 +16,10 @@ import javax.persistence.GenerationType;
 import java.io.Serializable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Entity;
 
+
+@Entity(name = "Tanque")
 
 @Getter
 @Setter
