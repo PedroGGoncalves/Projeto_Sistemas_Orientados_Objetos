@@ -22,11 +22,11 @@ import java.io.Serializable;
 import javax.persistence.ManyToOne;
 
 
+@Entity(name = "Armazém")
 @Getter
 @Setter
 @EqualsAndHashCode
 @ToString
-
 public class Armazem implements Serializable {
      
      private static final long serialVersionUID = 1L;
