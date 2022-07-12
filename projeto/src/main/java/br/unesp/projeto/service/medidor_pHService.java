@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface medidor_pHService extends JpaRepository<Medidor_ph, Long> {
 
-    Medidor_ph findByCpf(String cpf);
-    Medidor_ph getAll(String cpf);
+    Medidor_ph find(String ph);
+    Medidor_ph getAll(String ph);
     void delete(int id);
 }

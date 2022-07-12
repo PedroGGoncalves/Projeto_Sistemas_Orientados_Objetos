@@ -34,11 +34,11 @@ public class TermostatoServiceImpl {
         return persistedEntity;
     }
 
-    public Termostato findByCpf(String cpf) {
+    public Termostato find(String temperatura) {
         Termostato insertedEntity = null;
 
         if (repository != null) {
-            insertedEntity = repository.findByCpf(cpf);
+            insertedEntity = repository.find(temperatura);
         }
 
         return insertedEntity;

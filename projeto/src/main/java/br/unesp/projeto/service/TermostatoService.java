@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface TermostatoService extends JpaRepository<Termostato, Long> {
 
-    Termostato findByCpf(String cpf);
-    Termostato getAll(String cpf);
+    Termostato find(String temperatura);
+    Termostato getAll(String temperatura);
     void delete(int id);
 }

@@ -34,11 +34,11 @@ public class medidor_OxigenaçãoServiceImpl {
         return persistedEntity;
     }
 
-    public Medidor_oxigenacao findByCpf(String cpf) {
+    public Medidor_oxigenacao find(String oxigenacao) {
         Medidor_oxigenacao insertedEntity = null;
 
         if (repository != null) {
-            insertedEntity = repository.findByCpf(cpf);
+            insertedEntity = repository.find(oxigenacao);
         }
 
         return insertedEntity;

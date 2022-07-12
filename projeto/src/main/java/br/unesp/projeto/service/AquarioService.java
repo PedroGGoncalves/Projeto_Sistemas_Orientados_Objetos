@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AquarioService extends JpaRepository<Aquario, Long> {
 
-    Aquario findByCpf(String cpf);
-    Aquario getAll(String cpf);
+    Aquario find(String nome);
+    Aquario getAll(String nome);
     void delete(int id);
 }

@@ -34,11 +34,11 @@ public class FuncionarioServiceImpl {
         return persistedEntity;
     }
 
-    public Funcionario findByCpf(String cpf) {
+    public Funcionario find(String CPF) {
         Funcionario insertedEntity = null;
 
         if (repository != null) {
-            insertedEntity = repository.findByCpf(cpf);
+            insertedEntity = repository.find(CPF);
         }
 
         return insertedEntity;

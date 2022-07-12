@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface TanqueService extends JpaRepository<Tanque, Long> {
 
-    Tanque findByCpf(String cpf);
-    Tanque getAll(String cpf);
+    Tanque find(String idTanque);
+    Tanque getAll(String idTanque);
     void delete(int id);
 }

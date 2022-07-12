@@ -34,11 +34,11 @@ public class medidor_pHServiceImpl {
         return persistedEntity;
     }
 
-    public Medidor_ph findByCpf(String cpf) {
+    public Medidor_ph find(String ph) {
         Medidor_ph insertedEntity = null;
 
         if (repository != null) {
-            insertedEntity = repository.findByCpf(cpf);
+            insertedEntity = repository.find(ph);
         }
 
         return insertedEntity;

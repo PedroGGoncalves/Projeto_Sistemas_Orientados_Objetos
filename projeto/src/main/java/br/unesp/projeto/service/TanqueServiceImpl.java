@@ -35,11 +35,11 @@ public class TanqueServiceImpl {
         return persistedEntity;
     }
 
-    public Tanque findByCpf(String cpf) {
+    public Tanque find(String idTanque) {
         Tanque insertedEntity = null;
 
         if (repository != null) {
-            insertedEntity = repository.findByCpf(cpf);
+            insertedEntity = repository.find(idTanque);
         }
 
         return insertedEntity;

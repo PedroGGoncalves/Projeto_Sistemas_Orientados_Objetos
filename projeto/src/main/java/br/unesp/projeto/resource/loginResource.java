@@ -32,17 +32,17 @@ public class loginResource {
     }
     
     
-    @GetMapping("/{cpf}")
-    public Login getloginByCpf(@PathVariable(value = "cpf") String cpf) {
-        Login login = loginService.findByCpf(cpf);
+    @GetMapping("/{idLogin}")
+    public Login getloginByCpf(@PathVariable(value = "idLogin") String idLogin) {
+        Login login = loginService.find(idLogin);
 
         return login;
     }
     
-    @DeleteMapping("/{cpf}")
-    public boolean delete(@PathVariable(value = "cpf") String cpf) {
+    @DeleteMapping("/{idLogin}")
+    public boolean delete(@PathVariable(value = "idLogin") String idLogin) {
         boolean delete = false;
-        Login loginDelete = loginService.findByCpf(cpf);
+        Login loginDelete = loginService.find(idLogin);
 
         if (loginDelete != null){
          loginService.delete(loginDelete);
@@ -66,13 +66,13 @@ public class loginResource {
     }
     
     
-    @PutMapping("/{cpf}")
-    public boolean updatelogin(@PathVariable(value = "cpf") String cpf,
+    @PutMapping("/{idLogin}")
+    public boolean updatelogin(@PathVariable(value = "idLogin") String idLogin,
             @RequestBody Login login) {
         boolean update = false;
         
-        Login loginUpdate = loginService.findByCpf(cpf);        
-        Login newlogin = loginService.findByCpf(cpf);  
+        Login loginUpdate = loginService.find(idLogin);        
+        Login newlogin = loginService.find(idLogin);  
         // Campos que estão sendo atualizados
         loginUpdate.setIdLogin(newlogin.getIdLogin());
 

@@ -11,7 +11,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface medidor_SalinidadeService extends JpaRepository<Medidor_salinidade, Long> {
 
-   Medidor_salinidade findByCpf(String cpf);
-   Medidor_salinidade getAll(String cpf);
+   Medidor_salinidade find(String salinidade);
+   Medidor_salinidade getAll(String salinidade);
     void delete(int id);
 }

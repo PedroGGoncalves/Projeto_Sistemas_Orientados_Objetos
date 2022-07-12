@@ -27,17 +27,17 @@ public class medidor_pHResource {
     }
     
     
-    @GetMapping("/{cpf}")
-    public Medidor_ph getmedidor_pHByCpf(@PathVariable(value = "cpf") String cpf) {
-        Medidor_ph medidor_ph = medidor_phService.findByCpf(cpf);
+    @GetMapping("/{ph}")
+    public Medidor_ph getmedidor_pHByCpf(@PathVariable(value = "ph") String ph) {
+        Medidor_ph medidor_ph = medidor_phService.find(ph);
 
         return medidor_ph;
     }
     
-    @DeleteMapping("/{cpf}")
-    public boolean delete(@PathVariable(value = "cpf") String cpf) {
+    @DeleteMapping("/{ph}")
+    public boolean delete(@PathVariable(value = "ph") String ph) {
         boolean delete = false;
-        Medidor_ph medidor_phDelete = medidor_phService.findByCpf(cpf);
+        Medidor_ph medidor_phDelete = medidor_phService.find(ph);
 
         if (medidor_phDelete != null){
          medidor_phService.delete(medidor_phDelete);
@@ -61,13 +61,13 @@ public class medidor_pHResource {
     }
     
     
-    @PutMapping("/{cpf}")
-    public boolean updatemedidor_pH(@PathVariable(value = "cpf") String cpf,
+    @PutMapping("/{ph}")
+    public boolean updatemedidor_pH(@PathVariable(value = "ph") String ph,
             @RequestBody Medidor_ph medidor_ph) {
         boolean update = false;
         
-        Medidor_ph medidor_phUpdate = medidor_phService.findByCpf(cpf);        
-        Medidor_ph newmedidor_pH = medidor_phService.findByCpf(cpf);  
+        Medidor_ph medidor_phUpdate = medidor_phService.find(ph);        
+        Medidor_ph newmedidor_pH = medidor_phService.find(ph);  
         // Campos que estão sendo atualizados
         medidor_phUpdate.setPh(newmedidor_pH.getPh());
 

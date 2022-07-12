@@ -27,17 +27,17 @@ public class ArmazemResource {
     }
     
     
-    @GetMapping("/{cpf}")
-    public Armazem getArmazemByCpf(@PathVariable(value = "cpf") String cpf) {
-        Armazem armazem = armazemService.findByCpf(cpf);
+    @GetMapping("/{idArmazem}")
+    public Armazem getArmazemByCpf(@PathVariable(value = "idArmazem") String idArmazem) {
+        Armazem armazem = armazemService.find(idArmazem);
 
         return armazem;
     }
     
-    @DeleteMapping("/{cpf}")
-    public boolean delete(@PathVariable(value = "cpf") String cpf) {
+    @DeleteMapping("/{idArmazem}")
+    public boolean delete(@PathVariable(value = "idArmazem") String idArmazem) {
         boolean delete = false;
-        Armazem armazemDelete = armazemService.findByCpf(cpf);
+        Armazem armazemDelete = armazemService.find(idArmazem);
 
         if (armazemDelete != null){
          armazemService.delete(armazemDelete);
@@ -61,13 +61,13 @@ public class ArmazemResource {
     }
     
     
-    @PutMapping("/{cpf}")
-    public boolean updateArmazem(@PathVariable(value = "cpf") String cpf,
+    @PutMapping("/{idArmazem}")
+    public boolean updateArmazem(@PathVariable(value = "idArmazem") String idArmazem,
             @RequestBody Armazem armazem) {
         boolean update = false;
         
-        Armazem armazemUpdate = armazemService.findByCpf(cpf);        
-        Armazem newArmazem = armazemService.findByCpf(cpf);  
+        Armazem armazemUpdate = armazemService.find(idArmazem);        
+        Armazem newArmazem = armazemService.find(idArmazem);  
         // Campos que estão sendo atualizados
         armazemUpdate.setIdArmazem(newArmazem.getIdArmazem());
 

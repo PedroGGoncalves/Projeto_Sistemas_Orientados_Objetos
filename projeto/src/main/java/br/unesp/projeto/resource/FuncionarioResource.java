@@ -27,17 +27,17 @@ public class FuncionarioResource {
     }
     
     
-    @GetMapping("/{cpf}")
-    public Funcionario getFuncionarioByCpf(@PathVariable(value = "cpf") String cpf) {
-        Funcionario funcionario = funcionarioService.findByCpf(cpf);
+    @GetMapping("/{CPF}")
+    public Funcionario getFuncionarioByCpf(@PathVariable(value = "CPF") String CPF) {
+        Funcionario funcionario = funcionarioService.find(CPF);
 
         return funcionario;
     }
     
-    @DeleteMapping("/{cpf}")
-    public boolean delete(@PathVariable(value = "cpf") String cpf) {
+    @DeleteMapping("/{CPF}")
+    public boolean delete(@PathVariable(value = "CPF") String CPF) {
         boolean delete = false;
-        Funcionario funcionarioDelete = funcionarioService.findByCpf(cpf);
+        Funcionario funcionarioDelete = funcionarioService.find(CPF);
 
         if (funcionarioDelete != null){
          funcionarioService.delete(funcionarioDelete);
@@ -61,13 +61,13 @@ public class FuncionarioResource {
     }
     
     
-    @PutMapping("/{cpf}")
-    public boolean updateFuncionario(@PathVariable(value = "cpf") String cpf,
+    @PutMapping("/{CPF}")
+    public boolean updateFuncionario(@PathVariable(value = "CPF") String CPF,
             @RequestBody Funcionario funcionario) {
         boolean update = false;
         
-        Funcionario funcionarioUpdate = funcionarioService.findByCpf(cpf);        
-        Funcionario newFuncionario = funcionarioService.findByCpf(cpf);  
+        Funcionario funcionarioUpdate = funcionarioService.find(CPF);        
+        Funcionario newFuncionario = funcionarioService.find(CPF);  
         // Campos que estão sendo atualizados
         funcionarioUpdate.setNome_completo(newFuncionario.getNome_completo());
 

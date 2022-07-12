@@ -34,11 +34,11 @@ public class ArmazemServiceImpl {
         return persistedEntity;
     }
 
-    public Armazem findByCpf(String cpf) {
+    public Armazem find(String idArmazem) {
         Armazem insertedEntity = null;
 
         if (repository != null) {
-            insertedEntity = repository.findByCpf(cpf);
+            insertedEntity = repository.find(idArmazem);
         }
 
         return insertedEntity;

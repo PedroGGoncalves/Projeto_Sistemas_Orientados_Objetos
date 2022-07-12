@@ -27,17 +27,17 @@ public class medidor_SalinidadeResource {
     }
     
     
-    @GetMapping("/{cpf}")
-    public Medidor_salinidade getMedidor_salinidadeByCpf(@PathVariable(value = "cpf") String cpf) {
-        Medidor_salinidade medidor_salinidade = medidor_salinidadeService.findByCpf(cpf);
+    @GetMapping("/{salinidade}")
+    public Medidor_salinidade getMedidor_salinidadeByCpf(@PathVariable(value = "salinidade") String salinidade) {
+        Medidor_salinidade medidor_salinidade = medidor_salinidadeService.find(salinidade);
 
         return medidor_salinidade;
     }
     
-    @DeleteMapping("/{cpf}")
-    public boolean delete(@PathVariable(value = "cpf") String cpf) {
+    @DeleteMapping("/{salinidade}")
+    public boolean delete(@PathVariable(value = "salinidade") String salinidade) {
         boolean delete = false;
-        Medidor_salinidade medidor_salinidadeDelete = medidor_salinidadeService.findByCpf(cpf);
+        Medidor_salinidade medidor_salinidadeDelete = medidor_salinidadeService.find(salinidade);
 
         if (medidor_salinidadeDelete != null){
          medidor_salinidadeService.delete(medidor_salinidadeDelete);
@@ -61,13 +61,13 @@ public class medidor_SalinidadeResource {
     }
     
     
-    @PutMapping("/{cpf}")
-    public boolean updateMedidor_salinidade(@PathVariable(value = "cpf") String cpf,
+    @PutMapping("/{salinidade}")
+    public boolean updateMedidor_salinidade(@PathVariable(value = "salinidade") String salinidade,
             @RequestBody Medidor_salinidade medidor_salinidade) {
         boolean update = false;
         
-        Medidor_salinidade medidor_salinidadeUpdate = medidor_salinidadeService.findByCpf(cpf);        
-        Medidor_salinidade newMedidor_salinidade = medidor_salinidadeService.findByCpf(cpf);  
+        Medidor_salinidade medidor_salinidadeUpdate = medidor_salinidadeService.find(salinidade);        
+        Medidor_salinidade newMedidor_salinidade = medidor_salinidadeService.find(salinidade);  
         // Campos que estão sendo atualizados
         medidor_salinidadeUpdate.setSalinidade(newMedidor_salinidade.getSalinidade());
 

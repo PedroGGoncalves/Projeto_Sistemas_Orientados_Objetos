@@ -27,17 +27,17 @@ public class TanqueResource {
     }
     
     
-    @GetMapping("/{cpf}")
-    public Tanque getTanqueByCpf(@PathVariable(value = "cpf") String cpf) {
-        Tanque tanque = tanqueService.findByCpf(cpf);
+    @GetMapping("/{idTanque}")
+    public Tanque getTanqueByCpf(@PathVariable(value = "idTanque") String idTanque) {
+        Tanque tanque = tanqueService.find(idTanque);
 
         return tanque;
     }
     
-    @DeleteMapping("/{cpf}")
-    public boolean delete(@PathVariable(value = "cpf") String cpf) {
+    @DeleteMapping("/{idTanque}")
+    public boolean delete(@PathVariable(value = "idTanque") String idTanque) {
         boolean delete = false;
-        Tanque tanqueDelete = tanqueService.findByCpf(cpf);
+        Tanque tanqueDelete = tanqueService.find(idTanque);
 
         if (tanqueDelete != null){
          tanqueService.delete(tanqueDelete);
@@ -61,13 +61,13 @@ public class TanqueResource {
     }
     
     
-    @PutMapping("/{cpf}")
-    public boolean updateTanque(@PathVariable(value = "cpf") String cpf,
+    @PutMapping("/{idTanque}")
+    public boolean updateTanque(@PathVariable(value = "idTanque") String idTanque,
             @RequestBody Tanque tanque) {
         boolean update = false;
         
-        Tanque tanqueUpdate = tanqueService.findByCpf(cpf);        
-        Tanque newTanque = tanqueService.findByCpf(cpf);  
+        Tanque tanqueUpdate = tanqueService.find(idTanque);        
+        Tanque newTanque = tanqueService.find(idTanque);  
         // Campos que estão sendo atualizados
         tanqueUpdate.setIdTanque(newTanque.getIdTanque());
 

@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ArmazemService extends JpaRepository<Armazem, Long> {
 
-    Armazem findByCpf(String cpf);
-    Armazem getAll(String cpf);
+    Armazem find(String idArmazem);
+    Armazem getAll(String idArmazem);
     void delete(int id);
 }

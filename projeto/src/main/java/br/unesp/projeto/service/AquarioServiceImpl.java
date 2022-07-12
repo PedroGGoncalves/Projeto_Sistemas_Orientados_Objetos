@@ -37,11 +37,11 @@ public class AquarioServiceImpl {
         return persistedEntity;
     }
 
-    public Aquario findByCpf(String cpf) {
+    public Aquario find(String nome) {
         Aquario insertedEntity = null;
 
         if (repository != null) {
-            insertedEntity = repository.findByCpf(cpf);
+            insertedEntity = repository.find(nome);
         }
 
         return insertedEntity;

@@ -32,17 +32,17 @@ public class AquarioResource {
     }
     
     
-    @GetMapping("/{cpf}")
-    public Aquario getAquarioByCpf(@PathVariable(value = "cpf") String cpf) {
-        Aquario aquario = aquarioService.findByCpf(cpf);
+    @GetMapping("/{nome}")
+    public Aquario getAquarioByCpf(@PathVariable(value = "nome") String nome) {
+        Aquario aquario = aquarioService.find(nome);
 
         return aquario;
     }
     
-    @DeleteMapping("/{cpf}")
-    public boolean delete(@PathVariable(value = "cpf") String cpf) {
+    @DeleteMapping("/{nome}")
+    public boolean delete(@PathVariable(value = "nome") String nome) {
         boolean delete = false;
-        Aquario aquarioDelete = aquarioService.findByCpf(cpf);
+        Aquario aquarioDelete = aquarioService.find(nome);
 
         if (aquarioDelete != null){
          aquarioService.delete(aquarioDelete);
@@ -66,13 +66,13 @@ public class AquarioResource {
     }
     
     
-    @PutMapping("/{cpf}")
-    public boolean updateAquario(@PathVariable(value = "cpf") String cpf,
+    @PutMapping("/{nome}")
+    public boolean updateAquario(@PathVariable(value = "nome") String nome,
             @RequestBody Aquario aquario) {
         boolean update = false;
         
-        Aquario aquarioUpdate = aquarioService.findByCpf(cpf);        
-        Aquario newAquario = aquarioService.findByCpf(cpf);  
+        Aquario aquarioUpdate = aquarioService.find(nome);        
+        Aquario newAquario = aquarioService.find(nome);  
         // Campos que estão sendo atualizados
         aquarioUpdate.setNome(newAquario.getNome());
 

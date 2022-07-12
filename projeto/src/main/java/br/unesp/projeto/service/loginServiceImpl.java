@@ -34,11 +34,11 @@ public class loginServiceImpl {
         return persistedEntity;
     }
 
-    public Login findByCpf(String cpf) {
+    public Login find(String idLogin) {
         Login insertedEntity = null;
 
         if (repository != null) {
-            insertedEntity = repository.findByCpf(cpf);
+            insertedEntity = repository.find(idLogin);
         }
 
         return insertedEntity;

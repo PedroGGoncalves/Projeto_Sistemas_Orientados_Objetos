@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface LoginService extends JpaRepository<Login, Long> {
 
-    Login findByCpf(String cpf);
-   Login getAll(String cpf);
+    Login find(String idLogin);
+   Login getAll(String idLogin);
     void delete(int id);
 }

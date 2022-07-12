@@ -11,7 +11,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface  FuncionarioService extends JpaRepository< Funcionario, Long> {
 
-     Funcionario findByCpf(String cpf);
-     Funcionario getAll(String cpf);
+     Funcionario find(String CPF);
+     Funcionario getAll(String CPF);
     void delete(int id);
 }

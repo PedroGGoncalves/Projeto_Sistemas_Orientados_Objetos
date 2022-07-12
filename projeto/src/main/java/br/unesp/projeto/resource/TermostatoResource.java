@@ -27,17 +27,17 @@ public class TermostatoResource {
     }
     
     
-    @GetMapping("/{cpf}")
-    public Termostato getTermostatoByCpf(@PathVariable(value = "cpf") String cpf) {
-        Termostato termostato = termostatoService.findByCpf(cpf);
+    @GetMapping("/{temperatura}")
+    public Termostato getTermostatoByCpf(@PathVariable(value = "temperatura") String temperatura) {
+        Termostato termostato = termostatoService.find(temperatura);
 
         return termostato;
     }
     
-    @DeleteMapping("/{cpf}")
-    public boolean delete(@PathVariable(value = "cpf") String cpf) {
+    @DeleteMapping("/{temperatura}")
+    public boolean delete(@PathVariable(value = "temperatura") String temperatura) {
         boolean delete = false;
-        Termostato termostatoDelete = termostatoService.findByCpf(cpf);
+        Termostato termostatoDelete = termostatoService.find(temperatura);
 
         if (termostatoDelete != null){
          termostatoService.delete(termostatoDelete);
@@ -61,13 +61,13 @@ public class TermostatoResource {
     }
     
     
-    @PutMapping("/{cpf}")
-    public boolean updateTermostato(@PathVariable(value = "cpf") String cpf,
+    @PutMapping("/{temperatura}")
+    public boolean updateTermostato(@PathVariable(value = "temperatura") String temperatura,
             @RequestBody Termostato termostato) {
         boolean update = false;
         
-        Termostato termostatoUpdate = termostatoService.findByCpf(cpf);        
-        Termostato newTermostato = termostatoService.findByCpf(cpf);  
+        Termostato termostatoUpdate = termostatoService.find(temperatura);        
+        Termostato newTermostato = termostatoService.find(temperatura);  
         // Campos que estão sendo atualizados
         termostatoUpdate.setTemperatura(newTermostato.getTemperatura());
 

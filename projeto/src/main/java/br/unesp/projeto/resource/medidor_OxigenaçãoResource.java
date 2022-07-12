@@ -27,17 +27,17 @@ public class medidor_OxigenaçãoResource {
     }
     
     
-    @GetMapping("/{cpf}")
-    public Medidor_oxigenacao getMedidor_OxigenaçãoByCpf(@PathVariable(value = "cpf") String cpf) {
-        Medidor_oxigenacao medidor_oxigenacao = medidor_oxigenacaoService.findByCpf(cpf);
+    @GetMapping("/{oxigenacao}")
+    public Medidor_oxigenacao getMedidor_OxigenaçãoByCpf(@PathVariable(value = "oxigenacao") String oxigenacao) {
+        Medidor_oxigenacao medidor_oxigenacao = medidor_oxigenacaoService.find(oxigenacao);
 
         return medidor_oxigenacao;
     }
     
-    @DeleteMapping("/{cpf}")
-    public boolean delete(@PathVariable(value = "cpf") String cpf) {
+    @DeleteMapping("/{oxigenacao}")
+    public boolean delete(@PathVariable(value = "oxigenacao") String oxigenacao) {
         boolean delete = false;
-       Medidor_oxigenacao medidor_oxigenacaoDelete = medidor_oxigenacaoService.findByCpf(cpf);
+       Medidor_oxigenacao medidor_oxigenacaoDelete = medidor_oxigenacaoService.find(oxigenacao);
 
         if (medidor_oxigenacaoDelete != null){
          medidor_oxigenacaoService.delete(medidor_oxigenacaoDelete);
@@ -61,13 +61,13 @@ public class medidor_OxigenaçãoResource {
     }
     
     
-    @PutMapping("/{cpf}")
-    public boolean updateMedidor_Oxigenação(@PathVariable(value = "cpf") String cpf,
+    @PutMapping("/{oxigenacao}")
+    public boolean updateMedidor_Oxigenação(@PathVariable(value = "oxigenacao") String oxigenacao,
             @RequestBody Medidor_oxigenacao medidor_oxigenacao) {
         boolean update = false;
         
-       Medidor_oxigenacao medidor_oxigenacaoUpdate = medidor_oxigenacaoService.findByCpf(cpf);        
-        Medidor_oxigenacao newMedidor_Oxigenação = medidor_oxigenacaoService.findByCpf(cpf);  
+       Medidor_oxigenacao medidor_oxigenacaoUpdate = medidor_oxigenacaoService.find(oxigenacao);        
+        Medidor_oxigenacao newMedidor_Oxigenação = medidor_oxigenacaoService.find(oxigenacao);  
         // Campos que estão sendo atualizados
         medidor_oxigenacaoUpdate.setOxigenacao(newMedidor_Oxigenação.getOxigenacao());
 

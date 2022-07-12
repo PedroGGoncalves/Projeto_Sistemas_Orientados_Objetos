@@ -33,11 +33,11 @@ public class medidor_SalinidadeServiceImpl {
         return persistedEntity;
     }
 
-    public Medidor_salinidade findByCpf(String cpf) {
+    public Medidor_salinidade find(String salinidade) {
         Medidor_salinidade insertedEntity = null;
 
         if (repository != null) {
-            insertedEntity = repository.findByCpf(cpf);
+            insertedEntity = repository.find(salinidade);
         }
 
         return insertedEntity;
