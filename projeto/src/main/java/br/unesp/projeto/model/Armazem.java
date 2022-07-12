@@ -20,6 +20,7 @@ import javax.persistence.GenerationType;
 import org.springframework.data.annotation.Id;
 import java.io.Serializable;
 import javax.persistence.ManyToOne;
+import javax.persistence.Entity;
 
 
 @Entity(name = "Armazém")
