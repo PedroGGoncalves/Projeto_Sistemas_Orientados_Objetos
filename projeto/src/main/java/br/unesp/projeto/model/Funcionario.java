@@ -16,6 +16,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.ManyToMany;
 import java.io.Serializable;
+import javax.persistence.OneToOne;
 
 
 
@@ -23,7 +24,6 @@ import java.io.Serializable;
 @Setter
 @EqualsAndHashCode
 @ToString
-
 public class Funcionario implements Serializable {
    
     
@@ -46,6 +46,10 @@ public class Funcionario implements Serializable {
 
     @ManyToMany(mappedBy="funcionarios", cascade = CascadeType.ALL)
     private List<Tanque> tanques;
+   
+   
+    @OneToOne(cascade=CascadeType.ALL)
+    private Login login;
     
     
     public Funcionario() {
