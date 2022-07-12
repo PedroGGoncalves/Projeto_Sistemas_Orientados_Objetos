@@ -3,55 +3,77 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.unesp.projeto.service;
-import br.unesp.projeto.dao.FuncionarioDAO;
-import br.unesp.projeto.dao.DaoFactory;
+package br.unesp.projeto.service_r;
+
 import br.unesp.projeto.model.Funcionario;
+import br.unesp.projeto.service_r.FuncionarioService;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+import java.util.Collections;
 
-public class FuncionarioServiceImpl implements FuncionarioService {
+@Component
+public class FuncionarioServiceImpl {
 
-  private FuncionarioDAO dao = DaoFactory.getFuncionarioDAO();
-  
-    @Override
-    public boolean save(Funcionario entity) {
-        boolean b = false;
+    @Autowired
+    private FuncionarioService repository;
 
-        if (dao != null) {
-            System.out.println("NOT NULL");
-            dao.save(entity);
-            b = true;
-        }
-
-        return b;
+    public FuncionarioServiceImpl() {
+        
     }
 
- //   @Override
-    public Funcionario findById(Long id) {
-        Funcionario entity = null;
+    public Funcionario save(Funcionario entity) {
+        Funcionario persistedEntity = null;
 
-        if (dao != null) {
-            entity = dao.findById(id);
+        if (repository != null) {
+            persistedEntity = repository.save(entity);
         }
 
-        return entity;
+        return persistedEntity;
     }
 
+    public Funcionario findByCpf(String cpf) {
+        Funcionario insertedEntity = null;
 
-//    @Override
+        if (repository != null) {
+            insertedEntity = repository.findByCpf(cpf);
+        }
+
+        return insertedEntity;
+    }
+
+    public void delete(Funcionario entity) {
+
+        if (repository != null) {
+            repository.delete(entity);
+        }
+    }
+
+    public Funcionario update(Funcionario entity) {
+
+        Funcionario persistedEntity = null;
+
+        if (repository != null) {
+            persistedEntity = repository.save(entity);
+        }
+
+        return persistedEntity;
+    }
+
     public List<Funcionario> findAll() {
-        List<Funcionario> lista = null;
-
-        if (dao != null) {
-            lista = new ArrayList<>();
-            lista = dao.findAll();
+        List<Funcionario> list = null;
+       
+        if (repository != null) {
+            list = new ArrayList<>();
+            list = repository.findAll();
+            Collections.sort(list,Collections.reverseOrder());
         }
-
-        return lista;
+        
+        return list;
     }
 
-}  
+}
   
   

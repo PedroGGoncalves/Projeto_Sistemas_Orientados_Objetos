@@ -3,23 +3,75 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.unesp.projeto.service;
-import br.unesp.projeto.dao.ArmazemDAO;
-import br.unesp.projeto.dao.DaoFactory;
+package br.unesp.projeto.service_r;
+
 import br.unesp.projeto.model.Armazem;
+import br.unesp.projeto.service_r.ArmazemService;
+import java.util.ArrayList;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-public class ArmazemServiceImpl implements ArmazemService  {
-    private ArmazemDAO dao = DaoFactory.getArmazemDAO();
+import java.util.Collections;
 
-    @Override
-    public boolean save(Armazem entity) {
-        boolean b = false;
+@Component
+public class ArmazemServiceImpl {
 
-        if (dao != null) {
-            dao.save(entity);
-            b = true;
+    @Autowired
+    private ArmazemService repository;
+
+    public ArmazemServiceImpl() {
+        
+    }
+
+    public Armazem save(Armazem entity) {
+        Armazem persistedEntity = null;
+
+        if (repository != null) {
+            persistedEntity = repository.save(entity);
         }
 
-        return b;
+        return persistedEntity;
     }
+
+    public Armazem findByCpf(String cpf) {
+        Armazem insertedEntity = null;
+
+        if (repository != null) {
+            insertedEntity = repository.findByCpf(cpf);
+        }
+
+        return insertedEntity;
+    }
+
+    public void delete(Armazem entity) {
+
+        if (repository != null) {
+            repository.delete(entity);
+        }
+    }
+
+    public Armazem update(Armazem entity) {
+
+        Armazem persistedEntity = null;
+
+        if (repository != null) {
+            persistedEntity = repository.save(entity);
+        }
+
+        return persistedEntity;
+    }
+
+    public List<Armazem> findAll() {
+        List<Armazem> list = null;
+       
+        if (repository != null) {
+            list = new ArrayList<>();
+            list = repository.findAll();
+            Collections.sort(list,Collections.reverseOrder());
+        }
+        
+        return list;
+    }
+
 }

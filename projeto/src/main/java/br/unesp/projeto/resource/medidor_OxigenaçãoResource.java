@@ -69,7 +69,7 @@ public class medidor_OxigenaçãoResource {
        Medidor_oxigenacao medidor_oxigenacaoUpdate = medidor_oxigenacaoService.findByCpf(cpf);        
         Medidor_oxigenacao newMedidor_Oxigenação = medidor_oxigenacaoService.findByCpf(cpf);  
         // Campos que estão sendo atualizados
-        medidor_oxigenacaoUpdate.setoxigenacao(newMedidor_Oxigenação.getoxigenacao());
+        medidor_oxigenacaoUpdate.setOxigenacao(newMedidor_Oxigenação.getOxigenacao());
 
         Medidor_oxigenacao medidor_oxigenacaoUpdated = medidor_oxigenacaoService.update(medidor_oxigenacaoUpdate);
         if (medidor_oxigenacaoUpdated != null){

@@ -31,7 +31,7 @@ public class ArmazemDAOImpl implements ArmazemDAO {
             try {
                 pstm = con.prepareStatement(INSERT_ARMAZEM);
                 pstm.setLong(1,armazem.getIdArmazem());
-                pstm.setInt(2, armazem.getquantidade());
+                pstm.setInt(2, armazem.getQuantidade());
 
                 pstm.executeUpdate();
 

@@ -3,24 +3,75 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.unesp.projeto.service;
-import br.unesp.projeto.dao.LoginDAO;
-import br.unesp.projeto.dao.DaoFactory;
+package br.unesp.projeto.service_r;
+
 import br.unesp.projeto.model.Login;
+import br.unesp.projeto.service_r.LoginService;
+import java.util.ArrayList;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+import java.util.Collections;
 
-public class loginServiceImpl implements loginService {
-    private LoginDAO dao = DaoFactory.getLoginDAO();
+@Component
+public class loginServiceImpl {
 
-    @Override
-    public boolean save(Login entity) {
-        boolean b = false;
+    @Autowired
+    private LoginService repository;
 
-        if (dao != null) {
-            dao.save(entity);
-            b = true;
+    public loginServiceImpl() {
+        
+    }
+
+    public Login save(Login entity) {
+        Login persistedEntity = null;
+
+        if (repository != null) {
+            persistedEntity = repository.save(entity);
         }
 
-        return b;
+        return persistedEntity;
     }
+
+    public Login findByCpf(String cpf) {
+        Login insertedEntity = null;
+
+        if (repository != null) {
+            insertedEntity = repository.findByCpf(cpf);
+        }
+
+        return insertedEntity;
+    }
+
+    public void delete(Login entity) {
+
+        if (repository != null) {
+            repository.delete(entity);
+        }
+    }
+
+    public Login update(Login entity) {
+
+        Login persistedEntity = null;
+
+        if (repository != null) {
+            persistedEntity = repository.save(entity);
+        }
+
+        return persistedEntity;
+    }
+
+    public List<Login> findAll() {
+        List<Login> list = null;
+       
+        if (repository != null) {
+            list = new ArrayList<>();
+            list = repository.findAll();
+            Collections.sort(list,Collections.reverseOrder());
+        }
+        
+        return list;
+    }
+
 }

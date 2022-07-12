@@ -29,3 +29,4 @@ public class Medidor_salinidade {
        // this.itemTermostato   = new ArrayList<>();
     
 }
+}

@@ -2,23 +2,75 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.unesp.projeto.service;
-import br.unesp.projeto.dao.medidor_SalinidadeDAO;
-import br.unesp.projeto.dao.DaoFactory;
+package br.unesp.projeto.service_r;
+
 import br.unesp.projeto.model.Medidor_salinidade;
+import br.unesp.projeto.service_r.medidor_SalinidadeService;
+import java.util.ArrayList;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-public class medidor_SalinidadeServiceImpl implements medidor_SalinidadeService {
-    private medidor_SalinidadeDAO dao = DaoFactory.getmedidor_salinidadeDAO();
+import java.util.Collections;
 
-    @Override
-    public boolean save(Medidor_salinidade entity) {
-        boolean b = false;
+@Component
+public class medidor_SalinidadeServiceImpl {
 
-        if (dao != null) {
-            dao.save(entity);
-            b = true;
+    @Autowired
+    private medidor_SalinidadeService repository;
+
+    public medidor_SalinidadeServiceImpl() {
+        
+    }
+
+    public Medidor_salinidade save(Medidor_salinidade entity) {
+        Medidor_salinidade persistedEntity = null;
+
+        if (repository != null) {
+            persistedEntity = repository.save(entity);
         }
 
-        return b;
+        return persistedEntity;
     }
+
+    public Medidor_salinidade findByCpf(String cpf) {
+        Medidor_salinidade insertedEntity = null;
+
+        if (repository != null) {
+            insertedEntity = repository.findByCpf(cpf);
+        }
+
+        return insertedEntity;
+    }
+
+    public void delete(Medidor_salinidade entity) {
+
+        if (repository != null) {
+            repository.delete(entity);
+        }
+    }
+
+    public Medidor_salinidade update(Medidor_salinidade entity) {
+
+        Medidor_salinidade persistedEntity = null;
+
+        if (repository != null) {
+            persistedEntity = repository.save(entity);
+        }
+
+        return persistedEntity;
+    }
+
+    public List<Medidor_salinidade> findAll() {
+        List<Medidor_salinidade> list = null;
+       
+        if (repository != null) {
+            list = new ArrayList<>();
+            list = repository.findAll();
+            Collections.sort(list,Collections.reverseOrder());
+        }
+        
+        return list;
+    }
+
 }

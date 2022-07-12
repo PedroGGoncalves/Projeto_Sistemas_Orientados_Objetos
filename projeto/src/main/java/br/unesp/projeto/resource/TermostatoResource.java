@@ -69,7 +69,7 @@ public class TermostatoResource {
         Termostato termostatoUpdate = termostatoService.findByCpf(cpf);        
         Termostato newTermostato = termostatoService.findByCpf(cpf);  
         // Campos que estão sendo atualizados
-        termostatoUpdate.settemperatura(newTermostato.gettemperatura());
+        termostatoUpdate.setTemperatura(newTermostato.getTemperatura());
 
         Termostato termostatoUpdated = termostatoService.update(termostatoUpdate);
         if (termostatoUpdated != null){

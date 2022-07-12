@@ -3,9 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.unesp.projeto.service;
+package br.unesp.projeto.service_r;
+
 import br.unesp.projeto.model.Medidor_salinidade;
 
-public interface medidor_SalinidadeService {
-     boolean save(Medidor_salinidade entity);
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface medidor_SalinidadeService extends JpaRepository<Medidor_salinidade, Long> {
+
+   Medidor_salinidade findByCpf(String cpf);
+   Medidor_salinidade getAll(String cpf);
+    void delete(int id);
 }

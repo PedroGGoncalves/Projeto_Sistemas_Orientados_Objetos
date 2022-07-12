@@ -3,9 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.unesp.projeto.service;
+package br.unesp.projeto.service_r;
 import br.unesp.projeto.model.Tanque;
 
-public interface TanqueService {
-    boolean save(Tanque entity);
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface TanqueService extends JpaRepository<Tanque, Long> {
+
+    Tanque findByCpf(String cpf);
+    Tanque getAll(String cpf);
+    void delete(int id);
 }

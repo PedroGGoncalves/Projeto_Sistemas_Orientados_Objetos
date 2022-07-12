@@ -31,7 +31,7 @@ public class medidor_SalinidadeDAOImpl implements medidor_SalinidadeDAO  {
         if (con != null) {
             try {
                 pstm = con.prepareStatement(INSERT_Medidor_salinidade);
-                pstm.setInt(1,medidor_Salinidade.getsalinidade());
+                pstm.setInt(1,medidor_Salinidade.getSalinidade());
 
                 pstm.executeUpdate();
 

@@ -8,12 +8,19 @@ import java.util.List;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import org.springframework.data.annotation.Id;
 
 @Entity(name = "Aquario")
@@ -30,7 +37,10 @@ public class Aquario implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long idAquario;
     private String nome;
-    
+     private String endereco;
+    private String horario_func;
+    private String contato;
+    private float precoIngresso;
     
     @OneToMany(
             cascade = CascadeType.ALL,
@@ -57,10 +67,7 @@ public class Aquario implements Serializable {
     private List<Armazem> armazem;
     
     
-    private String endereco;
-    private String horario_func;
-    private String contato;
-    private float precoIngresso;
+   
     
     public Aquario() {
 

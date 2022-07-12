@@ -34,10 +34,10 @@ public class AquarioDAOImpl implements AquarioDAO {
             try {
                 pstm = con.prepareStatement(INSERT_AQUARIO);
                 pstm.setString(1,aquario.getNome());
-                pstm.setString(2, aquario.getendereco());
-                pstm.setString(3, aquario.gethorario_func());
-                pstm.setString(4, aquario.getcontato());
-                pstm.setFloat(5, aquario.getprecoIngresso());
+                pstm.setString(2, aquario.getEndereco());
+                pstm.setString(3, aquario.getHorario_func());
+                pstm.setString(4, aquario.getContato());
+                pstm.setFloat(5, aquario.getPrecoIngresso());
 
                 pstm.executeUpdate();
 

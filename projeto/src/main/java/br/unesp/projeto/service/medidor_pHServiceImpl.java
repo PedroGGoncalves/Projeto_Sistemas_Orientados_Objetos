@@ -3,24 +3,75 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.unesp.projeto.service;
-import br.unesp.projeto.dao.medidor_pHDAO;
-import br.unesp.projeto.dao.DaoFactory;
+package br.unesp.projeto.service_r;
+
 import br.unesp.projeto.model.Medidor_ph;
+import br.unesp.projeto.service_r.medidor_pHService;
+import java.util.ArrayList;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-public class medidor_pHServiceImpl implements  medidor_pHService {
-    private  medidor_pHDAO dao = DaoFactory.getmedidor_pHDAO();
+import java.util.Collections;
 
-    @Override
-    public boolean save(Medidor_ph entity) {
-        boolean b = false;
+@Component
+public class medidor_pHServiceImpl {
 
-        if (dao != null) {
-            dao.save(entity);
-            b = true;
+    @Autowired
+    private medidor_pHService repository;
+
+    public medidor_pHServiceImpl() {
+        
+    }
+
+    public Medidor_ph save(Medidor_ph entity) {
+        Medidor_ph persistedEntity = null;
+
+        if (repository != null) {
+            persistedEntity = repository.save(entity);
         }
 
-        return b;
+        return persistedEntity;
     }
-}
 
+    public Medidor_ph findByCpf(String cpf) {
+        Medidor_ph insertedEntity = null;
+
+        if (repository != null) {
+            insertedEntity = repository.findByCpf(cpf);
+        }
+
+        return insertedEntity;
+    }
+
+    public void delete(Medidor_ph entity) {
+
+        if (repository != null) {
+            repository.delete(entity);
+        }
+    }
+
+    public Medidor_ph update(Medidor_ph entity) {
+
+        Medidor_ph persistedEntity = null;
+
+        if (repository != null) {
+            persistedEntity = repository.save(entity);
+        }
+
+        return persistedEntity;
+    }
+
+    public List<Medidor_ph> findAll() {
+        List<Medidor_ph> list = null;
+       
+        if (repository != null) {
+            list = new ArrayList<>();
+            list = repository.findAll();
+            Collections.sort(list,Collections.reverseOrder());
+        }
+        
+        return list;
+    }
+
+}

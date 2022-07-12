@@ -3,23 +3,75 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.unesp.projeto.service;
-import br.unesp.projeto.dao.TermostatoDAO;
-import br.unesp.projeto.dao.DaoFactory;
+package br.unesp.projeto.service_r;
+
 import br.unesp.projeto.model.Termostato;
+import br.unesp.projeto.service_r.TermostatoService;
+import java.util.ArrayList;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-public class TermostatoServiceImpl  implements TermostatoService{
-    private TermostatoDAO dao = DaoFactory.getTermostatoDAO();
+import java.util.Collections;
 
-    @Override
-    public boolean save(Termostato entity) {
-        boolean b = false;
+@Component
+public class TermostatoServiceImpl {
 
-        if (dao != null) {
-            dao.save(entity);
-            b = true;
+    @Autowired
+    private TermostatoService repository;
+
+    public TermostatoServiceImpl() {
+        
+    }
+
+    public Termostato save(Termostato entity) {
+        Termostato persistedEntity = null;
+
+        if (repository != null) {
+            persistedEntity = repository.save(entity);
         }
 
-        return b;
+        return persistedEntity;
     }
+
+    public Termostato findByCpf(String cpf) {
+        Termostato insertedEntity = null;
+
+        if (repository != null) {
+            insertedEntity = repository.findByCpf(cpf);
+        }
+
+        return insertedEntity;
+    }
+
+    public void delete(Termostato entity) {
+
+        if (repository != null) {
+            repository.delete(entity);
+        }
+    }
+
+    public Termostato update(Termostato entity) {
+
+        Termostato persistedEntity = null;
+
+        if (repository != null) {
+            persistedEntity = repository.save(entity);
+        }
+
+        return persistedEntity;
+    }
+
+    public List<Termostato> findAll() {
+        List<Termostato> list = null;
+       
+        if (repository != null) {
+            list = new ArrayList<>();
+            list = repository.findAll();
+            Collections.sort(list,Collections.reverseOrder());
+        }
+        
+        return list;
+    }
+
 }

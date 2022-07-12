@@ -3,9 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.unesp.projeto.service;
+package br.unesp.projeto.service_r;
 import br.unesp.projeto.model.Armazem;
 
-public interface ArmazemService {
-    boolean save(Armazem entity);
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ArmazemService extends JpaRepository<Armazem, Long> {
+
+    Armazem findByCpf(String cpf);
+    Armazem getAll(String cpf);
+    void delete(int id);
 }

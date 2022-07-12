@@ -69,7 +69,7 @@ public class medidor_pHResource {
         Medidor_ph medidor_phUpdate = medidor_phService.findByCpf(cpf);        
         Medidor_ph newmedidor_pH = medidor_phService.findByCpf(cpf);  
         // Campos que estão sendo atualizados
-        medidor_phUpdate.setph(newmedidor_pH.getph());
+        medidor_phUpdate.setPh(newmedidor_pH.getPh());
 
         Medidor_ph medidor_phUpdated = medidor_phService.update(medidor_phUpdate);
         if (medidor_phUpdated != null){

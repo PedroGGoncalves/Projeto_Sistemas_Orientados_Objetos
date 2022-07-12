@@ -69,7 +69,7 @@ public class medidor_SalinidadeResource {
         Medidor_salinidade medidor_salinidadeUpdate = medidor_salinidadeService.findByCpf(cpf);        
         Medidor_salinidade newMedidor_salinidade = medidor_salinidadeService.findByCpf(cpf);  
         // Campos que estão sendo atualizados
-        medidor_salinidadeUpdate.setsalinidade(newMedidor_salinidade.getsalinidade());
+        medidor_salinidadeUpdate.setSalinidade(newMedidor_salinidade.getSalinidade());
 
         Medidor_salinidade medidor_salinidadeUpdated = medidor_salinidadeService.update(medidor_salinidadeUpdate);
         if (medidor_salinidadeUpdated != null){

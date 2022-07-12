@@ -30,13 +30,13 @@ public class FuncionarioDAOImpl implements FuncionarioDAO {
         if (con != null) {
             try {
                 pstm = con.prepareStatement(INSERT_FUNCIONARIO);
-                pstm.setString(1, funcionario.getNome());
+                pstm.setString(1, funcionario.getNome_completo());
                 pstm.setString(2, funcionario.getRG());
                 pstm.setString(3, funcionario.getCPF());
-                pstm.setFloat(4, funcionario.getsalario());
-                pstm.setDate(5, (Date) funcionario.getdata_nascimento());
-                pstm.setDate(6, funcionario.getcontratacaoo());
-                pstm.setBoolean(7,funcionario.islogin());                
+                pstm.setFloat(4, funcionario.getSalario());
+                pstm.setDate(5, (Date) funcionario.getData_nascimento());
+                pstm.setDate(6, (Date) funcionario.getContratacao());
+                pstm.setBoolean(7,funcionario.isLogin());                
              //   pstm.setList(8, funcionario.getLoginn().getIdLogin());
 
                 pstm.executeUpdate();
@@ -70,13 +70,13 @@ public class FuncionarioDAOImpl implements FuncionarioDAO {
                 while (res.next()) {
                     func = new Funcionario();
                     func.setIdFuncionario(res.getLong(1));
-                    func.setNome(res.getString(2));
+                    func.setNome_completo(res.getString(2));
                     func.setRG(res.getString(3));
                     func.setCPF(res.getString(4));
-                    func.setsalario(res.getFloat(5));
-                    func.setdata_nascimento(res.getDate(6));
-                    func.setcontratacao(res.getDate(7));
-                    func.setlogin(res.getBoolean(8));
+                    func.setSalario(res.getFloat(5));
+                    func.setData_nascimento(res.getDate(6));
+                    func.setContratacao(res.getDate(7));
+                    func.setLogin(res.getBoolean(8));
                     func.setLoginn((List<Login>) res.getArray(9));
                 }
             } catch (SQLException ex) {
@@ -105,13 +105,13 @@ public class FuncionarioDAOImpl implements FuncionarioDAO {
                 while (res.next()) {                    
                     Funcionario func = new Funcionario();
                     func.setIdFuncionario(res.getLong(1));
-                    func.setNome(res.getString(2));
+                    func.setNome_completo(res.getString(2));
                     func.setRG(res.getString(3));
                     func.setCPF(res.getString(4));
-                    func.setsalario(res.getFloat(5));
-                    func.setdata_nascimento(res.getDate(6));
-                    func.setcontratacao(res.getDate(7));
-                    func.setlogin(res.getBoolean(8));
+                    func.setSalario(res.getFloat(5));
+                    func.setData_nascimento(res.getDate(6));
+                    func.setContratacao(res.getDate(7));
+                    func.setLogin(res.getBoolean(8));
                     func.setLoginn((List<Login>) res.getArray(9));
                     
                     lista.add(func);

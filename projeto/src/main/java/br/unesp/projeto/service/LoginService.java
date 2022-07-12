@@ -4,13 +4,13 @@
  * and open the template in the editor.
  */
 package br.unesp.projeto.service_r;
-import br.unesp.projeto.model.Termostato;
+import br.unesp.projeto.model.Login;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface TermostatoService extends JpaRepository<Termostato, Long> {
+public interface LoginService extends JpaRepository<Login, Long> {
 
-    Termostato findByCpf(String cpf);
-    Termostato getAll(String cpf);
+    Login findByCpf(String cpf);
+   Login getAll(String cpf);
     void delete(int id);
 }

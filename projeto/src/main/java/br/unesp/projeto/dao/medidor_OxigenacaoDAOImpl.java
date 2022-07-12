@@ -30,7 +30,7 @@ public class medidor_OxigenacaoDAOImpl implements medidor_OxigenaçãoDAO{
         if (con != null) {
             try {
                 pstm = con.prepareStatement(INSERT_Medidor_oxigenacao);
-                pstm.setInt(1,medidor_oxigenacao.getoxigenacao());
+                pstm.setInt(1,medidor_oxigenacao.getOxigenacao());
 
                 pstm.executeUpdate();
 

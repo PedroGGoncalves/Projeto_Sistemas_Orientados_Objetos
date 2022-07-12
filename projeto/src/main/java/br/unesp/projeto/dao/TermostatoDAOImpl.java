@@ -31,7 +31,7 @@ public class TermostatoDAOImpl implements TermostatoDAO {
         if (con != null) {
             try {
                 pstm = con.prepareStatement(INSERT_TERMOSTATO);
-                pstm.setInt(1,termostato.gettemperatura());
+                pstm.setInt(1,termostato.getTemperatura());
 
                 pstm.executeUpdate();
 

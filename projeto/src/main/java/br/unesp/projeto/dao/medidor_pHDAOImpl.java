@@ -30,7 +30,7 @@ public class medidor_pHDAOImpl implements medidor_pHDAO {
         if (con != null) {
             try {
                 pstm = con.prepareStatement(INSERT_Medidor_ph);
-                pstm.setInt(1,medidor_ph.getph());
+                pstm.setInt(1,medidor_ph.getPh());
 
                 pstm.executeUpdate();
 

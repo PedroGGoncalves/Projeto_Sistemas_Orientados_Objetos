@@ -32,17 +32,17 @@ public class TanqueDAOImpl implements TanqueDAO{
             try {
                 pstm = con.prepareStatement(INSERT_TANQUE);
                 pstm.setLong(1,tanque.getIdTanque());
-                pstm.setInt(2, tanque.getindividuos());
-                pstm.setFloat(3, tanque.getph());
-                pstm.setFloat(4, tanque.getsalinidade());
-                pstm.setFloat(5, tanque.getoxigenacao());
-                pstm.setString(6,tanque.gethorario_alimento());
-                pstm.setBoolean(7, tanque.isfiltro());
+                pstm.setInt(2, tanque.getIndividuos());
+                pstm.setFloat(3, tanque.getPh());
+                pstm.setFloat(4, tanque.getSalinidade());
+                pstm.setFloat(5, tanque.getOxigenacao());
+                pstm.setString(6,tanque.getHorario_alimento());
+                pstm.setBoolean(7, tanque.isFiltro());
                 pstm.setString(8, tanque.getQR_CODE());
-                pstm.setInt(9, tanque.getTermostato().gettemperatura());
-                pstm.setInt(10, tanque.getMedidor_ph().getph());
-                pstm.setInt(11,tanque.getMedidor_salinidade().getsalinidade());
-                pstm.setInt(12, tanque.getMedidor_oxigenacao().getoxigenacao());
+                pstm.setInt(9, tanque.getTermostato().getTemperatura());
+                pstm.setInt(10, tanque.getMedidor_ph().getPh());
+                pstm.setInt(11,tanque.getMedidor_salinidade().getSalinidade());
+                pstm.setInt(12, tanque.getMedidor_oxigenacao().getOxigenacao());
 
                 pstm.executeUpdate();
 

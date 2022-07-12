@@ -69,7 +69,7 @@ public class FuncionarioResource {
         Funcionario funcionarioUpdate = funcionarioService.findByCpf(cpf);        
         Funcionario newFuncionario = funcionarioService.findByCpf(cpf);  
         // Campos que estão sendo atualizados
-        funcionarioUpdate.setNome(newFuncionario.getNome());
+        funcionarioUpdate.setNome_completo(newFuncionario.getNome_completo());
 
         Funcionario funcionarioUpdated = funcionarioService.update(funcionarioUpdate);
         if (funcionarioUpdated != null){
