@@ -11,6 +11,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
 
 @Getter
@@ -20,8 +22,8 @@ import org.springframework.data.annotation.Id;
 
 public class Login {
     
-     @Id
-    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long idLogin;
     private String ID;
     private String Senha;
