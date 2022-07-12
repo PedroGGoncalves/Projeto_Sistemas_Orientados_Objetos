@@ -39,10 +39,6 @@ public class Tanque implements Serializable {
     private String horario_alimento;
     private boolean filtro;
     private String QR_CODE;
-    private Termostato termostato;
-    private Medidor_ph medidor_ph;
-    private Medidor_salinidade medidor_salinidade;
-    private Medidor_oxigenacao medidor_oxigenacao;
     /*temperatura termostato seria a msm do tanque?*/
     
     
@@ -51,7 +47,21 @@ public class Tanque implements Serializable {
              joinColumns={@JoinColumn(name="FUNCIONARIO_ID")},
              inverseJoinColumns={@JoinColumn(name="TANQUE_ID")})
   private List<Funcionario> funcionarios;
-
+    
+    
+   @OneToOne(cascade=CascadeType.ALL)
+   private Termostato termostato;
+    
+   @OneToOne(cascade=CascadeType.ALL)
+   private Medidor_ph medidor_ph;
+    
+   @OneToOne(cascade=CascadeType.ALL)
+   private Medidor_salinidade medidor_salinidade;
+    
+    @OneToOne(cascade=CascadeType.ALL)
+    private Medidor_oxigenacao medidor_oxigenacao;
+   
+  
     
     public Tanque() {
 
