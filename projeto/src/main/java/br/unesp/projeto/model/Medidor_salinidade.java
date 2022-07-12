@@ -25,7 +25,7 @@ public class Medidor_salinidade implements Serializable {
         
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int idMedidor_Salinidade
+    private long idMedidor_Salinidade
         
         
     private float salinidade;
