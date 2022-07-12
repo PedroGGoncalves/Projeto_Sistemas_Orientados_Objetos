@@ -10,7 +10,7 @@ import java.util.List;
 public interface TermostatoDAO {
      final String INSERT_TERMOSTATO = "INSERT INTO termostato(temperatura) "
             + "VALUES(?)";
-     final String FIND_BY_ID = "SELECT idAquario, temperatura"
+     final String FIND_BY_ID = "SELECT idTermostato, temperatura"
             + "FROM termostato WHERE id_Termostato = ?";
 
     final String FIND_ALL = "SELECT idTermostato, temperatura "
