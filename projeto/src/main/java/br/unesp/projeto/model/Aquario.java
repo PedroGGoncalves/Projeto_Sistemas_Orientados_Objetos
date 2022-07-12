@@ -17,14 +17,11 @@ import lombok.Setter;
 import lombok.ToString;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import org.springframework.data.annotation.Id;
 
 @Entity(name = "Aquario")
-@Inheritance(strategy = InheritanceType.JOINED)
 @Getter
 @Setter
 @EqualsAndHashCode
@@ -37,7 +34,7 @@ public class Aquario implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long idAquario;
     private String nome;
-     private String endereco;
+    private String endereco;
     private String horario_func;
     private String contato;
     private float precoIngresso;
