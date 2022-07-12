@@ -17,6 +17,7 @@ import java.io.Serializable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 
 
 @Entity(name = "Tanque")
@@ -54,15 +55,19 @@ public class Tanque implements Serializable {
     
     
    @OneToOne(cascade=CascadeType.ALL)
+   @JoinColumn(name = "termostato_idTermostato")
    private Termostato termostato;
     
    @OneToOne(cascade=CascadeType.ALL)
+   @JoinColumn(name = "medidorph_idMedidor_pH")
    private Medidor_ph medidor_ph;
     
    @OneToOne(cascade=CascadeType.ALL)
+   @JoinColumn(name = "medidorsalinidade_idmedidor_Salinidade")
    private Medidor_salinidade medidor_salinidade;
     
     @OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name = "medidoroxigenacao_idmedidor_Oxigenacao")
     private Medidor_oxigenacao medidor_oxigenacao;
    
   
