@@ -5,6 +5,7 @@
  */
 package br.unesp.projeto.dao;
 import br.unesp.projeto.model.Aquario;
+import java.util.List;
 
 public interface AquarioDAO {
      final String INSERT_AQUARIO = "INSERT INTO aquario(nome,endereco,horario_func,contato,precoIngresso) "
