@@ -5,6 +5,7 @@
  */
 package br.unesp.projeto.dao;
 import br.unesp.projeto.model.Armazem;
+import java.util.List;
 
 public interface ArmazemDAO {
     final String INSERT_ARMAZEM = "INSERT INTO armazem(quantidade) "
