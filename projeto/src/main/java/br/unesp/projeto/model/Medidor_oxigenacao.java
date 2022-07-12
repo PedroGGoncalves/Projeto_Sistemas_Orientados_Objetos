@@ -5,7 +5,7 @@
 package br.unesp.projeto.model;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.io.Serializable;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,10 +20,13 @@ import javax.persistence.GenerationType;
 @EqualsAndHashCode
 @ToString
 
-public class Medidor_oxigenacao {
+public class Medidor_oxigenacao implements Serializable {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int oxigenacao;
+    private int idMedidor_Oxigenacao
+    
+    private float oxigenacao;
     
     public Medidor_oxigenacao () {
        // this.itemTermostato   = new ArrayList<>();
