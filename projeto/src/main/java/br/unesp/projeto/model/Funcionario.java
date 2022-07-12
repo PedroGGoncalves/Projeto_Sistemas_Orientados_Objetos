@@ -14,6 +14,9 @@ import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.ManyToMany;
+import java.io.Serializable;
+
 
 
 @Getter
@@ -21,7 +24,12 @@ import javax.persistence.GenerationType;
 @EqualsAndHashCode
 @ToString
 
-public class Funcionario {
+public class Funcionario implements Serializable {
+   
+    
+    private static final long serialVersionUID = 1L;
+    
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long idFuncionario;
@@ -34,6 +42,11 @@ public class Funcionario {
     private Date contratacao;
     private boolean login;
     private List<Login> loginn;
+    
+
+    @ManyToMany(mappedBy="funcionarios", cascade = CascadeType.ALL)
+    private List<Tanque> tanques;
+    
     
     public Funcionario() {
 
