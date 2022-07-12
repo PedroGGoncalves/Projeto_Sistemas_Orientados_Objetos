@@ -20,6 +20,8 @@ import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 
@@ -45,8 +47,15 @@ public class Funcionario implements Serializable {
     private String CPF;
    // private List<Area> funcao;
     private float salario;
+   
+   
+    @Temporal(TemporalType.TIMESTAMP)
     private Date data_nascimento;
+   
+    @Temporal(TemporalType.TIMESTAMP)
     private Date contratacao;
+   
+   
     private boolean login;
     private List<Login> loginn;
     
