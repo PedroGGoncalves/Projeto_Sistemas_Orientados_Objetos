@@ -52,7 +52,7 @@ public class Funcionario implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date data_nascimento;
    
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date contratacao;
    
    
