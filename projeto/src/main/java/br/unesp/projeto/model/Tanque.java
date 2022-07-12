@@ -15,6 +15,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import java.io.Serializable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 
 
 @Getter
