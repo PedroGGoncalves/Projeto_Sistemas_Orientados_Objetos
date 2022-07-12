@@ -13,14 +13,15 @@ import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import java.io.Serializable;
+
 
 
 @Getter
 @Setter
 @EqualsAndHashCode
 @ToString
-
-public class Login {
+public class Login implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
