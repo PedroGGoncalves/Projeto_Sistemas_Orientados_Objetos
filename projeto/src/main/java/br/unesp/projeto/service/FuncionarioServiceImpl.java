@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.unesp.projeto.service_r;
+package br.unesp.projeto.service;
 
 import br.unesp.projeto.model.Funcionario;
-import br.unesp.projeto.service_r.FuncionarioService;
+import br.unesp.projeto.service.FuncionarioService;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

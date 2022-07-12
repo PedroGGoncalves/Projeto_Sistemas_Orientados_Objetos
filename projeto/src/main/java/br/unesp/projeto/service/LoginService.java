@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.unesp.projeto.service_r;
+package br.unesp.projeto.service;
 import br.unesp.projeto.model.Login;
 
 import org.springframework.data.jpa.repository.JpaRepository;
