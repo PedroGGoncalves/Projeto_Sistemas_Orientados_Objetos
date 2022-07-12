@@ -24,42 +24,5 @@ public class Termostato {
     public Termostato () {
        // this.itemTermostato   = new ArrayList<>();
     }
-    
-    public int gettemperatura() {
-        return temperatura;
-    }
-
-    public void settemperatura(int temperatura) {
-        this.temperatura = temperatura;
-    }
-    
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 41 * hash + (int) ((this.temperatura >>> 32) ^ this.temperatura);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Termostato other = (Termostato) obj;
-        if (this.temperatura != other.temperatura) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Termostato{" + "temperatura=" + temperatura + '}';
-    }
+   
 }
