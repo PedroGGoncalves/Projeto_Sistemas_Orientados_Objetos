@@ -19,6 +19,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import org.springframework.data.annotation.Id;
 import java.io.Serializable;
+import javax.persistence.ManyToOne;
 
 
 @Getter
