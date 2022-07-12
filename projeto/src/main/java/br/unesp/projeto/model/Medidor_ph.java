@@ -21,7 +21,7 @@ import java.io.Serializable;
 public class Medidor_ph implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int idMedidor_ph;
+    private long idMedidor_ph;
     private float ph;
     
     public Medidor_ph () {
