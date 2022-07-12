@@ -5,11 +5,21 @@
 package br.unesp.projeto.model;
 import java.util.ArrayList;
 import java.util.List;
-/**
- *
- * @author aluno
- */
+
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import org.springframework.data.annotation.Id;
+
+
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+
 public class Medidor_oxigenacao {
+     @Id
     private int oxigenacao;
     
     public Medidor_oxigenacao () {

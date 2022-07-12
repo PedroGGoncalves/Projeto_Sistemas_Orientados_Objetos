@@ -28,7 +28,7 @@ public class FuncionarioServiceImpl implements FuncionarioService {
         return b;
     }
 
-    @Override
+ //   @Override
     public Funcionario findById(Long id) {
         Funcionario entity = null;
 
@@ -40,7 +40,7 @@ public class FuncionarioServiceImpl implements FuncionarioService {
     }
 
 
-    @Override
+//    @Override
     public List<Funcionario> findAll() {
         List<Funcionario> lista = null;
 
