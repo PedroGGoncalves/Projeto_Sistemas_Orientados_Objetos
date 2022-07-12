@@ -5,6 +5,7 @@
  */
 package br.unesp.projeto.dao;
 import br.unesp.projeto.model.Medidor_ph;
+import java.util.List;
 
 public interface medidor_pHDAO {
      final String INSERT_Medidor_ph = "INSERT INTO medidor_ph(ph) "
