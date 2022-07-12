@@ -7,8 +7,20 @@ package br.unesp.projeto.dao;
 import br.unesp.projeto.model.Armazem;
 
 public interface ArmazemDAO {
-    final String INSERT_ARMAZEM = "INSERT INTO armazem(idArmazem,quantidade) "
+    final String INSERT_ARMAZEM = "INSERT INTO armazem(quantidade) "
             + "VALUES(?,?)";
+    
+    final String FIND_BY_ID = "SELECT idArmazem,quantidade"
+            + "FROM aquario WHERE id_Aquario = ?";
+    
+    final String FIND_ALL = "SELECT  idArmazem,quantidade "
+            + "FROM aquario";
+
+    
 
     public boolean save(Armazem armazem);
+    
+    public Armazem findById(Long idArmazem);
+
+    public List<Armazem> findAll(); 
 }
