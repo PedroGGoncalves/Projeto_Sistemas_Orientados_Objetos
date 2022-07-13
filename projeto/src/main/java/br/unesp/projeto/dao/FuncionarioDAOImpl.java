@@ -14,6 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class FuncionarioDAOImpl implements FuncionarioDAO {
@@ -41,7 +42,7 @@ public class FuncionarioDAOImpl implements FuncionarioDAO {
                 pstm.setFloat(4, funcionario.getSalario());
                 pstm.setDate(5, (Date) funcionario.getData_nascimento());
                 pstm.setDate(6, (Date) funcionario.getContratacao());
-                pstm.setBoolean(7,funcionario.getLogin());                
+                pstm.setBoolean(7,funcionario.isLogin());                
 
                 pstm.executeUpdate();
 
@@ -122,7 +123,7 @@ public class FuncionarioDAOImpl implements FuncionarioDAO {
                 System.out.println("Message: " + ex);
             }
         }
-
+         Collections.sort(lista,Collections.reverseOrder());
         return lista;
     }
 }
