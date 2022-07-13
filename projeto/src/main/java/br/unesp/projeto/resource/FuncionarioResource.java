@@ -1,7 +1,7 @@
 package br.unesp.projeto.resource;
 
 import br.unesp.projeto.model.Funcionario;
-import br.unesp.projeto.service.FuncionarioServiceImpl;
+import br.unesp.projeto.service.FuncionarioService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class FuncionarioResource {
     
     @Autowired
-    private FuncionarioServiceImpl funcionarioService;
+    private FuncionarioService funcionarioService;
     
     @GetMapping("/")
     public List<Funcionario> getAllFuncionario() {
@@ -28,16 +28,16 @@ public class FuncionarioResource {
     
     
     @GetMapping("/{IdFuncionario}")
-    public Funcionario getFuncionarioByCpf(@PathVariable(value = "IdFuncionario") Long IdFuncionario) {
-        Funcionario funcionario = funcionarioService.find(IdFuncionario);
+    public Funcionario getFuncionarioById(@PathVariable(value = "IdFuncionario") long IdFuncionario) {
+        Funcionario funcionario = funcionarioService.findById(IdFuncionario);
 
         return funcionario;
     }
     
     @DeleteMapping("/{IdFuncionario}")
-    public boolean delete(@PathVariable(value = "IdFuncionario") Long IdFuncionario) {
+    public boolean delete(@PathVariable(value = "IdFuncionario") long IdFuncionario) {
         boolean delete = false;
-        Funcionario funcionarioDelete = funcionarioService.find(IdFuncionario);
+        Funcionario funcionarioDelete = funcionarioService.findById(IdFuncionario);
 
         if (funcionarioDelete != null){
          funcionarioService.delete(funcionarioDelete);
@@ -62,12 +62,12 @@ public class FuncionarioResource {
     
     
     @PutMapping("/{IdFuncionario}")
-    public boolean updateFuncionario(@PathVariable(value = "IdFuncionario") Long IdFuncionario,
+    public boolean updateFuncionario(@PathVariable(value = "IdFuncionario") long IdFuncionario,
             @RequestBody Funcionario funcionario) {
         boolean update = false;
         
-        Funcionario funcionarioUpdate = funcionarioService.find(IdFuncionario);        
-        Funcionario newFuncionario = funcionarioService.find(IdFuncionario);  
+        Funcionario funcionarioUpdate = funcionarioService.findById(IdFuncionario);        
+        Funcionario newFuncionario = funcionarioService.findById(IdFuncionario);  
         // Campos que estão sendo atualizados
         funcionarioUpdate.setNome_completo(newFuncionario.getNome_completo());
 
