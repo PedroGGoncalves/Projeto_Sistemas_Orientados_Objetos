@@ -6,21 +6,21 @@
 package br.unesp.projeto.service;
 
 import br.unesp.projeto.model.Termostato;
-import br.unesp.projeto.repository.TermostatoDAO;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;
+import br.unesp.projeto.repository.TermostatoRepository;
 
 @Component
-public class TermostatoServiceImpl {
+public class TermostatoService {
 
     @Autowired
-    private TermostatoDAO repository;
+    private TermostatoRepository repository;
 
-    public TermostatoServiceImpl() {
+    public TermostatoService() {
         
     }
 
@@ -34,11 +34,11 @@ public class TermostatoServiceImpl {
         return persistedEntity;
     }
 
-    public Termostato find(Long Id) {
+    public Termostato findById(long Id) {
         Termostato insertedEntity = null;
 
         if (repository != null) {
-            insertedEntity = repository.find(Id);
+            insertedEntity = repository.findById(Id);
         }
 
         return insertedEntity;
