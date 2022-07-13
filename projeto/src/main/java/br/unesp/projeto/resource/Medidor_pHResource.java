@@ -1,7 +1,7 @@
 package br.unesp.projeto.resource;
 
 import br.unesp.projeto.model.Medidor_ph;
-import br.unesp.projeto.service.medidor_pHServiceImpl;
+import br.unesp.projeto.service.Medidor_pHService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class medidor_pHResource {
     
     @Autowired
-    private medidor_pHServiceImpl medidor_phService;
+    private Medidor_pHService medidor_phService;
     
     @GetMapping("/")
     public List<Medidor_ph> getAllmedidor_pH() {
@@ -28,16 +28,16 @@ public class medidor_pHResource {
     
     
     @GetMapping("/{ph}")
-    public Medidor_ph getmedidor_pHByCpf(@PathVariable(value = "ph") Long ph) {
-        Medidor_ph medidor_ph = medidor_phService.find(ph);
+    public Medidor_ph getmedidor_pHByCpf(@PathVariable(value = "idMedidor_ph") long idMedidor_ph) {
+        Medidor_ph medidor_ph = medidor_phService.findById(idMedidor_ph);
 
         return medidor_ph;
     }
     
     @DeleteMapping("/{ph}")
-    public boolean delete(@PathVariable(value = "ph") Long ph) {
+    public boolean delete(@PathVariable(value = "idMedidor_ph") long idMedidor_ph) {
         boolean delete = false;
-        Medidor_ph medidor_phDelete = medidor_phService.find(ph);
+        Medidor_ph medidor_phDelete = medidor_phService.findById(idMedidor_ph);
 
         if (medidor_phDelete != null){
          medidor_phService.delete(medidor_phDelete);
@@ -62,12 +62,12 @@ public class medidor_pHResource {
     
     
     @PutMapping("/{ph}")
-    public boolean updatemedidor_pH(@PathVariable(value = "ph") Long ph,
+    public boolean updatemedidor_pH(@PathVariable(value = "ph") long idMedidor_ph,
             @RequestBody Medidor_ph medidor_ph) {
         boolean update = false;
         
-        Medidor_ph medidor_phUpdate = medidor_phService.find(ph);        
-        Medidor_ph newmedidor_pH = medidor_phService.find(ph);  
+        Medidor_ph medidor_phUpdate = medidor_phService.findById(idMedidor_ph);        
+        Medidor_ph newmedidor_pH = medidor_phService.findById(idMedidor_ph);  
         // Campos que estão sendo atualizados
         medidor_phUpdate.setPh(newmedidor_pH.getPh());
 
