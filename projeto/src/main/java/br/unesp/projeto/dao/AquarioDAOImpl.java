@@ -74,8 +74,8 @@ public class AquarioDAOImpl implements AquarioDAO {
                     aquario.setIdAquario(res.getLong(1));
                     aquario.setEndereco(res.getString(2));
                     aquario.setHorarioFunc(res.getString(3));
-                    aquario.setContato(res.getString(3));
-                    aquario.setPrecoIngresso(res.getFloat(4));
+                    aquario.setContato(res.getString(4));
+                    aquario.setPrecoIngresso(res.getFloat(5));
                 }
             } catch (SQLException ex) {
                 System.out.println("Message: " + ex);
@@ -106,8 +106,8 @@ public class AquarioDAOImpl implements AquarioDAO {
                     aquario.setIdAquario(res.getLong(1));
                     aquario.setEndereco(res.getString(2));
                     aquario.setHorarioFunc(res.getString(3));
-                    aquario.setContato(res.getString(3));
-                    aquario.setPrecoIngresso(res.getFloat(4));
+                    aquario.setContato(res.getString(4));
+                    aquario.setPrecoIngresso(res.getFloat(5));
                     
                     lista.add(aquario);
                 }
