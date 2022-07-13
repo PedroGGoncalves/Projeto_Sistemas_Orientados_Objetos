@@ -15,12 +15,12 @@ import org.springframework.stereotype.Component;
 import java.util.Collections;
 
 @Component
-public class ArmazemServiceImpl {
+public class ArmazemService {
 
     @Autowired
     private ArmazemDAO repository;
 
-    public ArmazemServiceImpl() {
+    public ArmazemService() {
         
     }
 
@@ -34,11 +34,11 @@ public class ArmazemServiceImpl {
         return persistedEntity;
     }
 
-    public Armazem find(Long Id) {
+    public Armazem findById(long Id) {
         Armazem insertedEntity = null;
 
         if (repository != null) {
-            insertedEntity = repository.find(Id);
+            insertedEntity = repository.findById(Id);
         }
 
         return insertedEntity;
