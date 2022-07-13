@@ -5,12 +5,13 @@
  */
 package br.unesp.projeto.service;
 import br.unesp.projeto.model.Armazem;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ArmazemService extends JpaRepository<Armazem, Long> {
+public interface ArmazemService {
 
-    Armazem find(String idArmazem);
-    Armazem getAll(String idArmazem);
-    void delete(int id);
+     List<Armazem> findAll();
+    Armazem findById(Long id);
+    boolean save(Armazem entity);
 }
