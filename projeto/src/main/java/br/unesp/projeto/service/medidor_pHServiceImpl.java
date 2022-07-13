@@ -6,21 +6,21 @@
 package br.unesp.projeto.service;
 
 import br.unesp.projeto.model.Medidor_ph;
-import br.unesp.projeto.repository.medidor_pHDAO;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;
+import br.unesp.projeto.repository.Medidor_pHRepository;
 
 @Component
-public class medidor_pHServiceImpl {
+public class Medidor_pHService {
 
     @Autowired
-    private medidor_pHDAO repository;
+    private Medidor_pHRepository repository;
 
-    public medidor_pHServiceImpl() {
+    public Medidor_pHService() {
         
     }
 
@@ -34,11 +34,11 @@ public class medidor_pHServiceImpl {
         return persistedEntity;
     }
 
-    public Medidor_ph find(Long Id) {
+    public Medidor_ph findById(long Id) {
         Medidor_ph insertedEntity = null;
 
         if (repository != null) {
-            insertedEntity = repository.find(Id);
+            insertedEntity = repository.findById(Id);
         }
 
         return insertedEntity;
