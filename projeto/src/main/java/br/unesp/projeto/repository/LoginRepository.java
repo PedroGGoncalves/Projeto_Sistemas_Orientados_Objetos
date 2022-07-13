@@ -8,9 +8,7 @@ import br.unesp.projeto.model.Login;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface LoginDAO extends JpaRepository<Login, Long> {
+public interface LoginRepository extends JpaRepository<Login, Long> {
 
-    Login find(Long Id);
-   Login getAll(Long Id);
-    void delete(int id);
+    Login findByID(Long Id);
 }
