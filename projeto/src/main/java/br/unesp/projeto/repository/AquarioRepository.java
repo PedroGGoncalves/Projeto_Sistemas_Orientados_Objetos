@@ -8,7 +8,7 @@ import br.unesp.projeto.model.Aquario;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface AquarioDAO extends JpaRepository<Aquario, Long> {
+public interface AquarioRepository extends JpaRepository<Aquario, Long> {
 
     Aquario find(Long Id);
     Aquario getAll(Long Id);
