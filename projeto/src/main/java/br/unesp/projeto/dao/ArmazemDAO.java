@@ -12,10 +12,10 @@ public interface ArmazemDAO {
             + "VALUES(?)";
     
     final String FIND_BY_ID = "SELECT idArmazem,quantidade"
-            + "FROM aquario WHERE id_Aquario = ?";
+            + "FROM aquario WHERE id_Armazem = ?";
     
     final String FIND_ALL = "SELECT  idArmazem,quantidade "
-            + "FROM aquario";
+            + "FROM armazem";
 
     
 
