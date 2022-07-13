@@ -6,7 +6,7 @@
 package br.unesp.projeto.resource;
 
 import br.unesp.projeto.model.Aquario;
-import br.unesp.projeto.service.AquarioServiceImpl;
+import br.unesp.projeto.service.AquarioService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AquarioResource {
     
     @Autowired
-    private AquarioServiceImpl aquarioService;
+    private AquarioService aquarioService;
     
     @GetMapping("/")
     public List<Aquario> getAllAquario() {
@@ -33,16 +33,16 @@ public class AquarioResource {
     
     
     @GetMapping("/{IdAquario}")
-    public Aquario getAquarioByCpf(@PathVariable(value = "IdAquario") Long IdAquario) {
-        Aquario aquario = aquarioService.find(IdAquario);
+    public Aquario getAquarioByCpf(@PathVariable(value = "IdAquario") long IdAquario) {
+        Aquario aquario = aquarioService.findById(IdAquario);
 
         return aquario;
     }
     
     @DeleteMapping("/{IdAquario}")
-    public boolean delete(@PathVariable(value = "IdAquario")Long IdAquario) {
+    public boolean delete(@PathVariable(value = "IdAquario")long IdAquario) {
         boolean delete = false;
-        Aquario aquarioDelete = aquarioService.find(IdAquario);
+        Aquario aquarioDelete = aquarioService.findById(IdAquario);
 
         if (aquarioDelete != null){
          aquarioService.delete(aquarioDelete);
@@ -67,12 +67,12 @@ public class AquarioResource {
     
     
     @PutMapping("/{IdAquario}")
-    public boolean updateAquario(@PathVariable(value = "IdAquario") Long IdAquario,
+    public boolean updateAquario(@PathVariable(value = "IdAquario") long IdAquario,
             @RequestBody Aquario aquario) {
         boolean update = false;
         
-        Aquario aquarioUpdate = aquarioService.find(IdAquario);        
-        Aquario newAquario = aquarioService.find(IdAquario);  
+        Aquario aquarioUpdate = aquarioService.findById(IdAquario);        
+        Aquario newAquario = aquarioService.findById(IdAquario);  
         // Campos que estão sendo atualizados
         aquarioUpdate.setNome(newAquario.getNome());
 
