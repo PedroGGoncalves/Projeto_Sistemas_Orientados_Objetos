@@ -12,11 +12,18 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+
+
 
 public class medidor_pHDAOImpl implements medidor_pHDAO {
-    medidor_pHDAOImpl() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public medidor_pHDAOImpl() {
+        
     }
+    
     @Override
     public boolean save(Medidor_ph medidor_ph) {
 
@@ -42,6 +49,7 @@ public class medidor_pHDAOImpl implements medidor_pHDAO {
 
         return b;
     }
+    
     @Override
     public Medidor_ph findById(Long idMedidor_ph) {
 
@@ -89,8 +97,8 @@ public class medidor_pHDAOImpl implements medidor_pHDAO {
                                 
                 while (res.next()) {                    
                     Medidor_ph medidor_ph = new medidor_ph();
-                    medidor_ph.setIdAquario(res.getLong(1));
-                    medidor_ph.setEndereco(res.getString(2));
+                    medidor_ph.setIdMedidor_ph(res.getLong(1));
+                    medidor_ph.setTemperatura(res.getFloat(2));
                     
                     lista.add(medidor_ph);
                 }
