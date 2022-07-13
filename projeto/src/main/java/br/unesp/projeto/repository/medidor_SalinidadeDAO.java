@@ -9,9 +9,7 @@ import br.unesp.projeto.model.Medidor_salinidade;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface medidor_SalinidadeDAO extends JpaRepository<Medidor_salinidade, Long> {
+public interface Medidor_SalinidadeRepository extends JpaRepository<Medidor_salinidade, Long> {
 
-   Medidor_salinidade find(Long Id);
-   Medidor_salinidade getAll(Long Id);
-    void delete(int id);
+   Medidor_salinidade findById(long Id);
 }
