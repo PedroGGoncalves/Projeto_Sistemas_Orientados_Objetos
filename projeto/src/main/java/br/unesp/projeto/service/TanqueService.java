@@ -6,21 +6,21 @@
 package br.unesp.projeto.service;
 
 import br.unesp.projeto.model.Tanque;
-import br.unesp.projeto.repository.TanqueDAO;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;
+import br.unesp.projeto.repository.TanqueRepository;
 
 @Component
-public class TanqueServiceImpl {
+public class TanqueService {
 
     @Autowired
-    private TanqueDAO repository;
+    private TanqueRepository repository;
 
-    public TanqueServiceImpl() {
+    public TanqueService() {
         
     }
 
@@ -34,11 +34,11 @@ public class TanqueServiceImpl {
         return persistedEntity;
     }
 
-    public Tanque find(Long Id) {
+    public Tanque findById(long Id) {
         Tanque insertedEntity = null;
 
         if (repository != null) {
-            insertedEntity = repository.find(Id);
+            insertedEntity = repository.findById(Id);
         }
 
         return insertedEntity;
