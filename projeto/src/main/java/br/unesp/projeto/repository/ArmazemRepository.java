@@ -8,9 +8,7 @@ import br.unesp.projeto.model.Armazem;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ArmazemDAO extends JpaRepository<Armazem, Long> {
+public interface ArmazemRepository extends JpaRepository<Armazem, Long> {
 
-    Armazem find(Long Id);
-    Armazem getAll(Long Id);
-    void delete(int id);
+    Armazem findById(long Id);
 }
