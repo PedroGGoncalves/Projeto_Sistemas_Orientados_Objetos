@@ -5,12 +5,13 @@
  */
 package br.unesp.projeto.service;
 import br.unesp.projeto.model.Login;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface LoginService extends JpaRepository<Login, Long> {
+public interface LoginService {
 
-    Login find(String idLogin);
-   Login getAll(String idLogin);
-    void delete(int id);
+     List<Login> findAll();
+    Login findById(Long id);
+    boolean save(Login entity);
 }
