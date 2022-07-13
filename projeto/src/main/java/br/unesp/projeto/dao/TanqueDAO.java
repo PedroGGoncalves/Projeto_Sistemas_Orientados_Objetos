@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface TanqueDAO {
     final String INSERT_TANQUE = "INSERT INTO tanque(individuos,ph,salinidade,oxigenacao,horario_alimento,filtro,QR_CODE,termostato,medidor_ph,medidor_salinidade,medidor_oxigenacao) "
-            + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+            + "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
     
      final String FIND_BY_ID = "SELECT idTanque,individuos,ph,salinidade,oxigenacao,horario_alimento,filtro,QR_CODE,termostato,medidor_ph,medidor_salinidade,medidor_oxigenacao"
             + "FROM tanque WHERE idTanque = ?";
