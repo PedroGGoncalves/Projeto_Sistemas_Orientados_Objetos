@@ -17,6 +17,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FuncionarioDAOImpl implements FuncionarioDAO {
+    
+     public FuncionarioDAOImpl() {
+        
+     }
+    
+    
     @Override
     public boolean save(Funcionario funcionario) {
 
