@@ -6,21 +6,21 @@
 package br.unesp.projeto.service;
 
 import br.unesp.projeto.model.Funcionario;
-import br.unesp.projeto.repository.FuncionarioDAO;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;
+import br.unesp.projeto.repository.FuncionarioRepository;
 
 @Component
-public class FuncionarioServiceImpl {
+public class FuncionarioService {
 
     @Autowired
-    private FuncionarioDAO repository;
+    private FuncionarioRepository repository;
 
-    public FuncionarioServiceImpl() {
+    public FuncionarioService() {
         
     }
 
@@ -34,11 +34,11 @@ public class FuncionarioServiceImpl {
         return persistedEntity;
     }
 
-    public Funcionario find(Long Id) {
+    public Funcionario findById(long Id) {
         Funcionario insertedEntity = null;
 
         if (repository != null) {
-            insertedEntity = repository.find(Id);
+            insertedEntity = repository.findById(Id);
         }
 
         return insertedEntity;
