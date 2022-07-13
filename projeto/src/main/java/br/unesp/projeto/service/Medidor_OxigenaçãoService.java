@@ -12,15 +12,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;
-import br.unesp.projeto.repository.medidor_OxigenaçãoRepository;
+import br.unesp.projeto.repository.Medidor_OxigenaçãoRepository;
 
 @Component
-public class medidor_OxigenaçãoService {
+public class Medidor_OxigenaçãoService {
 
     @Autowired
-    private medidor_OxigenaçãoRepository repository;
+    private Medidor_OxigenaçãoRepository repository;
 
-    public medidor_OxigenaçãoService() {
+    public Medidor_OxigenaçãoService() {
         
     }
 
