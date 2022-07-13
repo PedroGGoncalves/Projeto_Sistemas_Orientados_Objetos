@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.unesp.projeto.model;
+package br.unesp.projeto.entity;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.Serializable;
@@ -21,7 +21,8 @@ import javax.persistence.Entity;
 @Setter
 @EqualsAndHashCode
 @ToString
-@Entity(name="Medidor de oxigenação")
+@Entity(name="Medidor de oxigenacao")
+
 public class Medidor_oxigenacao implements Serializable {
     
     private static final long serialVersionUID = 1L;
@@ -33,7 +34,6 @@ public class Medidor_oxigenacao implements Serializable {
     private float oxigenacao;
     
     public Medidor_oxigenacao () {
-       // this.itemTermostato   = new ArrayList<>();
+   
     }
-
 }
