@@ -9,9 +9,8 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface  FuncionarioDAO extends JpaRepository< Funcionario, Long> {
+public interface  FuncionarioRepository extends JpaRepository< Funcionario, Long> {
 
-     Funcionario find(Long Id);
-     Funcionario getAll(Long Id);
-    void delete(int id);
+     Funcionario findById (long Id);
+  
 }
