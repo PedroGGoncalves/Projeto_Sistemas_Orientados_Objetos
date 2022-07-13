@@ -5,12 +5,15 @@
  */
 package br.unesp.projeto.service;
 import br.unesp.projeto.model.Aquario;
+import java.util.List;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface AquarioService extends JpaRepository<Aquario, Long> {
+public interface AquarioService {
 
-    Aquario find(String nome);
-    Aquario getAll(String nome);
-    void delete(int id);
+    List<Aquario> findAll();
+
+    Aquario findById(Long id);
+
+    boolean save(Aquario entity);
+    
 }
