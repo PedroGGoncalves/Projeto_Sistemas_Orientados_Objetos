@@ -6,21 +6,21 @@
 package br.unesp.projeto.service;
 
 import br.unesp.projeto.model.Medidor_oxigenacao;
-import br.unesp.projeto.repository.medidor_OxigenaçãoDAO;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;
+import br.unesp.projeto.repository.medidor_OxigenaçãoRepository;
 
 @Component
-public class medidor_OxigenaçãoServiceImpl {
+public class medidor_OxigenaçãoService {
 
     @Autowired
-    private medidor_OxigenaçãoDAO repository;
+    private medidor_OxigenaçãoRepository repository;
 
-    public medidor_OxigenaçãoServiceImpl() {
+    public medidor_OxigenaçãoService() {
         
     }
 
@@ -34,11 +34,11 @@ public class medidor_OxigenaçãoServiceImpl {
         return persistedEntity;
     }
 
-    public Medidor_oxigenacao find(Long Id) {
+    public Medidor_oxigenacao findById(long Id) {
         Medidor_oxigenacao insertedEntity = null;
 
         if (repository != null) {
-            insertedEntity = repository.find(Id);
+            insertedEntity = repository.findById(Id);
         }
 
         return insertedEntity;
