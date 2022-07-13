@@ -19,7 +19,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 
 @Entity(name = "Aquario")
 @Getter
