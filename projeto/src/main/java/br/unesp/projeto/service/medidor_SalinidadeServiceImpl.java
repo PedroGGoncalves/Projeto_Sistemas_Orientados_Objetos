@@ -5,72 +5,57 @@
 package br.unesp.projeto.service;
 
 import br.unesp.projeto.model.Medidor_salinidade;
-import br.unesp.projeto.service.medidor_SalinidadeService;
+import br.unesp.projeto.dao.medidor_SalinidadeDAO;
+import br.unesp.projeto.dao.DaoFactory;
+
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-import java.util.Collections;
 
-@Component
-public class medidor_SalinidadeServiceImpl {
+public class medidor_SalinidadeServiceImpl implements medidor_SalinidadeService {
 
-    @Autowired
-    private medidor_SalinidadeService repository;
+     private medidor_SalinidadeDAO dao = DaoFactory.getmedidor_salinidadeDAO();
 
-    public medidor_SalinidadeServiceImpl() {
-        
-    }
+    
+    
+    @Override
+    public boolean save(Medidor_salinidade entity) {
+        boolean b = false;
 
-    public Medidor_salinidade save(Medidor_salinidade entity) {
-        Medidor_salinidade persistedEntity = null;
-
-        if (repository != null) {
-            persistedEntity = repository.save(entity);
+        if (dao != null) {
+            System.out.println("NOT NULL");
+            dao.save(entity);
+            b = true;
         }
 
-        return persistedEntity;
+        return b;
     }
+    
+    
+    
+    @Override
+    public Medidor_salinidade findById(Long id) {
+        Medidor_salinidade entity = null;
 
-    public Medidor_salinidade find(String salinidade) {
-        Medidor_salinidade insertedEntity = null;
-
-        if (repository != null) {
-            insertedEntity = repository.find(salinidade);
+        if (dao != null) {
+            entity = dao.findById(id);
         }
 
-        return insertedEntity;
+        return entity;
     }
-
-    public void delete(Medidor_salinidade entity) {
-
-        if (repository != null) {
-            repository.delete(entity);
-        }
-    }
-
-    public Medidor_salinidade update(Medidor_salinidade entity) {
-
-        Medidor_salinidade persistedEntity = null;
-
-        if (repository != null) {
-            persistedEntity = repository.save(entity);
-        }
-
-        return persistedEntity;
-    }
-
+ 
+    
+    @Override
     public List<Medidor_salinidade> findAll() {
-        List<Medidor_salinidade> list = null;
-       
-        if (repository != null) {
-            list = new ArrayList<>();
-            list = repository.findAll();
-            Collections.sort(list,Collections.reverseOrder());
+        List<Medidor_salinidade> lista = null;
+
+        if (dao != null) {
+            lista = new ArrayList<>();
+            lista = dao.findAll();
         }
-        
-        return list;
+
+        return lista;
     }
 
+     
 }

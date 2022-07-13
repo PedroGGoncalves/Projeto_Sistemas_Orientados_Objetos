@@ -6,72 +6,44 @@
 package br.unesp.projeto.service;
 
 import br.unesp.projeto.model.Login;
-import br.unesp.projeto.service.LoginService;
+import br.unesp.projeto.dao.LoginDAO;
+import br.unesp.projeto.dao.DaoFactory;
+
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-import java.util.Collections;
 
-@Component
-public class loginServiceImpl {
+public class loginServiceImpl implements LoginService {
 
-    @Autowired
-    private LoginService repository;
+     private LoginDAO dao = DaoFactory.getLoginDAO();
 
-    public loginServiceImpl() {
-        
-    }
+    
+    
+    @Override
+    public boolean save(Login entity) {
+        boolean b = false;
 
-    public Login save(Login entity) {
-        Login persistedEntity = null;
-
-        if (repository != null) {
-            persistedEntity = repository.save(entity);
+        if (dao != null) {
+            System.out.println("NOT NULL");
+            dao.save(entity);
+            b = true;
         }
 
-        return persistedEntity;
+        return b;
     }
-
-    public Login find(String idLogin) {
-        Login insertedEntity = null;
-
-        if (repository != null) {
-            insertedEntity = repository.find(idLogin);
-        }
-
-        return insertedEntity;
-    }
-
-    public void delete(Login entity) {
-
-        if (repository != null) {
-            repository.delete(entity);
-        }
-    }
-
-    public Login update(Login entity) {
-
-        Login persistedEntity = null;
-
-        if (repository != null) {
-            persistedEntity = repository.save(entity);
-        }
-
-        return persistedEntity;
-    }
-
+ 
+    
+    @Override
     public List<Login> findAll() {
-        List<Login> list = null;
-       
-        if (repository != null) {
-            list = new ArrayList<>();
-            list = repository.findAll();
-            Collections.sort(list,Collections.reverseOrder());
+        List<Login> lista = null;
+
+        if (dao != null) {
+            lista = new ArrayList<>();
+            lista = dao.findAll();
         }
-        
-        return list;
+
+        return lista;
     }
 
+     
 }

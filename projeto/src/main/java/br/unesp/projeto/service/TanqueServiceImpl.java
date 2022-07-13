@@ -6,73 +6,57 @@
 package br.unesp.projeto.service;
 
 import br.unesp.projeto.model.Tanque;
-import br.unesp.projeto.service.TanqueService;
+import br.unesp.projeto.dao.TanqueDAO;
+import br.unesp.projeto.dao.DaoFactory;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-import java.util.Collections;
 
-@Component
-public class TanqueServiceImpl {
+public class TanqueServiceImpl implements TanqueService {
 
-    @Autowired
-    private TanqueService repository;
+     private TanqueDAO dao = DaoFactory.getTanqueDAO();
 
-    public TanqueServiceImpl() {
-        
-    }
+    
+    
+    @Override
+    public boolean save(Tanque entity) {
+        boolean b = false;
 
-    public Tanque save(Tanque entity) {
-        Tanque persistedEntity = null;
-
-        if (repository != null) {
-            persistedEntity = repository.save(entity);
+        if (dao != null) {
+            System.out.println("NOT NULL");
+            dao.save(entity);
+            b = true;
         }
 
-        return persistedEntity;
+        return b;
     }
+    
+    
+    
+    @Override
+    public Tanque findById(Long id) {
+        Tanque entity = null;
 
-    public Tanque find(String idTanque) {
-        Tanque insertedEntity = null;
-
-        if (repository != null) {
-            insertedEntity = repository.find(idTanque);
+        if (dao != null) {
+            entity = dao.findById(id);
         }
 
-        return insertedEntity;
+        return entity;
     }
-
-    public void delete(Tanque entity) {
-
-        if (repository != null) {
-            repository.delete(entity);
-        }
-    }
-
-    public Tanque update(Tanque entity) {
-
-        Tanque persistedEntity = null;
-
-        if (repository != null) {
-            persistedEntity = repository.save(entity);
-        }
-
-        return persistedEntity;
-    }
-
+ 
+    
+    @Override
     public List<Tanque> findAll() {
-        List<Tanque> list = null;
-       
-        if (repository != null) {
-            list = new ArrayList<>();
-            list = repository.findAll();
-            Collections.sort(list,Collections.reverseOrder());
+        List<Tanque> lista = null;
+
+        if (dao != null) {
+            lista = new ArrayList<>();
+            lista = dao.findAll();
         }
-        
-        return list;
+
+        return lista;
     }
 
+     
 }

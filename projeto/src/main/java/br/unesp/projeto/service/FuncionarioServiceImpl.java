@@ -6,74 +6,59 @@
 package br.unesp.projeto.service;
 
 import br.unesp.projeto.model.Funcionario;
-import br.unesp.projeto.service.FuncionarioService;
+import br.unesp.projeto.dao.FuncionarioDAO;
+import br.unesp.projeto.dao.DaoFactory;
+
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-import java.util.Collections;
 
-@Component
-public class FuncionarioServiceImpl {
+public class FuncionarioServiceImpl implements FuncionarioService {
 
-    @Autowired
-    private FuncionarioService repository;
+     private FuncionarioDAO dao = DaoFactory.getFuncionarioDAO();
 
-    public FuncionarioServiceImpl() {
-        
-    }
+    
+    
+    @Override
+    public boolean save(Funcionario entity) {
+        boolean b = false;
 
-    public Funcionario save(Funcionario entity) {
-        Funcionario persistedEntity = null;
-
-        if (repository != null) {
-            persistedEntity = repository.save(entity);
+        if (dao != null) {
+            System.out.println("NOT NULL");
+            dao.save(entity);
+            b = true;
         }
 
-        return persistedEntity;
+        return b;
     }
+    
+    
+    
+    @Override
+    public Funcionario findById(Long id) {
+        Funcionario entity = null;
 
-    public Funcionario find(String CPF) {
-        Funcionario insertedEntity = null;
-
-        if (repository != null) {
-            insertedEntity = repository.find(CPF);
+        if (dao != null) {
+            entity = dao.findById(id);
         }
 
-        return insertedEntity;
+        return entity;
     }
-
-    public void delete(Funcionario entity) {
-
-        if (repository != null) {
-            repository.delete(entity);
-        }
-    }
-
-    public Funcionario update(Funcionario entity) {
-
-        Funcionario persistedEntity = null;
-
-        if (repository != null) {
-            persistedEntity = repository.save(entity);
-        }
-
-        return persistedEntity;
-    }
-
+ 
+    
+    @Override
     public List<Funcionario> findAll() {
-        List<Funcionario> list = null;
-       
-        if (repository != null) {
-            list = new ArrayList<>();
-            list = repository.findAll();
-            Collections.sort(list,Collections.reverseOrder());
+        List<Funcionario> lista = null;
+
+        if (dao != null) {
+            lista = new ArrayList<>();
+            lista = dao.findAll();
         }
-        
-        return list;
+
+        return lista;
     }
 
+     
 }
   
   

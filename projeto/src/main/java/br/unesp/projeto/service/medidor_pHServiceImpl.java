@@ -6,72 +6,57 @@
 package br.unesp.projeto.service;
 
 import br.unesp.projeto.model.Medidor_ph;
-import br.unesp.projeto.service.medidor_pHService;
+import br.unesp.projeto.dao.medidor_PhDAO;
+import br.unesp.projeto.dao.DaoFactory;
+
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-import java.util.Collections;
 
-@Component
-public class medidor_pHServiceImpl {
+public class medidor_pHServiceImpl implements medidor_pHService {
 
-    @Autowired
-    private medidor_pHService repository;
+     private medidor_PhDAO dao = DaoFactory.getmedidor_pHDAO();
 
-    public medidor_pHServiceImpl() {
-        
-    }
+    
+    
+    @Override
+    public boolean save(Medidor_ph entity) {
+        boolean b = false;
 
-    public Medidor_ph save(Medidor_ph entity) {
-        Medidor_ph persistedEntity = null;
-
-        if (repository != null) {
-            persistedEntity = repository.save(entity);
+        if (dao != null) {
+            System.out.println("NOT NULL");
+            dao.save(entity);
+            b = true;
         }
 
-        return persistedEntity;
+        return b;
     }
+    
+    
+    
+    @Override
+    public Medidor_ph findById(Long id) {
+        Medidor_ph entity = null;
 
-    public Medidor_ph find(String ph) {
-        Medidor_ph insertedEntity = null;
-
-        if (repository != null) {
-            insertedEntity = repository.find(ph);
+        if (dao != null) {
+            entity = dao.findById(id);
         }
 
-        return insertedEntity;
+        return entity;
     }
-
-    public void delete(Medidor_ph entity) {
-
-        if (repository != null) {
-            repository.delete(entity);
-        }
-    }
-
-    public Medidor_ph update(Medidor_ph entity) {
-
-        Medidor_ph persistedEntity = null;
-
-        if (repository != null) {
-            persistedEntity = repository.save(entity);
-        }
-
-        return persistedEntity;
-    }
-
+ 
+    
+    @Override
     public List<Medidor_ph> findAll() {
-        List<Medidor_ph> list = null;
-       
-        if (repository != null) {
-            list = new ArrayList<>();
-            list = repository.findAll();
-            Collections.sort(list,Collections.reverseOrder());
+        List<Medidor_ph> lista = null;
+
+        if (dao != null) {
+            lista = new ArrayList<>();
+            lista = dao.findAll();
         }
-        
-        return list;
+
+        return lista;
     }
 
+     
 }

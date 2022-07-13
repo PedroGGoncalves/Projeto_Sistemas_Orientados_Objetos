@@ -6,72 +6,57 @@
 package br.unesp.projeto.service;
 
 import br.unesp.projeto.model.Termostato;
-import br.unesp.projeto.service.TermostatoService;
+import br.unesp.projeto.dao.TermostatoDAO;
+import br.unesp.projeto.dao.DaoFactory;
+
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-import java.util.Collections;
 
-@Component
-public class TermostatoServiceImpl {
+public class TermostatoServiceImpl implements TermostatoService {
 
-    @Autowired
-    private TermostatoService repository;
+     private TermostatoDAO dao = DaoFactory.getTermostatoDAO();
 
-    public TermostatoServiceImpl() {
-        
-    }
+    
+    
+    @Override
+    public boolean save(Termostato entity) {
+        boolean b = false;
 
-    public Termostato save(Termostato entity) {
-        Termostato persistedEntity = null;
-
-        if (repository != null) {
-            persistedEntity = repository.save(entity);
+        if (dao != null) {
+            System.out.println("NOT NULL");
+            dao.save(entity);
+            b = true;
         }
 
-        return persistedEntity;
+        return b;
     }
+    
+    
+    
+    @Override
+    public Termostato findById(Long id) {
+        Termostato entity = null;
 
-    public Termostato find(String temperatura) {
-        Termostato insertedEntity = null;
-
-        if (repository != null) {
-            insertedEntity = repository.find(temperatura);
+        if (dao != null) {
+            entity = dao.findById(id);
         }
 
-        return insertedEntity;
+        return entity;
     }
-
-    public void delete(Termostato entity) {
-
-        if (repository != null) {
-            repository.delete(entity);
-        }
-    }
-
-    public Termostato update(Termostato entity) {
-
-        Termostato persistedEntity = null;
-
-        if (repository != null) {
-            persistedEntity = repository.save(entity);
-        }
-
-        return persistedEntity;
-    }
-
+ 
+    
+    @Override
     public List<Termostato> findAll() {
-        List<Termostato> list = null;
-       
-        if (repository != null) {
-            list = new ArrayList<>();
-            list = repository.findAll();
-            Collections.sort(list,Collections.reverseOrder());
+        List<Termostato> lista = null;
+
+        if (dao != null) {
+            lista = new ArrayList<>();
+            lista = dao.findAll();
         }
-        
-        return list;
+
+        return lista;
     }
 
+     
 }

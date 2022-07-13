@@ -12,6 +12,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface LoginService {
 
      List<Login> findAll();
-    Login findById(Long id);
     boolean save(Login entity);
 }
