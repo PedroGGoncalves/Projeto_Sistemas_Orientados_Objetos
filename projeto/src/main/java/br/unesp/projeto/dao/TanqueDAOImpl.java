@@ -14,14 +14,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class TanqueDAOImpl implements TanqueDAO{
-    
-     public TanqueDAOImpl() {
-       
-    }
-     
+   public  TanqueDAOImpl() {
+         }
     @Override
     public boolean save(Tanque tanque) {
 
@@ -77,9 +75,9 @@ public class TanqueDAOImpl implements TanqueDAO{
                     tanque.setPh(res.getFloat(3));
                     tanque.setSalinidade(res.getFloat(4));
                     tanque.setOxigenacao(res.getFloat(5));
-                    tanque.setHorarioAlimento(res.getString(6));
+                    tanque.setHorario_alimento(res.getString(6));
                     tanque.setFiltro(res.getBoolean(7));
-                    tanque.setQRCODE(res.getString(8));
+                    tanque.setQR_CODE(res.getString(8));
                 }
             } catch (SQLException ex) {
                 System.out.println("Message: " + ex);
@@ -112,9 +110,9 @@ public class TanqueDAOImpl implements TanqueDAO{
                     tanque.setPh(res.getFloat(3));
                     tanque.setSalinidade(res.getFloat(4));
                     tanque.setOxigenacao(res.getFloat(5));
-                    tanque.setHorarioAlimento(res.getString(6));
+                    tanque.setHorario_alimento(res.getString(6));
                     tanque.setFiltro(res.getBoolean(7));
-                    tanque.setQRCODE(res.getString(8));
+                    tanque.setQR_CODE(res.getString(8));
                     
                     lista.add(tanque);
                 }
@@ -122,7 +120,7 @@ public class TanqueDAOImpl implements TanqueDAO{
                 System.out.println("Message: " + ex);
             }
         }
-
+        Collections.sort(lista,Collections.reverseOrder());
         return lista;
     } 
      

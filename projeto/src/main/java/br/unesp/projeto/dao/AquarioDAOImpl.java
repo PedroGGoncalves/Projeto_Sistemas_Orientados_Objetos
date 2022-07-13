@@ -15,6 +15,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collections;
 
 
 public class AquarioDAOImpl implements AquarioDAO {
@@ -76,7 +77,7 @@ public class AquarioDAOImpl implements AquarioDAO {
                     aquario.setIdAquario(res.getLong(1));
                     aquario.setNome(res.getString(2));
                     aquario.setEndereco(res.getString(3));
-                    aquario.setHorarioFunc(res.getString(4));
+                    aquario.setHorario_func(res.getString(4));
                     aquario.setContato(res.getString(5));
                     aquario.setPrecoIngresso(res.getFloat(6));
                 }
@@ -96,7 +97,7 @@ public class AquarioDAOImpl implements AquarioDAO {
         PreparedStatement pstm = null;
         ResultSet res = null;
         List<Aquario> lista = new ArrayList<>();
-
+        
         con = FabricaConexao.getConexao();
 
         if (con != null) {
@@ -109,7 +110,7 @@ public class AquarioDAOImpl implements AquarioDAO {
                     aquario.setIdAquario(res.getLong(1));
                     aquario.setNome(res.getString(2));
                     aquario.setEndereco(res.getString(3));
-                    aquario.setHorarioFunc(res.getString(4));
+                    aquario.setHorario_func(res.getString(4));
                     aquario.setContato(res.getString(5));
                     aquario.setPrecoIngresso(res.getFloat(6));
                     
@@ -119,7 +120,7 @@ public class AquarioDAOImpl implements AquarioDAO {
                 System.out.println("Message: " + ex);
             }
         }
-
+        Collections.sort(lista,Collections.reverseOrder());
         return lista;
     } 
 }

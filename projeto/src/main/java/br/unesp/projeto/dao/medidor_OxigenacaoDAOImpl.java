@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package br.unesp.projeto.dao;
-
-import br.unesp.projeto.model.Termostato;
+import static br.unesp.projeto.dao.medidor_OxigenaçãoDAO.FIND_ALL;
+import br.unesp.projeto.model.Medidor_oxigenacao;
 import br.unesp.projeto.utils.FabricaConexao;
 
 import java.sql.Connection;
@@ -17,11 +17,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class TermostatoDAOImpl implements TermostatoDAO {
-  public  TermostatoDAOImpl() {
-      }
+public class medidor_OxigenacaoDAOImpl implements medidor_OxigenaçãoDAO{
+   public  medidor_OxigenacaoDAOImpl() {
+     }
     @Override
-    public boolean save(Termostato termostato) {
+    public boolean save(Medidor_oxigenacao medidor_oxigenacao) {
 
         boolean b = false;
         Connection con = null;
@@ -32,8 +32,8 @@ public class TermostatoDAOImpl implements TermostatoDAO {
 
         if (con != null) {
             try {
-                pstm = con.prepareStatement(INSERT_TERMOSTATO);
-                pstm.setFloat(1,termostato.getTemperatura());
+                pstm = con.prepareStatement(INSERT_Medidor_oxigenacao);
+                pstm.setFloat(1,medidor_oxigenacao.getIdMedidor_Oxigenacao());
 
                 pstm.executeUpdate();
 
@@ -45,44 +45,41 @@ public class TermostatoDAOImpl implements TermostatoDAO {
 
         return b;
     }
-    @Override
-    public Termostato findById(Long idTermostato) {
 
-        Connection con = null;
+    @Override
+    public Medidor_oxigenacao findById(Long idMedidor_oxigenacao) {
+         Connection con = null;
         PreparedStatement pstm = null;
         ResultSet res = null;
-        Termostato termostato = null;
+        Medidor_oxigenacao medidor_oxigenacao = null;
 
         con = FabricaConexao.getConexao();
 
         if (con != null) {
             try {
                 pstm = con.prepareStatement(FIND_BY_ID);
-                pstm.setLong(1, idTermostato);
+                pstm.setLong(1, idMedidor_oxigenacao);
                 res = pstm.executeQuery();
 
                 while (res.next()) {
-                    termostato = new Termostato();
-                    termostato.setIdTermostato(res.getLong(1));
-                    termostato.setTemperatura(res.getFloat(2));
+                    medidor_oxigenacao = new Medidor_oxigenacao();
+                    medidor_oxigenacao.setIdMedidor_Oxigenacao(res.getLong(1));
+                     medidor_oxigenacao.setIOxigenacao(res.getFloat(2));
                 }
             } catch (SQLException ex) {
                 System.out.println("Message: " + ex);
             }
         }
 
-        return termostato;
-    }
-    
-    
-    @Override
-    public List<Termostato> findAll() {
+        return medidor_oxigenacao;  }
 
+    @Override
+    public List<Medidor_oxigenacao> findAll() {
         Connection con = null;
         PreparedStatement pstm = null;
         ResultSet res = null;
-        List<Termostato> lista = new ArrayList<>();
-
+        List<Medidor_oxigenacao> lista = new ArrayList<>();
+        
         con = FabricaConexao.getConexao();
 
         if (con != null) {
@@ -91,11 +88,11 @@ public class TermostatoDAOImpl implements TermostatoDAO {
                 res = pstm.executeQuery();
                                 
                 while (res.next()) {                    
-                    Termostato termostato = new Termostato();
-                    termostato.setIdTermostato(res.getLong(1));
-                   termostato.setTemperatura(res.getFloat(2));
+                    Medidor_oxigenacao medidor_oxigenacao = new Medidor_oxigenacao();
+                    medidor_oxigenacao.setIdMedidor_Oxigenacao(res.getLong(1));
+                    medidor_oxigenacao.setOxigenacao(res.getFloat(2));
                     
-                    lista.add(termostato);
+                    lista.add(medidor_oxigenacao);
                 }
             } catch (SQLException ex) {
                 System.out.println("Message: " + ex);
@@ -103,5 +100,5 @@ public class TermostatoDAOImpl implements TermostatoDAO {
         }
         Collections.sort(lista,Collections.reverseOrder());
         return lista;
-    } 
+    }    
 }

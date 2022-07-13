@@ -13,14 +13,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ArmazemDAOImpl implements ArmazemDAO {
-     public ArmazemDAOImpl() {
+    public  ArmazemDAOImpl() {
         
           
     }
-     
     @Override
     public boolean save(Armazem armazem) {
 
@@ -50,7 +50,7 @@ public class ArmazemDAOImpl implements ArmazemDAO {
      
      
     @Override
-    public Armazem findById(Long idArmazem) {
+    public Armazem findById(Long IdArmazem) {
 
         Connection con = null;
         PreparedStatement pstm = null;
@@ -105,8 +105,8 @@ public class ArmazemDAOImpl implements ArmazemDAO {
                 System.out.println("Message: " + ex);
             }
         }
-
-        return armazem;
+        Collections.sort(lista,Collections.reverseOrder());
+        return lista;
     } 
      
 }

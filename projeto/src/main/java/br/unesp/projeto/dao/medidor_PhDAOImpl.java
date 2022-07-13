@@ -4,8 +4,7 @@
  * and open the template in the editor.
  */
 package br.unesp.projeto.dao;
-
-import br.unesp.projeto.model.Termostato;
+import br.unesp.projeto.model.Medidor_ph;
 import br.unesp.projeto.utils.FabricaConexao;
 
 import java.sql.Connection;
@@ -17,11 +16,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class TermostatoDAOImpl implements TermostatoDAO {
-  public  TermostatoDAOImpl() {
-      }
+
+public class medidor_PhDAOImpl implements medidor_PhDAO  {
+    public  medidor_PhDAOImpl() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     @Override
-    public boolean save(Termostato termostato) {
+    public boolean save(Medidor_ph medidor_Ph) {
 
         boolean b = false;
         Connection con = null;
@@ -32,8 +33,8 @@ public class TermostatoDAOImpl implements TermostatoDAO {
 
         if (con != null) {
             try {
-                pstm = con.prepareStatement(INSERT_TERMOSTATO);
-                pstm.setFloat(1,termostato.getTemperatura());
+                pstm = con.prepareStatement(INSERT_Medidor_ph);
+                pstm.setFloat(1,medidor_Ph.getPh());
 
                 pstm.executeUpdate();
 
@@ -45,43 +46,43 @@ public class TermostatoDAOImpl implements TermostatoDAO {
 
         return b;
     }
-    @Override
-    public Termostato findById(Long idTermostato) {
+     @Override
+    public Medidor_ph findById(Long idMedidor_ph) {
 
         Connection con = null;
         PreparedStatement pstm = null;
         ResultSet res = null;
-        Termostato termostato = null;
+       Medidor_ph medidor_ph = null;
 
         con = FabricaConexao.getConexao();
 
         if (con != null) {
             try {
                 pstm = con.prepareStatement(FIND_BY_ID);
-                pstm.setLong(1, idTermostato);
+                pstm.setLong(1, idMedidor_ph);
                 res = pstm.executeQuery();
 
                 while (res.next()) {
-                    termostato = new Termostato();
-                    termostato.setIdTermostato(res.getLong(1));
-                    termostato.setTemperatura(res.getFloat(2));
+                    medidor_ph= new Medidor_ph();
+                    medidor_ph.setIdMedidor_ph(res.getLong(1));
+                    medidor_ph.setPh(res.getFloat(2));
                 }
             } catch (SQLException ex) {
                 System.out.println("Message: " + ex);
             }
         }
 
-        return termostato;
+        return medidor_ph;
     }
     
     
     @Override
-    public List<Termostato> findAll() {
+    public List<Medidor_ph> findAll() {
 
         Connection con = null;
         PreparedStatement pstm = null;
         ResultSet res = null;
-        List<Termostato> lista = new ArrayList<>();
+        List<Medidor_ph> lista = new ArrayList<>();
 
         con = FabricaConexao.getConexao();
 
@@ -91,11 +92,11 @@ public class TermostatoDAOImpl implements TermostatoDAO {
                 res = pstm.executeQuery();
                                 
                 while (res.next()) {                    
-                    Termostato termostato = new Termostato();
-                    termostato.setIdTermostato(res.getLong(1));
-                   termostato.setTemperatura(res.getFloat(2));
+                    Medidor_ph medidor_ph = new Medidor_ph();
+                    medidor_ph.setIdMedidor_ph(res.getLong(1));
+                    medidor_ph.setPh(res.getFloat(2));
                     
-                    lista.add(termostato);
+                    lista.add(medidor_ph);
                 }
             } catch (SQLException ex) {
                 System.out.println("Message: " + ex);
@@ -105,3 +106,4 @@ public class TermostatoDAOImpl implements TermostatoDAO {
         return lista;
     } 
 }
+

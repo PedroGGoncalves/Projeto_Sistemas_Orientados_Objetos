@@ -35,8 +35,8 @@ public class Armazem implements Serializable {
      
      @Id
      @GeneratedValue(strategy = GenerationType.AUTO)
-     // private List<Comida> alimento;
      private long idArmazem;
+     
      private int quantidade;
      
     public Armazem() {

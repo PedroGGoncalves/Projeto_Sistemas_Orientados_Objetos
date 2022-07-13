@@ -13,15 +13,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
 public class medidor_SalinidadeDAOImpl implements medidor_SalinidadeDAO  {
-    
-    public medidor_SalinidadeDAOImpl() {
-       
+     public medidor_SalinidadeDAOImpl() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-     
     @Override
     public boolean save(Medidor_salinidade medidor_Salinidade) {
 
@@ -47,14 +46,13 @@ public class medidor_SalinidadeDAOImpl implements medidor_SalinidadeDAO  {
 
         return b;
     }
-     
-    @Override
+     @Override
     public Medidor_salinidade findById(Long idMedidor_salinidade) {
 
         Connection con = null;
         PreparedStatement pstm = null;
         ResultSet res = null;
-        Aquario aquario = null;
+       Medidor_salinidade medidor_salinidade = null;
 
         con = FabricaConexao.getConexao();
 
@@ -66,7 +64,7 @@ public class medidor_SalinidadeDAOImpl implements medidor_SalinidadeDAO  {
 
                 while (res.next()) {
                     medidor_salinidade= new Medidor_salinidade();
-                    medidor_salinidade.setIdMedidor_salinidade(res.getLong(1));
+                    medidor_salinidade.setIdMedidor_Salinidade(res.getLong(1));
                     medidor_salinidade.setSalinidade(res.getFloat(2));
                 }
             } catch (SQLException ex) {
@@ -74,7 +72,7 @@ public class medidor_SalinidadeDAOImpl implements medidor_SalinidadeDAO  {
             }
         }
 
-        return aquario;
+        return medidor_salinidade;
     }
     
     
@@ -95,7 +93,7 @@ public class medidor_SalinidadeDAOImpl implements medidor_SalinidadeDAO  {
                                 
                 while (res.next()) {                    
                     Medidor_salinidade medidor_salinidade = new Medidor_salinidade();
-                    medidor_salinidadeo.setIdMedidor_salinidade(res.getLong(1));
+                    medidor_salinidade.setIdMedidor_Salinidade(res.getLong(1));
                     medidor_salinidade.setSalinidade(res.getFloat(2));
                     
                     lista.add(medidor_salinidade);
@@ -104,7 +102,7 @@ public class medidor_SalinidadeDAOImpl implements medidor_SalinidadeDAO  {
                 System.out.println("Message: " + ex);
             }
         }
-
+        Collections.sort(lista,Collections.reverseOrder());
         return lista;
     } 
 }

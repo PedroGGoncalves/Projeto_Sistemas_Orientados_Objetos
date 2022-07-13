@@ -39,8 +39,8 @@ public class DaoFactory {
     public static medidor_SalinidadeDAO getmedidor_salinidadeDAO(){
         return new  medidor_SalinidadeDAOImpl();
     }
-    public static medidor_pHDAO getmedidor_pHDAO(){
-        return new  medidor_pHDAOImpl();
+    public static medidor_PhDAO getmedidor_pHDAO(){
+        return new  medidor_PhDAOImpl();
     }
     
     

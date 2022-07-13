@@ -33,4 +33,8 @@ public class Medidor_oxigenacao implements Serializable {
     public Medidor_oxigenacao () {
        // this.itemTermostato   = new ArrayList<>();
     }
+
+    public void setIOxigenacao(float aFloat) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

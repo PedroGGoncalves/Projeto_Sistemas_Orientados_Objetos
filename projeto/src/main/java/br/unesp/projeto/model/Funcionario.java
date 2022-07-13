@@ -46,7 +46,6 @@ public class Funcionario implements Serializable {
     private String nome_completo;
     private String RG;
     private String CPF;
-   // private List<Area> funcao;
     private float salario;
    
    
@@ -58,8 +57,8 @@ public class Funcionario implements Serializable {
    
    
     private boolean login;
+    
 
- 
     @ManyToMany(mappedBy="funcionarios", cascade = CascadeType.ALL)
     private List<Tanque> tanques;
    

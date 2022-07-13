@@ -15,15 +15,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collections;
 
 public class LoginDAOImpl implements LoginDAO {
-    
-     
-     public LoginDAOImpl() {
-       
-     }
-     
-     
+    public  LoginDAOImpl() {
+          }
     @Override
     public boolean save(Login login) {
 
@@ -69,8 +65,8 @@ public class LoginDAOImpl implements LoginDAO {
                                 
                 while (res.next()) {                    
                     Login login = new Login();
-                    login.setIdAquario(res.getLong(1));
-                    login.setNome(res.getString(2));
+                    login.setID(res.getString(1));
+                    login.setSenha(res.getString(2));
                 
                     
                     lista.add(login);
@@ -79,7 +75,7 @@ public class LoginDAOImpl implements LoginDAO {
                 System.out.println("Message: " + ex);
             }
         }
-
+        Collections.sort(lista,Collections.reverseOrder());
         return lista;
     } 
      
