@@ -11,6 +11,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface LoginService {
 
-     List<Login> findAll();
+    List<Login> findAll();
     boolean save(Login entity);
 }
