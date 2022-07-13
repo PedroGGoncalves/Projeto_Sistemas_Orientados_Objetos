@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.unesp.projeto.model;
+package br.unesp.projeto.entity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +22,7 @@ import java.io.Serializable;
 @ToString
 public class Medidor_salinidade implements Serializable {
    
-   private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
         
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -32,7 +32,7 @@ public class Medidor_salinidade implements Serializable {
     private float salinidade;
     
     public Medidor_salinidade () {
-       // this.itemTermostato   = new ArrayList<>();
+     
     
 }
 }
