@@ -17,9 +17,11 @@ import java.sql.SQLException;
 
 public class AquarioDAOImpl implements AquarioDAO {
 
-    AquarioDAOImpl() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public AquarioDAOImpl() {
+        
     }
+    
+    
     @Override
     public boolean save(Aquario aquario) {
 
