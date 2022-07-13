@@ -10,6 +10,7 @@ import br.unesp.projeto.dao.LoginDAO;
 import br.unesp.projeto.dao.DaoFactory;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -41,7 +42,7 @@ public class loginServiceImpl implements LoginService {
             lista = new ArrayList<>();
             lista = dao.findAll();
         }
-
+        Collections.sort(lista,Collections.reverseOrder());
         return lista;
     }
 

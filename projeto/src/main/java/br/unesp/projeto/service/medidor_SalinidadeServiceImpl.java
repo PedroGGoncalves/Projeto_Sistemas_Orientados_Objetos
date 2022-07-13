@@ -9,6 +9,7 @@ import br.unesp.projeto.dao.medidor_SalinidadeDAO;
 import br.unesp.projeto.dao.DaoFactory;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -53,7 +54,7 @@ public class medidor_SalinidadeServiceImpl implements medidor_SalinidadeService 
             lista = new ArrayList<>();
             lista = dao.findAll();
         }
-
+        Collections.sort(lista,Collections.reverseOrder());
         return lista;
     }
 
