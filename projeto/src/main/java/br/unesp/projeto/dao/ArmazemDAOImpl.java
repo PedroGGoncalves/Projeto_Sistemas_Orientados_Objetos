@@ -16,10 +16,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ArmazemDAOImpl implements ArmazemDAO {
-     ArmazemDAOImpl() {
+     public ArmazemDAOImpl() {
         
           
     }
+     
     @Override
     public boolean save(Armazem armazem) {
 
