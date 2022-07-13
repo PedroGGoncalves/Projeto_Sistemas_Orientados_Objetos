@@ -10,6 +10,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AquarioRepository extends JpaRepository<Aquario, Long> {
 
-    Aquario find(Long Id);
+    Aquario findById(long Id);
     
 }
