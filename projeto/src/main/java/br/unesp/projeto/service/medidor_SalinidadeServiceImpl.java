@@ -1,11 +1,12 @@
-/* * To change this license header, choose License Headers in Project Properties.
+/*
+ * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package br.unesp.projeto.service;
 
-import br.unesp.projeto.model.Medidor_salinidade;
-import br.unesp.projeto.repository.medidor_SalinidadeDAO;
+import br.unesp.projeto.model.Medidor_ph;
+import br.unesp.projeto.repository.medidor_pHDAO;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,17 +15,17 @@ import org.springframework.stereotype.Component;
 import java.util.Collections;
 
 @Component
-public class medidor_SalinidadeServiceImpl {
+public class medidor_pHServiceImpl {
 
     @Autowired
-    private medidor_SalinidadeDAO repository;
+    private medidor_pHDAO repository;
 
-    public medidor_SalinidadeServiceImpl() {
+    public medidor_pHServiceImpl() {
         
     }
 
-    public Medidor_salinidade save(Medidor_salinidade entity) {
-        Medidor_salinidade persistedEntity = null;
+    public Medidor_ph save(Medidor_ph entity) {
+        Medidor_ph persistedEntity = null;
 
         if (repository != null) {
             persistedEntity = repository.save(entity);
@@ -33,8 +34,8 @@ public class medidor_SalinidadeServiceImpl {
         return persistedEntity;
     }
 
-    public Medidor_salinidade find(Long Id) {
-        Medidor_salinidade insertedEntity = null;
+    public Medidor_ph find(Long Id) {
+        Medidor_ph insertedEntity = null;
 
         if (repository != null) {
             insertedEntity = repository.find(Id);
@@ -43,16 +44,16 @@ public class medidor_SalinidadeServiceImpl {
         return insertedEntity;
     }
 
-    public void delete(Medidor_salinidade entity) {
+    public void delete(Medidor_ph entity) {
 
         if (repository != null) {
             repository.delete(entity);
         }
     }
 
-    public Medidor_salinidade update(Medidor_salinidade entity) {
+    public Medidor_ph update(Medidor_ph entity) {
 
-        Medidor_salinidade persistedEntity = null;
+        Medidor_ph persistedEntity = null;
 
         if (repository != null) {
             persistedEntity = repository.save(entity);
@@ -61,8 +62,8 @@ public class medidor_SalinidadeServiceImpl {
         return persistedEntity;
     }
 
-    public List<Medidor_salinidade> findAll() {
-        List<Medidor_salinidade> list = null;
+    public List<Medidor_ph> findAll() {
+        List<Medidor_ph> list = null;
        
         if (repository != null) {
             list = new ArrayList<>();
