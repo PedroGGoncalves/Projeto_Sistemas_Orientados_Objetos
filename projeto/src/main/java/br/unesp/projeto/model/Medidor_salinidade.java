@@ -22,6 +22,7 @@ import java.io.Serializable;
 @ToString
 public class Medidor_salinidade implements Serializable {
    
+   private static final long serialVersionUID = 1L;
         
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
