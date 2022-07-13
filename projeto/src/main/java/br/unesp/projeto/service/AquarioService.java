@@ -37,11 +37,11 @@ public class AquarioService {
         return persistedEntity;
     }
 
-    public Aquario find(Long Id) {
+    public Aquario findById(long Id) {
         Aquario insertedEntity = null;
 
         if (repository != null) {
-            insertedEntity = repository.find(Id);
+            insertedEntity = repository.findById(Id);
         }
 
         return insertedEntity;
