@@ -12,12 +12,16 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class medidor_SalinidadeDAOImpl implements medidor_SalinidadeDAO  {
-     medidor_SalinidadeDAOImpl() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public medidor_SalinidadeDAOImpl() {
+       
     }
+     
     @Override
     public boolean save(Medidor_salinidade medidor_Salinidade) {
 
@@ -43,7 +47,8 @@ public class medidor_SalinidadeDAOImpl implements medidor_SalinidadeDAO  {
 
         return b;
     }
-     @Override
+     
+    @Override
     public Medidor_salinidade findById(Long idMedidor_salinidade) {
 
         Connection con = null;
