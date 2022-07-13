@@ -6,21 +6,21 @@
 package br.unesp.projeto.service;
 
 import br.unesp.projeto.model.Login;
-import br.unesp.projeto.repository.LoginDAO;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;
+import br.unesp.projeto.repository.LoginRepository;
 
 @Component
-public class loginServiceImpl {
+public class LoginService {
 
     @Autowired
-    private LoginDAO repository;
+    private LoginRepository repository;
 
-    public loginServiceImpl() {
+    public LoginService() {
         
     }
 
@@ -34,11 +34,11 @@ public class loginServiceImpl {
         return persistedEntity;
     }
 
-    public Login find(Long Id) {
+    public Login findByID(long Id) {
         Login insertedEntity = null;
 
         if (repository != null) {
-            insertedEntity = repository.find(Id);
+            insertedEntity = repository.findByID(Id);
         }
 
         return insertedEntity;
