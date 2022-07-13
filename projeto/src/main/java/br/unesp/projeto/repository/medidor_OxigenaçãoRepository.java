@@ -8,7 +8,7 @@ import br.unesp.projeto.model.Medidor_oxigenacao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface  medidor_OxigenaçãoRepository extends JpaRepository<Medidor_oxigenacao, Long> {
+public interface  Medidor_OxigenaçãoRepository extends JpaRepository<Medidor_oxigenacao, Long> {
 
     Medidor_oxigenacao findById(long Id);
 }
