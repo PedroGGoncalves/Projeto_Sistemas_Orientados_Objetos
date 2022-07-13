@@ -17,9 +17,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LoginDAOImpl implements LoginDAO {
-     LoginDAOImpl() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
+     
+     public LoginDAOImpl() {
+       
+     }
+     
+     
     @Override
     public boolean save(Login login) {
 
