@@ -5,12 +5,13 @@
  */
 package br.unesp.projeto.service;
 import br.unesp.projeto.model.Tanque;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface TanqueService extends JpaRepository<Tanque, Long> {
+public interface TanqueService {
 
-    Tanque find(String idTanque);
-    Tanque getAll(String idTanque);
-    void delete(int id);
+     List<Tanque> findAll();
+    Tanque findById(Long id);
+    boolean save(Tanque entity);
 }
