@@ -6,75 +6,57 @@
 package br.unesp.projeto.service;
 
 import br.unesp.projeto.model.Aquario;
-import br.unesp.projeto.service.AquarioService;
+import br.unesp.projeto.dao.AquarioDAO;
+import br.unesp.projeto.dao.DaoFactory;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Collections;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 
+public class AquarioServiceImpl implements AquarioService {
 
-@Component
-public class AquarioServiceImpl {
+     private AquarioDAO dao = DaoFactory.getAquarioDAO();
 
-    @Autowired
-    private AquarioService repository;
+    
+    
+    @Override
+    public boolean save(Aquario entity) {
+        boolean b = false;
 
-    public AquarioServiceImpl() {
-        
-    }
-
-    public Aquario save(Aquario entity) {
-        Aquario persistedEntity = null;
-
-        if (repository != null) {
-            persistedEntity = repository.save(entity);
+        if (dao != null) {
+            System.out.println("NOT NULL");
+            dao.save(entity);
+            b = true;
         }
 
-        return persistedEntity;
+        return b;
     }
+    
+    
+    
+    @Override
+    public Aquario findById(Long id) {
+        Aquario entity = null;
 
-    public Aquario find(String nome) {
-        Aquario insertedEntity = null;
-
-        if (repository != null) {
-            insertedEntity = repository.find(nome);
+        if (dao != null) {
+            entity = dao.findById(id);
         }
 
-        return insertedEntity;
+        return entity;
     }
-
-    public void delete(Aquario entity) {
-
-        if (repository != null) {
-            repository.delete(entity);
-        }
-    }
-
-    public Aquario update(Aquario entity) {
-
-        Aquario persistedEntity = null;
-
-        if (repository != null) {
-            persistedEntity = repository.save(entity);
-        }
-
-        return persistedEntity;
-    }
-
+ 
+    
+    @Override
     public List<Aquario> findAll() {
-        List<Aquario> list = null;
-       
-        if (repository != null) {
-            list = new ArrayList<>();
-            list = repository.findAll();
-            Collections.sort(list,Collections.reverseOrder());
+        List<Aquario> lista = null;
+
+        if (dao != null) {
+            lista = new ArrayList<>();
+            lista = dao.findAll();
         }
-        
-        return list;
+
+        return lista;
     }
 
+     
 }
