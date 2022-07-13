@@ -24,6 +24,8 @@ import javax.persistence.Entity;
 @Entity(name="Medidor de oxigenação")
 public class Medidor_oxigenacao implements Serializable {
     
+    private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long idMedidor_Oxigenacao;
