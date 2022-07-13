@@ -1,7 +1,7 @@
 package br.unesp.projeto.resource;
 
 import br.unesp.projeto.model.Termostato;
-import br.unesp.projeto.service.TermostatoServiceImpl;
+import br.unesp.projeto.service.TermostatoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TermostatoResource {
     
     @Autowired
-    private TermostatoServiceImpl termostatoService;
+    private TermostatoService termostatoService;
     
     @GetMapping("/")
     public List<Termostato> getAllTermostato() {
@@ -28,16 +28,16 @@ public class TermostatoResource {
     
     
     @GetMapping("/{temperatura}")
-    public Termostato getTermostatoByCpf(@PathVariable(value = "temperatura") Long temperatura) {
-        Termostato termostato = termostatoService.find(temperatura);
+    public Termostato getTermostatoById(@PathVariable(value = "temperatura") long idTermostato) {
+        Termostato termostato = termostatoService.findById(idTermostato);
 
         return termostato;
     }
     
     @DeleteMapping("/{temperatura}")
-    public boolean delete(@PathVariable(value = "temperatura") Long temperatura) {
+    public boolean delete(@PathVariable(value = "temperatura")  long idTermostato) {
         boolean delete = false;
-        Termostato termostatoDelete = termostatoService.find(temperatura);
+        Termostato termostatoDelete = termostatoService.findById(idTermostato);
 
         if (termostatoDelete != null){
          termostatoService.delete(termostatoDelete);
@@ -62,12 +62,12 @@ public class TermostatoResource {
     
     
     @PutMapping("/{temperatura}")
-    public boolean updateTermostato(@PathVariable(value = "temperatura") Long temperatura,
+    public boolean updateTermostato(@PathVariable(value = "temperatura") long idTermostato,
             @RequestBody Termostato termostato) {
         boolean update = false;
         
-        Termostato termostatoUpdate = termostatoService.find(temperatura);        
-        Termostato newTermostato = termostatoService.find(temperatura);  
+        Termostato termostatoUpdate = termostatoService.findById(idTermostato);        
+        Termostato newTermostato = termostatoService.findById(idTermostato);  
         // Campos que estão sendo atualizados
         termostatoUpdate.setTemperatura(newTermostato.getTemperatura());
 
