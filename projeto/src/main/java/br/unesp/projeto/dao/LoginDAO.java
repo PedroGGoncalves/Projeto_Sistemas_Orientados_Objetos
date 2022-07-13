@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface LoginDAO {
      final String INSERT_LOGIN = "INSERT INTO login(ID,Senha) "
-            + "VALUES(?,?,?)";
+            + "VALUES(?,?)";
 
     final String FIND_ALL = "SELECT ID, Senha "
             + "FROM login";
