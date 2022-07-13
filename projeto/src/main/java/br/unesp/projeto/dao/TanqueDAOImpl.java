@@ -15,9 +15,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class TanqueDAOImpl implements TanqueDAO{
-     TanqueDAOImpl() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+     public TanqueDAOImpl() {
+       
     }
+     
     @Override
     public boolean save(Tanque tanque) {
 
