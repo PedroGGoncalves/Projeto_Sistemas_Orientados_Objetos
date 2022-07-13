@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.unesp.projeto.model;
+package br.unesp.projeto.entity;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.EqualsAndHashCode;
@@ -31,7 +31,7 @@ public class Termostato implements Serializable{
     private float temperatura;
     
     public Termostato () {
-       // this.itemTermostato   = new ArrayList<>();
+    
     }
    
 }
