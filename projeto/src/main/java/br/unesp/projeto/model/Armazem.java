@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.unesp.projeto.model;
+package br.unesp.projeto.entity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,14 +30,15 @@ import javax.persistence.Entity;
 @ToString
 public class Armazem implements Serializable {
      
-     private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
      
      
-     @Id
-     @GeneratedValue(strategy = GenerationType.AUTO)
-     private long idArmazem;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long idArmazem;
      
-     private int quantidade;
+    
+    private int quantidade;
      
     public Armazem() {
 
