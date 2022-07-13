@@ -31,7 +31,7 @@ public class TermostatoDAOImpl implements TermostatoDAO {
         if (con != null) {
             try {
                 pstm = con.prepareStatement(INSERT_TERMOSTATO);
-                pstm.setInt(1,termostato.getTemperatura());
+                pstm.setFloat(1,termostato.getTemperatura());
 
                 pstm.executeUpdate();
 
@@ -43,4 +43,63 @@ public class TermostatoDAOImpl implements TermostatoDAO {
 
         return b;
     }
+    @Override
+    public Termostato findById(Long idTermostato) {
+
+        Connection con = null;
+        PreparedStatement pstm = null;
+        ResultSet res = null;
+        Termostato termostato = null;
+
+        con = FabricaConexao.getConexao();
+
+        if (con != null) {
+            try {
+                pstm = con.prepareStatement(FIND_BY_ID);
+                pstm.setLong(1, idTermostato);
+                res = pstm.executeQuery();
+
+                while (res.next()) {
+                    termostato = new Termostato();
+                    termostato.setIdTermostato(res.getLong(1));
+                    termostato.setTemperatura(res.getFloat(2));
+                }
+            } catch (SQLException ex) {
+                System.out.println("Message: " + ex);
+            }
+        }
+
+        return termostato;
+    }
+    
+    
+    @Override
+    public List<Termostato> findAll() {
+
+        Connection con = null;
+        PreparedStatement pstm = null;
+        ResultSet res = null;
+        List<Termostato> lista = new ArrayList<>();
+
+        con = FabricaConexao.getConexao();
+
+        if (con != null) {
+            try {
+                pstm = con.prepareStatement(FIND_ALL);                
+                res = pstm.executeQuery();
+                                
+                while (res.next()) {                    
+                    Termostato termostato = new Termostato();
+                    termostato.setIdAquario(res.getLong(1));
+                    termostato.setEndereco(res.getString(2))
+                    
+                    lista.add(termostato);
+                }
+            } catch (SQLException ex) {
+                System.out.println("Message: " + ex);
+            }
+        }
+
+        return lista;
+    } 
 }

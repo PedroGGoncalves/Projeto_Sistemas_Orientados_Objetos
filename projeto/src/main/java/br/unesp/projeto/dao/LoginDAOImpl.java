@@ -13,6 +13,8 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LoginDAOImpl implements LoginDAO {
      LoginDAOImpl() {
@@ -31,9 +33,8 @@ public class LoginDAOImpl implements LoginDAO {
         if (con != null) {
             try {
                 pstm = con.prepareStatement(INSERT_LOGIN);
-                pstm.setLong(1,login.getIdLogin());
-                pstm.setString(2, login.getID());
-                pstm.setString(3, login.getSenha());
+                pstm.setString(1, login.getID());
+                pstm.setString(2, login.getSenha());
 
                 pstm.executeUpdate();
 
@@ -45,4 +46,40 @@ public class LoginDAOImpl implements LoginDAO {
 
         return b;
     }
+     
+     
+    @Override
+    public List<Login> findAll() {
+
+        Connection con = null;
+        PreparedStatement pstm = null;
+        ResultSet res = null;
+        List<Login> lista = new ArrayList<>();
+
+        con = FabricaConexao.getConexao();
+
+        if (con != null) {
+            try {
+                pstm = con.prepareStatement(FIND_ALL);                
+                res = pstm.executeQuery();
+                                
+                while (res.next()) {                    
+                    Login login = new Login();
+                    login.setIdAquario(res.getLong(1));
+                    login.setNome(res.getString(2));
+                
+                    
+                    lista.add(login);
+                }
+            } catch (SQLException ex) {
+                System.out.println("Message: " + ex);
+            }
+        }
+
+        return lista;
+    } 
+     
+     
+     
+     
 }

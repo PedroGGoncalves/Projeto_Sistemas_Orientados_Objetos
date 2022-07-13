@@ -11,16 +11,20 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
-
+import java.io.Serializable;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
 @Getter
 @Setter
 @EqualsAndHashCode
 @ToString
 
-public class Medidor_ph {
+public class Medidor_ph implements Serializable {
     @Id
-    private int ph;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long idMedidor_ph;
+    private float ph;
     
     public Medidor_ph () {
        // this.itemTermostato   = new ArrayList<>();

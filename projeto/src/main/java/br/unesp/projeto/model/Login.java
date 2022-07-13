@@ -13,19 +13,29 @@ import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 
 
+
+
+@Embeddable
 @Getter
 @Setter
 @EqualsAndHashCode
 @ToString
-
-public class Login {
+public class Login implements Serializable {
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long idLogin;
+    
+    private static final long serialVersionUID = 1L;
+    
+    
+    @Column(name = "login_ID")
     private String ID;
+    
+    
+    @Column(name = "login_Senha")
     private String Senha;
     
     public Login() {

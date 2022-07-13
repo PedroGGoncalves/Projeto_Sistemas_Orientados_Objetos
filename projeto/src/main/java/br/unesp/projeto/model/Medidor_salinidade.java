@@ -13,17 +13,22 @@ import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import java.io.Serializable;
 
 
 @Getter
 @Setter
 @EqualsAndHashCode
 @ToString
+public class Medidor_salinidade implements Serializable {
+   
         
-public class Medidor_salinidade {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int salinidade;
+    private long idMedidor_Salinidade;
+        
+        
+    private float salinidade;
     
     public Medidor_salinidade () {
        // this.itemTermostato   = new ArrayList<>();

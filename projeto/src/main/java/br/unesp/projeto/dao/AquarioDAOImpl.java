@@ -13,13 +13,17 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class AquarioDAOImpl implements AquarioDAO {
 
-    AquarioDAOImpl() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public AquarioDAOImpl() {
+        
     }
+    
+    
     @Override
     public boolean save(Aquario aquario) {
 
@@ -49,4 +53,73 @@ public class AquarioDAOImpl implements AquarioDAO {
 
         return b;
     }
+    
+   
+    @Override
+    public Aquario findById(Long idAquario) {
+
+        Connection con = null;
+        PreparedStatement pstm = null;
+        ResultSet res = null;
+        Aquario aquario = null;
+
+        con = FabricaConexao.getConexao();
+
+        if (con != null) {
+            try {
+                pstm = con.prepareStatement(FIND_BY_ID);
+                pstm.setLong(1, idAquario);
+                res = pstm.executeQuery();
+
+                while (res.next()) {
+                    aquario = new Aquario();
+                    aquario.setIdAquario(res.getLong(1));
+                    aquario.setNome(res.getString(2));
+                    aquario.setEndereco(res.getString(3));
+                    aquario.setHorarioFunc(res.getString(4));
+                    aquario.setContato(res.getString(5));
+                    aquario.setPrecoIngresso(res.getFloat(6));
+                }
+            } catch (SQLException ex) {
+                System.out.println("Message: " + ex);
+            }
+        }
+
+        return aquario;
+    }
+    
+    
+    @Override
+    public List<Aquario> findAll() {
+
+        Connection con = null;
+        PreparedStatement pstm = null;
+        ResultSet res = null;
+        List<Aquario> lista = new ArrayList<>();
+
+        con = FabricaConexao.getConexao();
+
+        if (con != null) {
+            try {
+                pstm = con.prepareStatement(FIND_ALL);                
+                res = pstm.executeQuery();
+                                
+                while (res.next()) {                    
+                    Aquario aquario = new Aquario();
+                    aquario.setIdAquario(res.getLong(1));
+                    aquario.setNome(res.getString(2));
+                    aquario.setEndereco(res.getString(3));
+                    aquario.setHorarioFunc(res.getString(4));
+                    aquario.setContato(res.getString(5));
+                    aquario.setPrecoIngresso(res.getFloat(6));
+                    
+                    lista.add(aquario);
+                }
+            } catch (SQLException ex) {
+                System.out.println("Message: " + ex);
+            }
+        }
+
+        return lista;
+    } 
 }

@@ -11,15 +11,22 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
-
+import java.io.Serializable;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
 @Getter
 @Setter
 @EqualsAndHashCode
 @ToString
-public class Termostato {
+public class Termostato implements Serializable{
+    
     @Id
-    private int temperatura;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long idTermostato;
+    
+    
+    private float temperatura;
     
     public Termostato () {
        // this.itemTermostato   = new ArrayList<>();

@@ -77,7 +77,7 @@ public class FuncionarioDAOImpl implements FuncionarioDAO {
                     func.setData_nascimento(res.getDate(6));
                     func.setContratacao(res.getDate(7));
                     func.setLogin(res.getBoolean(8));
-                    func.setLoginn((List<Login>) res.getArray(9));
+                //    func.setLoginn((List<Login>) res.getArray(9));
                 }
             } catch (SQLException ex) {
                 System.out.println("Message: " + ex);
@@ -112,7 +112,7 @@ public class FuncionarioDAOImpl implements FuncionarioDAO {
                     func.setData_nascimento(res.getDate(6));
                     func.setContratacao(res.getDate(7));
                     func.setLogin(res.getBoolean(8));
-                    func.setLoginn((List<Login>) res.getArray(9));
+             //       func.setLoginn((List<Login>) res.getArray(9));
                     
                     lista.add(func);
                 }

@@ -30,7 +30,7 @@ public class medidor_pHDAOImpl implements medidor_pHDAO {
         if (con != null) {
             try {
                 pstm = con.prepareStatement(INSERT_Medidor_ph);
-                pstm.setInt(1,medidor_ph.getPh());
+                pstm.setFloat(1,medidor_ph.getPh());
 
                 pstm.executeUpdate();
 
@@ -41,5 +41,64 @@ public class medidor_pHDAOImpl implements medidor_pHDAO {
         }
 
         return b;
+    }
+    @Override
+    public Medidor_ph findById(Long idMedidor_ph) {
+
+        Connection con = null;
+        PreparedStatement pstm = null;
+        ResultSet res = null;
+        Medidor_ph medidor_ph = null;
+
+        con = FabricaConexao.getConexao();
+
+        if (con != null) {
+            try {
+                pstm = con.prepareStatement(FIND_BY_ID);
+                pstm.setLong(1, idMedidor_ph);
+                res = pstm.executeQuery();
+
+                while (res.next()) {
+                    medidor_ph = new medidor_ph();
+                    medidor_ph.setIdMedidor_ph(res.getLong(1));
+                    medidor_ph.setTemperatura(res.getFloat(2));
+                }
+            } catch (SQLException ex) {
+                System.out.println("Message: " + ex);
+            }
+        }
+
+        return medidor_ph;
+    }
+    
+    
+    @Override
+    public List<Medidor_ph> findAll() {
+
+        Connection con = null;
+        PreparedStatement pstm = null;
+        ResultSet res = null;
+        List<Medidor_ph> lista = new ArrayList<>();
+
+        con = FabricaConexao.getConexao();
+
+        if (con != null) {
+            try {
+                pstm = con.prepareStatement(FIND_ALL);                
+                res = pstm.executeQuery();
+                                
+                while (res.next()) {                    
+                    Medidor_ph medidor_ph = new medidor_ph();
+                    medidor_ph.setIdAquario(res.getLong(1));
+                    medidor_ph.setEndereco(res.getString(2));
+                    
+                    lista.add(medidor_ph);
+                }
+            } catch (SQLException ex) {
+                System.out.println("Message: " + ex);
+            }
+        }
+
+        return lista;
     }
 }
