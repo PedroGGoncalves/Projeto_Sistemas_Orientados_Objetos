@@ -8,9 +8,7 @@ import br.unesp.projeto.model.Termostato;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface TermostatoDAO extends JpaRepository<Termostato, Long> {
+public interface TermostatoRepository extends JpaRepository<Termostato, Long> {
 
-    Termostato find(Long Id);
-    Termostato getAll(Long Id);
-    void delete(int id);
+    Termostato findById(long Id);
 }
