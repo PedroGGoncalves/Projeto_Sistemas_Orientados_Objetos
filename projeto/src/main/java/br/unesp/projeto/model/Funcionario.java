@@ -58,9 +58,8 @@ public class Funcionario implements Serializable {
    
    
     private boolean login;
-    private List<Login> loginn;
-    
 
+ 
     @ManyToMany(mappedBy="funcionarios", cascade = CascadeType.ALL)
     private List<Tanque> tanques;
    
