@@ -5,12 +5,13 @@
  */
 package br.unesp.projeto.service;
 import br.unesp.projeto.model.Medidor_ph;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface medidor_pHService extends JpaRepository<Medidor_ph, Long> {
+public interface medidor_pHService {
 
-    Medidor_ph find(String ph);
-    Medidor_ph getAll(String ph);
-    void delete(int id);
+     List<Medidor_ph> findAll();
+    Medidor_ph findById(Long id);
+    boolean save(Medidor_ph entity);
 }
