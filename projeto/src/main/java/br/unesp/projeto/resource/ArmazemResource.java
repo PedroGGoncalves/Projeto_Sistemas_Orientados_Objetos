@@ -1,7 +1,7 @@
 package br.unesp.projeto.resource;
 
 import br.unesp.projeto.model.Armazem;
-import br.unesp.projeto.service.ArmazemServiceImpl;
+import br.unesp.projeto.service.ArmazemService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ArmazemResource {
     
     @Autowired
-    private ArmazemServiceImpl armazemService;
+    private ArmazemService armazemService;
     
     @GetMapping("/")
     public List<Armazem> getAllArmazem() {
@@ -28,16 +28,16 @@ public class ArmazemResource {
     
     
     @GetMapping("/{idArmazem}")
-    public Armazem getArmazemByCpf(@PathVariable(value = "idArmazem") Long idArmazem) {
-        Armazem armazem = armazemService.find(idArmazem);
+    public Armazem getArmazemByCpf(@PathVariable(value = "idArmazem") long idArmazem) {
+        Armazem armazem = armazemService.findById(idArmazem);
 
         return armazem;
     }
     
     @DeleteMapping("/{idArmazem}")
-    public boolean delete(@PathVariable(value = "idArmazem") Long idArmazem) {
+    public boolean delete(@PathVariable(value = "idArmazem") long idArmazem) {
         boolean delete = false;
-        Armazem armazemDelete = armazemService.find(idArmazem);
+        Armazem armazemDelete = armazemService.findById(idArmazem);
 
         if (armazemDelete != null){
          armazemService.delete(armazemDelete);
@@ -62,12 +62,12 @@ public class ArmazemResource {
     
     
     @PutMapping("/{idArmazem}")
-    public boolean updateArmazem(@PathVariable(value = "idArmazem") Long idArmazem,
+    public boolean updateArmazem(@PathVariable(value = "idArmazem") long idArmazem,
             @RequestBody Armazem armazem) {
         boolean update = false;
         
-        Armazem armazemUpdate = armazemService.find(idArmazem);        
-        Armazem newArmazem = armazemService.find(idArmazem);  
+        Armazem armazemUpdate = armazemService.findById(idArmazem);        
+        Armazem newArmazem = armazemService.findById(idArmazem);  
         // Campos que estão sendo atualizados
         armazemUpdate.setIdArmazem(newArmazem.getIdArmazem());
 
