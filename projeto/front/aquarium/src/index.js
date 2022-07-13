@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Header from './components/Header'
-import Home from './components/Home'
+import LoginContent from './components/LoginContent'
 import './assets/css/index.css'
 
 class Page extends React.Component{
@@ -9,7 +9,7 @@ class Page extends React.Component{
         return (
             <div>
                 <Header/>
-                <Home/>
+                <LoginContent/>
             </div>
         )
     }

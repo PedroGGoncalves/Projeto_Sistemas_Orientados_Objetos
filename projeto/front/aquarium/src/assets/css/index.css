@@ -3,15 +3,20 @@
 }
 body{
     margin: 0px;
-    background-color: aliceblue;
+    background-color: #F5F1ED;
+    font-family: Roboto, sans-serif;
 }
 header{
     position: sticky;
-    background-color: darkslategrey;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #21459B;
     color: white;
     font-size: 24pt;
     height: 70px;
+
 }
-header img{
-    height: 90%
+.home, .logo{
+    height: 100%;
 }

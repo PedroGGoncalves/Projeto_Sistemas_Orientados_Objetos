@@ -1,0 +1,19 @@
+.login-content{
+    position: absolute;
+    display: block;
+    height: calc(100vh - 70px);
+    width: 100%;
+}
+
+.login, .decor{
+    float: left;
+    width: 50%;
+    height: 100%;
+    border: 1px black solid;
+}
+
+.decor img{
+    position: relative;
+    transform: translate(5%, 5%);
+    width: 90%;
+}
