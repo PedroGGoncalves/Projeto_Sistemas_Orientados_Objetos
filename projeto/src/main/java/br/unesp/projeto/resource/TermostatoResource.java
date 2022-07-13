@@ -27,15 +27,15 @@ public class TermostatoResource {
     }
     
     
-    @GetMapping("/{temperatura}")
-    public Termostato getTermostatoById(@PathVariable(value = "temperatura") long idTermostato) {
+    @GetMapping("/{idTermostato}")
+    public Termostato getTermostatoById(@PathVariable(value = "idTermostato") long idTermostato) {
         Termostato termostato = termostatoService.findById(idTermostato);
 
         return termostato;
     }
     
-    @DeleteMapping("/{temperatura}")
-    public boolean delete(@PathVariable(value = "temperatura")  long idTermostato) {
+    @DeleteMapping("/{idTermostato}")
+    public boolean delete(@PathVariable(value = "idTermostato")  long idTermostato) {
         boolean delete = false;
         Termostato termostatoDelete = termostatoService.findById(idTermostato);
 
@@ -61,8 +61,8 @@ public class TermostatoResource {
     }
     
     
-    @PutMapping("/{temperatura}")
-    public boolean updateTermostato(@PathVariable(value = "temperatura") long idTermostato,
+    @PutMapping("/{idTermostato}")
+    public boolean updateTermostato(@PathVariable(value = "idTermostato") long idTermostato,
             @RequestBody Termostato termostato) {
         boolean update = false;
         
