@@ -18,7 +18,7 @@ public interface AquarioDAO {
             + "FROM aquario";
      
      
-    public boolean save(Aquario aquario);
+    public Aquario save(Aquario aquario);
      
     public Aquario findById(Long idAquario);
 

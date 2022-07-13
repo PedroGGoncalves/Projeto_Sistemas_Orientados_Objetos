@@ -26,9 +26,9 @@ public class AquarioDAOImpl implements AquarioDAO {
     
     
     @Override
-    public boolean save(Aquario aquario) {
+    public Aquario save(Aquario aquario) {
 
-        boolean b = false;
+        Aquario b = null;
         Connection con = null;
         PreparedStatement pstm = null;
         ResultSet res = null;
@@ -46,13 +46,13 @@ public class AquarioDAOImpl implements AquarioDAO {
 
                 pstm.executeUpdate();
 
-                b = true;
+                
             } catch (SQLException ex) {
                 System.out.println("Message: " + ex);
             }
         }
 
-        return b;
+      return b;
     }
     
    

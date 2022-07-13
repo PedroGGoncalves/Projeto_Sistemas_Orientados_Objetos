@@ -57,24 +57,4 @@ public class AquarioResource {
     }
     
     
-    @PutMapping("/{id}")
-    public boolean updateAquario(@PathVariable(value = "id") long id,
-            @RequestBody Aquario aquario) {
-        boolean update = false;
-        
-        Aquario aquarioUpdate = aquarioService.findById(id);        
-        Aquario newAquario = aquarioService.findById(id);  
-    
-        // Campos que estão sendo atualizados
-        aquarioUpdate.setNome(newAquario.getNome());
-
-        Aquario aquarioUpdated = aquarioService.update(aquarioUpdate);
-        if (aquarioUpdated != null){
-            update = true;
-        }
-
-        return update;
-    }
-    
-    
 }

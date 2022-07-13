@@ -21,13 +21,13 @@ public class AquarioServiceImpl implements AquarioService {
     
     
     @Override
-    public boolean save(Aquario entity) {
-        boolean b = false;
+    public Aquario save(Aquario entity) {
+        Aquario b = null;
 
         if (dao != null) {
             System.out.println("NOT NULL");
-            dao.save(entity);
-            b = true;
+            b =  dao.save(entity);
+           
         }
 
         return b;

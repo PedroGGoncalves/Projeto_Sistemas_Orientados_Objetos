@@ -14,6 +14,6 @@ public interface AquarioService {
 
     Aquario findById(Long id);
 
-    boolean save(Aquario entity);
+    Aquario save(Aquario entity);
     
 }
