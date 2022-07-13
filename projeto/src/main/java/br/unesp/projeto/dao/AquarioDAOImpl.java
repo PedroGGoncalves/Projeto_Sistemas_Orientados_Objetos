@@ -49,4 +49,71 @@ public class AquarioDAOImpl implements AquarioDAO {
 
         return b;
     }
+    
+   
+    @Override
+    public Aquario findById(Long idAquario) {
+
+        Connection con = null;
+        PreparedStatement pstm = null;
+        ResultSet res = null;
+        Aquario aquario = null;
+
+        con = FabricaConexao.getConexao();
+
+        if (con != null) {
+            try {
+                pstm = con.prepareStatement(FIND_BY_ID);
+                pstm.setLong(1, idAquario);
+                res = pstm.executeQuery();
+
+                while (res.next()) {
+                    aquario = new Aquario();
+                    aquario.setIdAquario(res.getLong(1));
+                    aquario.setEndereco(res.getString(2));
+                    aquario.setHorarioFunc(res.getString(3));
+                    aquario.setContato(res.getString(3));
+                    aquario.setPrecoIngresso(res.getFloat(4));
+                }
+            } catch (SQLException ex) {
+                System.out.println("Message: " + ex);
+            }
+        }
+
+        return aquario;
+    }
+    
+    
+    @Override
+    public List<Aquario> findAll() {
+
+        Connection con = null;
+        PreparedStatement pstm = null;
+        ResultSet res = null;
+        List<Aquario> lista = new ArrayList<>();
+
+        con = FabricaConexao.getConexao();
+
+        if (con != null) {
+            try {
+                pstm = con.prepareStatement(FIND_ALL);                
+                res = pstm.executeQuery();
+                                
+                while (res.next()) {                    
+                    Aquario aquario = new Categoria();
+                    aquario.setIdAquario(res.getLong(1));
+                    aquario.setEndereco(res.getString(2));
+                    aquario.setHorarioFunc(res.getString(3));
+                    aquario.setContato(res.getString(3));
+                    aquario.setPrecoIngresso(res.getFloat(4));
+                    
+                    lista.add(aquario);
+                }
+            } catch (SQLException ex) {
+                System.out.println("Message: " + ex);
+            }
+        }
+
+        return lista;
+    } 
 }
