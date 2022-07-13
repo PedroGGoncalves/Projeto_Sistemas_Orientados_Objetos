@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.unesp.projeto.model;
+package br.unesp.projeto.entity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,11 +31,12 @@ import javax.persistence.JoinTable;
 public class Tanque implements Serializable {
     
     
-    
     private static final long serialVersionUID = 1L;
+    
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    
     // private List<Comida> alimento;
     // private List<Especies> especie;
     private long idTanque;
@@ -68,14 +69,18 @@ public class Tanque implements Serializable {
    @JoinColumn(name = "medidorsalinidade_idmedidor_Salinidade")
    private Medidor_salinidade medidor_salinidade;
     
-    @OneToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name = "medidoroxigenacao_idmedidor_Oxigenacao")
-    private Medidor_oxigenacao medidor_oxigenacao;
+   @OneToOne(cascade=CascadeType.ALL)
+   @JoinColumn(name = "medidoroxigenacao_idmedidor_Oxigenacao")
+   private Medidor_oxigenacao medidor_oxigenacao;
    
   
     
     public Tanque() {
-
+        this.funcionarios = new ArrayList<>();
+    }
+    
+    public void setTanques(Funcionario funcionarios) {
+        this.funcionarios.add(funcionarios);
     }
 
 }
