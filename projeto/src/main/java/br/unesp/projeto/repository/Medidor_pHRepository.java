@@ -8,9 +8,7 @@ import br.unesp.projeto.model.Medidor_ph;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface medidor_pHDAO extends JpaRepository<Medidor_ph, Long> {
+public interface Medidor_pHRepository extends JpaRepository<Medidor_ph, Long> {
 
-    Medidor_ph find(Long Id);
-    Medidor_ph getAll(Long Id);
-    void delete(int id);
+    Medidor_ph findById(long Id);
 }
