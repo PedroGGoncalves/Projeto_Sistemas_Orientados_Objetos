@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.unesp.projeto.model;
+package br.unesp.projeto.entity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +30,7 @@ public class Medidor_ph implements Serializable {
     private float ph;
     
     public Medidor_ph () {
-       // this.itemTermostato   = new ArrayList<>();
+      
     }
 
    
