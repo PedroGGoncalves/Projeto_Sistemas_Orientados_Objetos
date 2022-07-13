@@ -5,12 +5,13 @@
  */
 package br.unesp.projeto.service;
 import br.unesp.projeto.model.Termostato;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface TermostatoService extends JpaRepository<Termostato, Long> {
+public interface TermostatoService {
 
-    Termostato find(String temperatura);
-    Termostato getAll(String temperatura);
-    void delete(int id);
+     List<Termostato> findAll();
+    Termostato findById(Long id);
+    boolean save(Termostato entity);
 }
