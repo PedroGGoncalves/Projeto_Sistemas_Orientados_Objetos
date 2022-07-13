@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 
 
 @Component
-public class AquarioServiceImpl {
+public class AquarioService {
 
     @Autowired
     private AquarioDAO repository;
