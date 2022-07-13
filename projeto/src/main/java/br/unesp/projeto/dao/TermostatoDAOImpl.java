@@ -13,11 +13,17 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TermostatoDAOImpl implements TermostatoDAO {
-    TermostatoDAOImpl() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    
+    public TermostatoDAOImpl() {
+        
     }
+    
+    
     @Override
     public boolean save(Termostato termostato) {
 
@@ -43,6 +49,7 @@ public class TermostatoDAOImpl implements TermostatoDAO {
 
         return b;
     }
+    
     @Override
     public Termostato findById(Long idTermostato) {
 
@@ -90,8 +97,8 @@ public class TermostatoDAOImpl implements TermostatoDAO {
                                 
                 while (res.next()) {                    
                     Termostato termostato = new Termostato();
-                    termostato.setIdAquario(res.getLong(1));
-                    termostato.setEndereco(res.getString(2))
+                    termostato.setIdTermostato(res.getLong(1));
+                    termostato.setTemperatura(res.getFloat(2))
                     
                     lista.add(termostato);
                 }
