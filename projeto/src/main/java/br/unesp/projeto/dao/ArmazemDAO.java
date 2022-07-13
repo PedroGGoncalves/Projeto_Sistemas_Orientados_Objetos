@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface ArmazemDAO {
     final String INSERT_ARMAZEM = "INSERT INTO armazem(quantidade) "
-            + "VALUES(?,?)";
+            + "VALUES(?)";
     
     final String FIND_BY_ID = "SELECT idArmazem,quantidade"
             + "FROM aquario WHERE id_Aquario = ?";
