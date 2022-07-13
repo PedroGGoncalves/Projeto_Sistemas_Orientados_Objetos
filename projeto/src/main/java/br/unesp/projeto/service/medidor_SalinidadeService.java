@@ -4,14 +4,14 @@
  * and open the template in the editor.
  */
 package br.unesp.projeto.service;
-
 import br.unesp.projeto.model.Medidor_salinidade;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface medidor_SalinidadeService extends JpaRepository<Medidor_salinidade, Long> {
+public interface medidor_SalinidadeService {
 
-   Medidor_salinidade find(String salinidade);
-   Medidor_salinidade getAll(String salinidade);
-    void delete(int id);
+     List<Medidor_salinidade> findAll();
+    Medidor_salinidade findById(Long id);
+    boolean save(Medidor_salinidade entity);
 }
