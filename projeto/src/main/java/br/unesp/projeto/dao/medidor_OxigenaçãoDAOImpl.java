@@ -12,12 +12,18 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class medidor_OxigenacaoDAOImpl implements medidor_OxigenacaoDAO  {
-     medidor_OxigenacaoDAOImpl() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
+     
+     public medidor_OxigenacaoDAOImpl() {
+        
+     }
+     
+     
     @Override
     public boolean save(Medidor_oxigenacao medidor_Oxigenacao) {
 
