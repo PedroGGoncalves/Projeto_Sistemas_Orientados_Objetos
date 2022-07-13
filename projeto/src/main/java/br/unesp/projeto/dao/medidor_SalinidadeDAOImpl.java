@@ -43,4 +43,63 @@ public class medidor_SalinidadeDAOImpl implements medidor_SalinidadeDAO  {
 
         return b;
     }
+     @Override
+    public Medidor_salinidade findById(Long idMedidor_salinidade) {
+
+        Connection con = null;
+        PreparedStatement pstm = null;
+        ResultSet res = null;
+        Aquario aquario = null;
+
+        con = FabricaConexao.getConexao();
+
+        if (con != null) {
+            try {
+                pstm = con.prepareStatement(FIND_BY_ID);
+                pstm.setLong(1, idMedidor_salinidade);
+                res = pstm.executeQuery();
+
+                while (res.next()) {
+                    medidor_salinidade= new Medidor_salinidade();
+                    medidor_salinidade.setIdMedidor_salinidade(res.getLong(1));
+                    medidor_salinidade.setSalinidade(res.getFloat(2));
+                }
+            } catch (SQLException ex) {
+                System.out.println("Message: " + ex);
+            }
+        }
+
+        return aquario;
+    }
+    
+    
+    @Override
+    public List<Medidor_salinidade> findAll() {
+
+        Connection con = null;
+        PreparedStatement pstm = null;
+        ResultSet res = null;
+        List<Medidor_salinidade> lista = new ArrayList<>();
+
+        con = FabricaConexao.getConexao();
+
+        if (con != null) {
+            try {
+                pstm = con.prepareStatement(FIND_ALL);                
+                res = pstm.executeQuery();
+                                
+                while (res.next()) {                    
+                    Medidor_salinidade medidor_salinidade = new Medidor_salinidade();
+                    medidor_salinidadeo.setIdMedidor_salinidade(res.getLong(1));
+                    medidor_salinidade.setSalinidade(res.getFloat(2));
+                    
+                    lista.add(medidor_salinidade);
+                }
+            } catch (SQLException ex) {
+                System.out.println("Message: " + ex);
+            }
+        }
+
+        return lista;
+    } 
 }
