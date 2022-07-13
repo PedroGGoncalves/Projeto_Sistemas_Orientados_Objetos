@@ -41,7 +41,7 @@ public class FuncionarioDAOImpl implements FuncionarioDAO {
                 pstm.setFloat(4, funcionario.getSalario());
                 pstm.setDate(5, (Date) funcionario.getData_nascimento());
                 pstm.setDate(6, (Date) funcionario.getContratacao());
-                pstm.setBoolean(7,funcionario.isLogin());                
+                pstm.setBoolean(7,funcionario.getLogin());                
 
                 pstm.executeUpdate();
 
