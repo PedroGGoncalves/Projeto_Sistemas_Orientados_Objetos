@@ -8,9 +8,7 @@ import br.unesp.projeto.model.Tanque;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface TanqueDAO extends JpaRepository<Tanque, Long> {
+public interface TanqueRepository extends JpaRepository<Tanque, Long> {
 
-    Tanque find(Long Id);
-    Tanque getAll(Long Id);
-    void delete(int id);
+    Tanque findById(long Id);
 }
