@@ -105,7 +105,7 @@ public class AquarioDAOImpl implements AquarioDAO {
                 res = pstm.executeQuery();
                                 
                 while (res.next()) {                    
-                    Aquario aquario = new Categoria();
+                    Aquario aquario = new Aquario();
                     aquario.setIdAquario(res.getLong(1));
                     aquario.setNome(res.getString(2));
                     aquario.setEndereco(res.getString(3));
