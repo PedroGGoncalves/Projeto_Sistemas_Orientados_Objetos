@@ -23,7 +23,7 @@ public class AquarioService {
     @Autowired
     private AquarioDAO repository;
 
-    public AquarioServiceImpl() {
+    public AquarioService() {
         
     }
 
