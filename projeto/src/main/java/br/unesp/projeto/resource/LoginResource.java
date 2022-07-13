@@ -6,7 +6,7 @@
 package br.unesp.projeto.resource;
 
 import br.unesp.projeto.model.Login;
-import br.unesp.projeto.service.loginServiceImpl;
+import br.unesp.projeto.service.LoginService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,10 +20,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/entidade/api")
-public class loginResource {
+public class LoginResource {
     
     @Autowired
-    private loginServiceImpl loginService;
+    private LoginService loginService;
     
     @GetMapping("/")
     public List<Login> getAlllogin() {
@@ -33,16 +33,16 @@ public class loginResource {
     
     
     @GetMapping("/{idLogin}")
-    public Login getloginByCpf(@PathVariable(value = "idLogin") Long idLogin) {
-        Login login = loginService.find(idLogin);
+    public Login getloginByID(@PathVariable(value = "idLogin") long idLogin) {
+        Login login = loginService.findByID(idLogin);
 
         return login;
     }
     
     @DeleteMapping("/{idLogin}")
-    public boolean delete(@PathVariable(value = "idLogin") Long idLogin) {
+    public boolean delete(@PathVariable(value = "idLogin") long idLogin) {
         boolean delete = false;
-        Login loginDelete = loginService.find(idLogin);
+        Login loginDelete = loginService.findByID(idLogin);
 
         if (loginDelete != null){
          loginService.delete(loginDelete);
@@ -67,12 +67,12 @@ public class loginResource {
     
     
     @PutMapping("/{idLogin}")
-    public boolean updatelogin(@PathVariable(value = "idLogin") Long idLogin,
+    public boolean updatelogin(@PathVariable(value = "idLogin") long idLogin,
             @RequestBody Login login) {
         boolean update = false;
         
-        Login loginUpdate = loginService.find(idLogin);        
-        Login newlogin = loginService.find(idLogin);  
+        Login loginUpdate = loginService.findByID(idLogin);        
+        Login newlogin = loginService.findByID(idLogin);  
         // Campos que estão sendo atualizados
         loginUpdate.setID(newlogin.getID());
 
