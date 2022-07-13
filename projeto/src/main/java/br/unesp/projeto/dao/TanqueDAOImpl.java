@@ -31,19 +31,14 @@ public class TanqueDAOImpl implements TanqueDAO{
         if (con != null) {
             try {
                 pstm = con.prepareStatement(INSERT_TANQUE);
-                pstm.setLong(1,tanque.getIdTanque());
-                pstm.setInt(2, tanque.getIndividuos());
-                pstm.setFloat(3, tanque.getPh());
-                pstm.setFloat(4, tanque.getSalinidade());
-                pstm.setFloat(5, tanque.getOxigenacao());
-                pstm.setString(6,tanque.getHorario_alimento());
-                pstm.setBoolean(7, tanque.isFiltro());
-                pstm.setString(8, tanque.getQR_CODE());
-                pstm.setFloat(9, tanque.getTermostato().getTemperatura());
-                pstm.setFloat(10, tanque.getMedidor_ph().getPh());
-                pstm.setFloat(11,tanque.getMedidor_salinidade().getSalinidade());
-                pstm.setFloat(12, tanque.getMedidor_oxigenacao().getOxigenacao());
-
+                pstm.setInt(1, tanque.getIndividuos());
+                pstm.setFloat(2, tanque.getPh());
+                pstm.setFloat(3, tanque.getSalinidade());
+                pstm.setFloat(4, tanque.getOxigenacao());
+                pstm.setString(5,tanque.getHorario_alimento());
+                pstm.setBoolean(6, tanque.isFiltro());
+                pstm.setString(7, tanque.getQR_CODE());
+          
                 pstm.executeUpdate();
 
                 b = true;
@@ -55,5 +50,77 @@ public class TanqueDAOImpl implements TanqueDAO{
         return b;
     }
     
+    @Override
+    public Tanque findById(Long idTanque) {
+
+        Connection con = null;
+        PreparedStatement pstm = null;
+        ResultSet res = null;
+        Tanque tanque = null;
+
+        con = FabricaConexao.getConexao();
+
+        if (con != null) {
+            try {
+                pstm = con.prepareStatement(FIND_BY_ID);
+                pstm.setLong(1, idTanque);
+                res = pstm.executeQuery();
+
+                while (res.next()) {
+                    tanque = new Tanque();
+                    tanque.setIdTanque(res.getLong(1));
+                    tanque.setIndividuos(res.getInt(2));
+                    tanque.setPh(res.getFloat(3));
+                    tanque.setSalinidade(res.getFloat(4));
+                    tanque.setOxigenacao(res.getFloat(5));
+                    tanque.setHorarioAlimento(res.getString(6));
+                    tanque.setFiltro(res.getBoolean(7));
+                    tanque.setQRCODE(res.getString(8));
+                }
+            } catch (SQLException ex) {
+                System.out.println("Message: " + ex);
+            }
+        }
+
+        return tanque;
+    }
     
+     
+    @Override
+    public List<Tanque> findAll() {
+
+        Connection con = null;
+        PreparedStatement pstm = null;
+        ResultSet res = null;
+        List<Tanque> lista = new ArrayList<>();
+
+        con = FabricaConexao.getConexao();
+
+        if (con != null) {
+            try {
+                pstm = con.prepareStatement(FIND_ALL);                
+                res = pstm.executeQuery();
+                                
+                while (res.next()) {                    
+                    Tanque tanque = new Tanque();
+                    tanque.setIdTanque(res.getLong(1));
+                    tanque.setIndividuos(res.getInt(2));
+                    tanque.setPh(res.getFloat(3));
+                    tanque.setSalinidade(res.getFloat(4));
+                    tanque.setOxigenacao(res.getFloat(5));
+                    tanque.setHorarioAlimento(res.getString(6));
+                    tanque.setFiltro(res.getBoolean(7));
+                    tanque.setQRCODE(res.getString(8));
+                    
+                    lista.add(tanque);
+                }
+            } catch (SQLException ex) {
+                System.out.println("Message: " + ex);
+            }
+        }
+
+        return lista;
+    } 
+     
+     
 }
