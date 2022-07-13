@@ -1,7 +1,7 @@
 package br.unesp.projeto.resource;
 
 import br.unesp.projeto.model.Tanque;
-import br.unesp.projeto.service.TanqueServiceImpl;
+import br.unesp.projeto.service.TanqueService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TanqueResource {
     
     @Autowired
-    private TanqueServiceImpl tanqueService;
+    private TanqueService tanqueService;
     
     @GetMapping("/")
     public List<Tanque> getAllTanque() {
@@ -28,16 +28,16 @@ public class TanqueResource {
     
     
     @GetMapping("/{idTanque}")
-    public Tanque getTanqueByCpf(@PathVariable(value = "idTanque") Long idTanque) {
-        Tanque tanque = tanqueService.find(idTanque);
+    public Tanque getTanqueById(@PathVariable(value = "idTanque") long idTanque) {
+        Tanque tanque = tanqueService.findById(idTanque);
 
         return tanque;
     }
     
     @DeleteMapping("/{idTanque}")
-    public boolean delete(@PathVariable(value = "idTanque") Long idTanque) {
+    public boolean delete(@PathVariable(value = "idTanque") long idTanque) {
         boolean delete = false;
-        Tanque tanqueDelete = tanqueService.find(idTanque);
+        Tanque tanqueDelete = tanqueService.findById(idTanque);
 
         if (tanqueDelete != null){
          tanqueService.delete(tanqueDelete);
@@ -62,12 +62,12 @@ public class TanqueResource {
     
     
     @PutMapping("/{idTanque}")
-    public boolean updateTanque(@PathVariable(value = "idTanque") Long idTanque,
+    public boolean updateTanque(@PathVariable(value = "idTanque") long idTanque,
             @RequestBody Tanque tanque) {
         boolean update = false;
         
-        Tanque tanqueUpdate = tanqueService.find(idTanque);        
-        Tanque newTanque = tanqueService.find(idTanque);  
+        Tanque tanqueUpdate = tanqueService.findById(idTanque);        
+        Tanque newTanque = tanqueService.findById(idTanque);  
         // Campos que estão sendo atualizados
         tanqueUpdate.setIdTanque(newTanque.getIdTanque());
 
