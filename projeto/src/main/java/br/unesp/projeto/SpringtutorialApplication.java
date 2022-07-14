@@ -65,17 +65,17 @@ public class SpringtutorialApplication implements CommandLineRunner {
                 case 3: {
                     System.out.println("Excluindo....");                    
                     final int id=0;
-                    System.out.println("Localizando uma pessoa para o ID: " + id);
+                    System.out.println("Localizando o aquário para o ID: " + id);
                     Aquario fc = aq.findById(id);
                     System.out.println(fc);
-                    System.out.println("Excluindo a pessoa de CPF: " + fc.getIdAquario());
+                    System.out.println("Excluindo o aquário de ID: " + fc.getIdAquario());
                     aq.delete(fc);                    
                 }
                 break;
                 case 4: {
                     System.out.println("Consultando....");
                     final int id=0;
-                    System.out.println("Localizando uma pessoa para o CPF: " + id);
+                    System.out.println("Localizando uma aquário para o ID: " + id);
                     Aquario fc = aq.findById(id);
                     System.out.println(fc);
                 }
