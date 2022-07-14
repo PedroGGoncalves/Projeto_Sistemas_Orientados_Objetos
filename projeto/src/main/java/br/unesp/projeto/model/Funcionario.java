@@ -59,7 +59,7 @@ public class Funcionario implements Serializable {
     private boolean login;
     
 
-    @ManyToMany(mappedBy="funcionarios", cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Tanque> tanques;
    
    
