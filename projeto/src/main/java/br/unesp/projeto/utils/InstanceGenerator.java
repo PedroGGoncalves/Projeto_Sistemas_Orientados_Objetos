@@ -5,15 +5,15 @@
  */
 package br.unesp.projeto.utils;
 
-import br.unesp.projeto.entity.Aquario;
-import br.unesp.projeto.entity.Armazem;
-import br.unesp.projeto.entity.Funcionario;
-import br.unesp.projeto.entity.Login;
-import br.unesp.projeto.entity.Medidor_oxigenacao;
-import br.unesp.projeto.entity.Medidor_ph;
-import br.unesp.projeto.entity.Medidor_salinidade;
-import br.unesp.projeto.entity.Tanque;
-import br.unesp.projeto.entity.Termostato;
+import br.unesp.projeto.model.Aquario;
+import br.unesp.projeto.model.Armazem;
+import br.unesp.projeto.model.Funcionario;
+import br.unesp.projeto.model.Login;
+import br.unesp.projeto.model.Medidor_oxigenacao;
+import br.unesp.projeto.model.Medidor_ph;
+import br.unesp.projeto.model.Medidor_salinidade;
+import br.unesp.projeto.model.Tanque;
+import br.unesp.projeto.model.Termostato;
 import java.util.Date;
 import java.util.List;
 

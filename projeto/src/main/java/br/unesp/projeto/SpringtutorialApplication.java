@@ -1,6 +1,6 @@
 package br.unesp.projeto;
 
-import br.unesp.projeto.entity.*;
+import br.unesp.projeto.model.*;
 import br.unesp.projeto.service.*;
 import br.unesp.projeto.utils.InstanceGenerator;
 import java.util.Date;

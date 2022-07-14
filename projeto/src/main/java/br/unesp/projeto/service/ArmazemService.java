@@ -6,7 +6,7 @@
 package br.unesp.projeto.service;
 
 import br.unesp.projeto.model.Armazem;
-import br.unesp.projeto.repository.ArmazemDAO;
+import br.unesp.projeto.repository.ArmazemRepository;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ import java.util.Collections;
 public class ArmazemService {
 
     @Autowired
-    private ArmazemDAO repository;
+    private ArmazemRepository repository;
 
     public ArmazemService() {
         
