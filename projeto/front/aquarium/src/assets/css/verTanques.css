@@ -1,0 +1,54 @@
+.ver-tanques{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: stretch;
+    margin-top: 20px;
+}
+.tanque{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.arrow{
+    width: 80px;
+    height: 80px;
+    background-color: grey;
+    font-size: 70px;
+    font-weight: 700;
+    color: #ddd;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 50%;
+    margin: 0px 10px;
+}
+.arrow:hover{
+    cursor: pointer;
+}
+.tanques-bot{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.tanques-bot table{
+    border: 1px solid black;
+    margin-top: 5px;
+    min-width: 600px;
+}
+.tanques-bot td{
+    text-align: center;
+}
+.botao-ver-detalhes{
+    background-color: grey;
+    width: 150px;
+    height: 40px;
+    color: #ddd;
+    font-size: 20px;
+    text-align: center;
+    border: black solid 1px;
+    margin-top: 2px;
+    padding-top: 8px;
+}
+.botao-ver-detalhes:hover{
+    cursor: pointer;
+}

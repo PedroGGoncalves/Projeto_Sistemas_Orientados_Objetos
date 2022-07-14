@@ -8,7 +8,7 @@ export default class Home extends React.Component{
                 <nav>
                     <ul className='pages-list'>
                         <li id='redirect-login' onClick={this.props.goToLogin}>Login</li>
-                        <li id='redirect-tanks'>Ver Tanques</li>
+                        <li id='redirect-tanks' onClick={this.props.goToTanques}>Ver Tanques</li>
                         <li id='redirect-warehouse'>Ver Armazem</li>
                         <li id='redirect-species'>Ver Espécies</li>
                     </ul>
