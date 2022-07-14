@@ -43,17 +43,17 @@ public class Aquario implements Serializable {
     private float precoIngresso;
     
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "aquario_idaquario")
+    @JoinColumn(name = "aquario_funcionario")
     private List<Funcionario> funcionario;
     
     
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "aquario_idaquario")
+    @JoinColumn(name = "aquario_tanque")
     private List<Tanque> tanque;
     
     
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "aquario_idaquario")
+    @JoinColumn(name = "aquario_armazem")
     private List<Armazem> armazem;
     
    
