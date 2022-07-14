@@ -6,6 +6,9 @@ body{
     background-color: #F5F1ED;
     font-family: Roboto, sans-serif;
 }
+.page-start{
+    height: 100vh;
+}
 header{
     position: sticky;
     display: flex;
@@ -17,6 +20,40 @@ header{
     height: 70px;
 
 }
+header span{
+    margin-top: 20px;
+}
 .home, .logo{
     height: 100%;
+    margin: 0px 2px;
+}
+
+footer{
+    background-color: #122653;
+    position: fixed;
+    display: block;
+    bottom: 0;
+    color: white;
+    height: 60px;
+    width: 100vw;
+}
+.authors-div{
+    float: left;
+    display: flex;
+    flex-direction: row;
+    margin: 5px 10px;
+}
+.authors-div span{
+    font-weight: 700;
+}
+.authors-list{
+    padding: 0;
+    margin: 20px 10px;
+}
+.authors-list li{
+    list-style: none;
+}
+.unesp{
+    float: right;
+    margin: 20px 10px;
 }
