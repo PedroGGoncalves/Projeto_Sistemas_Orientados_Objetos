@@ -44,17 +44,12 @@ public class SpringtutorialApplication implements CommandLineRunner {
                     System.out.println("Inserindo....");
                     Aquario aquario = InstanceGenerator.getAquario("Aquarium", "Rua 5", "09h - 17h","aquarium@uol.com.br" ,(float) 30.0,null,null,null);
                     Armazem armazem = InstanceGenerator.getArmazem(5);
-                    //Locacao entity2 = InstanceGenerator.getLocacao("", "");
-                    //Locacao entity3 = InstanceGenerator.getLocacao("", "");
                     
                     
                     System.out.println(aquario);
                     aq.save(aquario);
                     ar.save(armazem);
-                    
-
-                    //fs.save(entity2);
-                    //fs.save(entity3);
+      
                 }
                 break;
                 case 2: {
