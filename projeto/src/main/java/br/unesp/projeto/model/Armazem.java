@@ -21,9 +21,10 @@ import javax.persistence.Id;
 import java.io.Serializable;
 import javax.persistence.ManyToOne;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
 
-@Entity(name = "Armazém")
+@Entity(name = "Armazem")
 @Getter
 @Setter
 @EqualsAndHashCode
@@ -40,6 +41,8 @@ public class Armazem implements Serializable {
     
     private int quantidade;
      
+    
+    
     public Armazem() {
 
     }
