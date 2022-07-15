@@ -24,7 +24,7 @@ import java.util.List;
 @Slf4j
 public class ArmazemResource {
     
-    @Autowired
+
     private ArmazemService armazemService;
     
     @GetMapping("/")

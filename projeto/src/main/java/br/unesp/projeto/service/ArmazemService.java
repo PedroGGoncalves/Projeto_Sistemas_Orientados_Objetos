@@ -4,74 +4,18 @@
  * and open the template in the editor.
  */
 package br.unesp.projeto.service;
-
 import br.unesp.projeto.model.Armazem;
-import br.unesp.projeto.repository.ArmazemRepository;
-import java.util.ArrayList;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-import java.util.Collections;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Component
-public class ArmazemService {
+public interface ArmazemService {
 
-    @Autowired
-    private ArmazemRepository repository;
+     List<Armazem> findAll();
+    Armazem findById(Long id);
+    Armazem save(Armazem entity);
 
-    public ArmazemService() {
-        
-    }
+    public void delete(Armazem armazemDelete);
 
-    public Armazem save(Armazem entity) {
-        Armazem persistedEntity = null;
-
-        if (repository != null) {
-            persistedEntity = repository.save(entity);
-        }
-
-        return persistedEntity;
-    }
-
-    public Armazem findById(long Id) {
-        Armazem insertedEntity = null;
-
-        if (repository != null) {
-            insertedEntity = repository.findById(Id);
-        }
-
-        return insertedEntity;
-    }
-
-    public void delete(Armazem entity) {
-
-        if (repository != null) {
-            repository.delete(entity);
-        }
-    }
-
-    public Armazem update(Armazem entity) {
-
-        Armazem persistedEntity = null;
-
-        if (repository != null) {
-            persistedEntity = repository.save(entity);
-        }
-
-        return persistedEntity;
-    }
-
-    public List<Armazem> findAll() {
-        List<Armazem> list = null;
-       
-        if (repository != null) {
-            list = new ArrayList<>();
-            list = repository.findAll();
-            Collections.sort(list,Collections.reverseOrder());
-        }
-        
-        return list;
-    }
-
+    public Armazem update(Armazem armazemUpdate);
 }

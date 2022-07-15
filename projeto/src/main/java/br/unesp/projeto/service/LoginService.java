@@ -4,73 +4,19 @@
  * and open the template in the editor.
  */
 package br.unesp.projeto.service;
-
 import br.unesp.projeto.model.Login;
-import java.util.ArrayList;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-import java.util.Collections;
-import br.unesp.projeto.repository.LoginRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Component
-public class LoginService {
+public interface LoginService {
 
-    @Autowired
-    private LoginRepository repository;
+    List<Login> findAll();
+    Login save(Login entity);
 
-    public LoginService() {
-        
-    }
+    public Login findByID(long idLogin);
 
-    public Login save(Login entity) {
-        Login persistedEntity = null;
+    public void delete(Login loginDelete);
 
-        if (repository != null) {
-            persistedEntity = repository.save(entity);
-        }
-
-        return persistedEntity;
-    }
-
-    public Login findByID(long Id) {
-        Login insertedEntity = null;
-
-        if (repository != null) {
-            insertedEntity = repository.findByID(Id);
-        }
-
-        return insertedEntity;
-    }
-
-    public void delete(Login entity) {
-
-        if (repository != null) {
-            repository.delete(entity);
-        }
-    }
-
-    public Login update(Login entity) {
-
-        Login persistedEntity = null;
-
-        if (repository != null) {
-            persistedEntity = repository.save(entity);
-        }
-
-        return persistedEntity;
-    }
-    public List<Login> findAll() {
-        List<Login> list = null;
-       
-        if (repository != null) {
-            list = new ArrayList<>();
-            list = repository.findAll();
-            Collections.sort(list,Collections.reverseOrder());
-        }
-        
-        return list;
-    }
-
+    public Login update(Login loginUpdate);
 }

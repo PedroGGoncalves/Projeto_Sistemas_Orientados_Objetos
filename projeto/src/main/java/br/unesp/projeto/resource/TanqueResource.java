@@ -24,7 +24,7 @@ import java.util.List;
 @Slf4j
 public class TanqueResource {
     
-    @Autowired
+
     private TanqueService tanqueService;
     
     @GetMapping("/")

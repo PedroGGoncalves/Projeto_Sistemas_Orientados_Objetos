@@ -25,7 +25,7 @@ import java.util.List;
 @Slf4j
 public class TermostatoResource {
     
-    @Autowired
+  
     private TermostatoService termostatoService;
     
     @GetMapping("/")

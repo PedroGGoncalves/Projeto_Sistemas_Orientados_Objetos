@@ -4,76 +4,18 @@
  * and open the template in the editor.
  */
 package br.unesp.projeto.service;
-
 import br.unesp.projeto.model.Funcionario;
-import java.util.ArrayList;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-import java.util.Collections;
-import br.unesp.projeto.repository.FuncionarioRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Component
-public class FuncionarioService {
+public interface FuncionarioService {
 
-    @Autowired
-    private FuncionarioRepository repository;
+     List<Funcionario> findAll();
+    Funcionario findById(Long id);
+    Funcionario save(Funcionario entity);
 
-    public FuncionarioService() {
-        
-    }
+    public Funcionario update(Funcionario funcionarioUpdate);
 
-    public Funcionario save(Funcionario entity) {
-        Funcionario persistedEntity = null;
-
-        if (repository != null) {
-            persistedEntity = repository.save(entity);
-        }
-
-        return persistedEntity;
-    }
-
-    public Funcionario findById(long Id) {
-        Funcionario insertedEntity = null;
-
-        if (repository != null) {
-            insertedEntity = repository.findById(Id);
-        }
-
-        return insertedEntity;
-    }
-
-    public void delete(Funcionario entity) {
-
-        if (repository != null) {
-            repository.delete(entity);
-        }
-    }
-
-    public Funcionario update(Funcionario entity) {
-
-        Funcionario persistedEntity = null;
-
-        if (repository != null) {
-            persistedEntity = repository.save(entity);
-        }
-
-        return persistedEntity;
-    }
-
-    public List<Funcionario> findAll() {
-        List<Funcionario> list = null;
-       
-        if (repository != null) {
-            list = new ArrayList<>();
-            list = repository.findAll();
-            Collections.sort(list,Collections.reverseOrder());
-        }
-        
-        return list;
-    }
-
+    public void delete(Funcionario funcionarioDelete);
 }
-  
-  

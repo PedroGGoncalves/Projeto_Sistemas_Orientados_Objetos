@@ -4,77 +4,20 @@
  * and open the template in the editor.
  */
 package br.unesp.projeto.service;
-
 import br.unesp.projeto.model.Aquario;
-import br.unesp.projeto.repository.AquarioRepository;
-
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Collections;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 
+public interface AquarioService {
 
-@Component
-public class AquarioService {
+    List<Aquario> findAll();
 
-    @Autowired
-    private AquarioRepository repository;
+    Aquario findById(Long id);
 
-    public AquarioService() {
-        
-    }
+    Aquario save(Aquario entity);
 
-    public Aquario save(Aquario entity) {
-        Aquario persistedEntity = null;
+    public void delete(Aquario aquarioDelete);
 
-        if (repository != null) {
-            persistedEntity = repository.save(entity);
-        }
-
-        return persistedEntity;
-    }
-
-    public Aquario findById(long Id) {
-        Aquario insertedEntity = null;
-
-        if (repository != null) {
-            insertedEntity = repository.findById(Id);
-        }
-
-        return insertedEntity;
-    }
-
-    public void delete(Aquario entity) {
-
-        if (repository != null) {
-            repository.delete(entity);
-        }
-    }
-
-    public Aquario update(Aquario entity) {
-
-        Aquario persistedEntity = null;
-
-        if (repository != null) {
-            persistedEntity = repository.save(entity);
-        }
-
-        return persistedEntity;
-    }
-
-    public List<Aquario> findAll() {
-        List<Aquario> list = null;
-       
-        if (repository != null) {
-            list = new ArrayList<>();
-            list = repository.findAll();
-            Collections.sort(list,Collections.reverseOrder());
-        }
-        
-        return list;
-    }
-
+    public Aquario update(Aquario aquarioUpdate);
+    
 }

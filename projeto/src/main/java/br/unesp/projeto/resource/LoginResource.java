@@ -29,7 +29,7 @@ import java.util.List;
 @Slf4j
 public class LoginResource {
     
-    @Autowired
+    
     private LoginService loginService;
     
     @GetMapping("/")
