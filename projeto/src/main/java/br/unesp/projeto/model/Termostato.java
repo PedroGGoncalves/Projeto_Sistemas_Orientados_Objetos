@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import java.io.Serializable;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.OneToOne;
 
 @Getter
 @Setter
@@ -29,6 +30,10 @@ public class Termostato implements Serializable{
     
     
     private float temperatura;
+    
+    
+    @OneToOne
+    private Tanque tanque;
     
     public Termostato () {
     
