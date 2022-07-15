@@ -40,14 +40,14 @@ public class LoginResource {
     
     
     @GetMapping("/{idLogin}")
-    public Login getloginByID(@PathVariable(value = "idLogin") long idLogin) {
+    public Login getloginByID(@PathVariable(value = "idLogin") String idLogin) {
         Login login = loginService.findByID(idLogin);
 
         return login;
     }
     
     @DeleteMapping("/{idLogin}")
-    public boolean delete(@PathVariable(value = "idLogin") long idLogin) {
+    public boolean delete(@PathVariable(value = "idLogin") String idLogin) {
         boolean delete = false;
         Login loginDelete = loginService.findByID(idLogin);
 
@@ -74,7 +74,7 @@ public class LoginResource {
     
     
     @PutMapping("/{idLogin}")
-    public boolean updatelogin(@PathVariable(value = "idLogin") long idLogin,
+    public boolean updatelogin(@PathVariable(value = "idLogin") String idLogin,
             @RequestBody Login login) {
         boolean update = false;
         
