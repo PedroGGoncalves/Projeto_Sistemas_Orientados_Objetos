@@ -57,3 +57,18 @@ footer{
     float: right;
     margin: 20px 10px;
 }
+/* Para as páginas VerTanques e VerDetalhes */
+.arrow{
+    width: 80px;
+    height: 80px;
+    background-color: grey;
+    font-size: 70px;
+    font-weight: 700;
+    color: #ddd;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+.arrow:hover{
+    cursor: pointer;
+}
