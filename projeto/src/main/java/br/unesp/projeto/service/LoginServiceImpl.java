@@ -34,11 +34,11 @@ public class LoginServiceImpl {
         return persistedEntity;
     }
 
-    public Login findByID(long Id) {
+    public Login findByID(String ID) {
         Login insertedEntity = null;
 
         if (repository != null) {
-            insertedEntity = repository.findByID(Id);
+            insertedEntity = repository.findByID(ID);
         }
 
         return insertedEntity;
