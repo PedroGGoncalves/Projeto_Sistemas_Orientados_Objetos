@@ -6,7 +6,7 @@
 package br.unesp.projeto.service;
 
 import br.unesp.projeto.model.Aquario;
-import br.unesp.projeto.repository.AquarioDAO;
+import br.unesp.projeto.repository.AquarioRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,7 @@ import org.springframework.stereotype.Component;
 public class AquarioService {
 
     @Autowired
-    private AquarioDAO repository;
+    private AquarioRepository repository;
 
     public AquarioService() {
         

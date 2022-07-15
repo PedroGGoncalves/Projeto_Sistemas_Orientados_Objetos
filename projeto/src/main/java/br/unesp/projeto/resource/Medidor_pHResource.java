@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/entidade/api")
-public class medidor_pHResource {
+public class Medidor_pHResource {
     
     @Autowired
     private Medidor_pHService medidor_phService;
