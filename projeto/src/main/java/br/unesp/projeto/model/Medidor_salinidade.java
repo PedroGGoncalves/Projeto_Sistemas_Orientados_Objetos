@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import java.io.Serializable;
+import javax.persistence.OneToOne;
 
 
 @Getter
@@ -30,6 +31,10 @@ public class Medidor_salinidade implements Serializable {
         
         
     private float salinidade;
+    
+    
+    @OneToOne
+    private Tanque tanque;
     
     public Medidor_salinidade () {
      

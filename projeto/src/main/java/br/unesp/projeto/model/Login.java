@@ -16,6 +16,7 @@ import javax.persistence.GenerationType;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.OneToOne;
 
 
 
@@ -37,6 +38,10 @@ public class Login implements Serializable {
     
     @Column(name = "login_Senha")
     private String Senha;
+    
+    
+    @OneToOne
+    private Funcionario funcionario;
     
     public Login() {
 
