@@ -1,11 +1,11 @@
-.login-content{
+.a-forms-content{
     position: absolute;
     display: block;
     height: calc(100vh - 70px);
     width: 100%;
 }
 
-.login, .decor{
+.a-forms, .decor{
     float: left;
     width: 50%;
     height: 100%;

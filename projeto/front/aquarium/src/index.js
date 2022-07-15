@@ -2,9 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Header from './components/Header'
 import Footer from './components/Footer'
-import LoginContent from './components/LoginContent'
+import FormsPage from './components/FormsPage'
+import Login from './components/Login'
+import Cadastro from './components/Cadastro'
 import VerTanques from './components/VerTanques'
 import Armazem from './components/Armazem'
+import CadastrarTanque from './components/CadastrarTanque'
 import Home from './components/Home'
 import './assets/css/index.css'
 
@@ -14,16 +17,25 @@ class Page extends React.Component{
         this.state = {
             currentPage: <Home 
                 goToLogin = {() => this.goToLogin()}
-                goToTanques = {() => this.goToTanques()}
+                goToVerTanques = {() => this.goToVerTanques()}
                 goToArmazem ={() => this.goToArmazem()}
+                goToCadastrarTanque = {() => this.goToCadastrarTanque()}
             />
         }
     }
     goToLogin(){
-        this.setState({currentPage: <LoginContent/>})
+        this.setState({currentPage: <FormsPage page={
+            <Login goToCadastro={() => this.goToCadastro()}/>
+        }/>})
     }
-    goToTanques(){
+    goToCadastro(){
+        this.setState({currentPage: <FormsPage page={<Cadastro/>}/>})
+    }
+    goToVerTanques(){
         this.setState({currentPage: <VerTanques/>})
+    }
+    goToCadastrarTanque(){
+        this.setState({currentPage: <FormsPage page={<CadastrarTanque/>}/>})
     }
     goToArmazem(){
         this.setState({currentPage: <Armazem/>})

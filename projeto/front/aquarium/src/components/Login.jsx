@@ -1,22 +1,22 @@
 import React from 'react'
-import '../assets/css/login.css'
+import '../assets/css/forms.css'
 
 export default class Login extends React.Component{
     render(){
         return (
-            <div className='login'>
+            <div className='a-forms'>
                 <form action='/login'>
-                    <label className='login-label username'>
+                    <label className='a-forms-label username'>
                         Login:
-                        <input type='text' name='login-id' className='login-input-text username'/>
+                        <input type='text' name='login-id' className='a-forms-input-text username'/>
                     </label>   
-                    <label className='login-label password'>
+                    <label className='a-forms-label password'>
                         Senha:
-                        <input type='password' name='password' className='login-input-text password'/>
+                        <input type='password' name='password' className='a-forms-input-text password'/>
                     </label>
-                    <input type='submit' name='login' value='Entrar' className='login-button enter'/>
-                    <input type='button' name='register' value='Registrar' className='login-button register' onClick={() => this.props.goToRegister()}/>
-                    <a className='login-button exit' href='/'>Sair</a>
+                    <input type='submit' name='login' value='Entrar' className='a-forms-button enter'/>
+                    <input type='button' name='register' value='Registrar' className='a-forms-button register' onClick={() => this.props.goToCadastro()}/>
+                    <a className='a-forms-button exit' href='/'>Sair</a>
                 </form>
             </div>
         )

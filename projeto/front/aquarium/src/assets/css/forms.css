@@ -1,18 +1,18 @@
-.login{
+.a-forms{
     margin-top: 100px;
 }
-.login form{
+.a-forms form{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.login-label{
+.a-forms-label{
     font-size: 1.5em;
 }
-.login-input-text{
+.a-forms-input-text{
     margin-left: 5px;
 } 
-.login-button{
+.a-forms-button{
     width: 200px;
     height: 25px;
     margin: 5px;
@@ -24,11 +24,11 @@
     text-decoration: none;
     text-align: center;
 }
-.login-button:hover{
+.a-forms-button:hover{
     border-color: #3AAFB9;
     cursor: pointer;
 }
-.login-input-text{
+.a-forms-input-text{
     font-size: 18px;
     border: 1px black solid;
     border-radius: 8px;
