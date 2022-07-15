@@ -18,8 +18,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
 @RestController
-@RequestMapping("/entidade/api")
+@CrossOrigin(origins="http://localhost:3000")
+@RequestMapping("/login")
+@Slf4j
 public class LoginResource {
     
     @Autowired
