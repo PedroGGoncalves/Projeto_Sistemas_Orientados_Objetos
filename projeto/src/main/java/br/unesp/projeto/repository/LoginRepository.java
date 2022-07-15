@@ -10,5 +10,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface LoginRepository extends JpaRepository<Login, Long> {
 
-    Login findByID(Long Id);
+    Login findByID(String ID);
 }
