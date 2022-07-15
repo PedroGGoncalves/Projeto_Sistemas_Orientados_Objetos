@@ -23,7 +23,6 @@ import javax.persistence.JoinTable;
 
 
 @Entity
-
 @Getter
 @Setter
 @EqualsAndHashCode
