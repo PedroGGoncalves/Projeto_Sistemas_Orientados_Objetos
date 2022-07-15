@@ -22,7 +22,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 
 
-@Entity(name = "Tanque")
+@Entity
 
 @Getter
 @Setter
