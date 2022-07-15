@@ -14,7 +14,7 @@ public interface LoginService {
     List<Login> findAll();
     Login save(Login entity);
 
-    public Login findByID(long idLogin);
+    public Login findByID(String ID);
 
     public void delete(Login loginDelete);
 
