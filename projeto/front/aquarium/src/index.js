@@ -4,6 +4,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import LoginContent from './components/LoginContent'
 import VerTanques from './components/VerTanques'
+import Armazem from './components/Armazem'
 import Home from './components/Home'
 import './assets/css/index.css'
 
@@ -14,6 +15,7 @@ class Page extends React.Component{
             currentPage: <Home 
                 goToLogin = {() => this.goToLogin()}
                 goToTanques = {() => this.goToTanques()}
+                goToArmazem ={() => this.goToArmazem()}
             />
         }
     }
@@ -22,6 +24,9 @@ class Page extends React.Component{
     }
     goToTanques(){
         this.setState({currentPage: <VerTanques/>})
+    }
+    goToArmazem(){
+        this.setState({currentPage: <Armazem/>})
     }
     render(){
         // Alterna a página atual dependendo do item do li clicado

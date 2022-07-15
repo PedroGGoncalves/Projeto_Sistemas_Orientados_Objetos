@@ -9,7 +9,8 @@
     float: left;
     width: 50%;
     height: 100%;
-    border: 1px black solid;
+    border-left: 1px black solid;
+    border-right: 1px black solid;
 }
 
 .decor img{

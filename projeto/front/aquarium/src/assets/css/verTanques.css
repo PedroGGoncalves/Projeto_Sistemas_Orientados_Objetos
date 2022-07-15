@@ -27,11 +27,23 @@
 }
 .tanque-info table{
     width: 100%;
-
     border: 1px solid black;
     margin-top: 5px;
-    min-width: 600px;
 }
 .tanque-info td{
     text-align: center;
+}
+.arrow{
+    width: 80px;
+    height: 80px;
+    background-color: grey;
+    font-size: 70px;
+    font-weight: 700;
+    color: #ddd;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+.arrow:hover{
+    cursor: pointer;
 }

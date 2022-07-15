@@ -1,32 +1,21 @@
 .login{
+    margin-top: 100px;
+}
+.login form{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-}
-.login form{
-    display: grid;
-    grid-template-columns: [col-label-start] 1fr [col-input-start] 1fr 1fr;
-    grid-template-rows: [row-user]1fr [row-password] 1fr [row-buttons] 1fr;
-    row-gap: 4px;
-    column-gap: 2px;
 }
 .login-label{
-    grid-column-start: col-label-start;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 .login-input-text{
-    grid-column: col-input-start / span 2;
-}
-.username{
-    grid-row-start: row-user;
-}
-.password{
-    grid-row-start: row-password;
-}
+    margin-left: 5px;
+} 
 .login-button{
-    grid-row-start: row-buttons;
+    width: 200px;
     height: 25px;
+    margin: 5px;
     background-color: #ddd;
     border: 1px black solid;
     border-radius: 5px;
@@ -35,7 +24,6 @@
     text-decoration: none;
     text-align: center;
 }
-
 .login-button:hover{
     border-color: #3AAFB9;
     cursor: pointer;
@@ -44,4 +32,11 @@
     font-size: 18px;
     border: 1px black solid;
     border-radius: 8px;
+}
+/* Register */
+/* .radio-funcao{
+    grid-row: row-radios / span 2;
+} */
+.radio-funcao label{
+    margin: 0px 2px;
 }

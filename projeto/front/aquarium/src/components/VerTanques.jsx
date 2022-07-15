@@ -1,5 +1,6 @@
 import React from 'react'
 import VideoControler from './utils/videoControler'
+import {getTankAspects} from '../resources'
 import '../assets/css/verTanques.css'
 
 export default class VerTanques extends React.Component{
@@ -8,15 +9,28 @@ export default class VerTanques extends React.Component{
         this.videosCon = new VideoControler()
         this.state = { 
             currentTank: this.videosCon.getCurrentVideo(),
-            tankId: this.videosCon.i + 1
+            tankId: this.videosCon.i + 1,
+            waterAspects: {
+                ph: '---',
+                temp: '---',
+                o2: '---',
+                salt: '---',
+            }
         }
+        getTankAspects(0).then(aspects => this.fillWaterAspects(aspects))
+    }
+    /** Preenche os aspectos (pH, temperatura, etc) assim que carregá-las do servidor */
+    fillWaterAspects(aspects){
+        this.setState({waterAspects: aspects})
     }
     /** Avança para o próximo tanque (se existente) */
     next(){
+        const tankId = this.videosCon.i
         this.setState({
             currentTank: this.videosCon.getNextVideo(),
-            tankId: this.videosCon.i + 1
+            tankId: tankId + 1
         })
+        getTankAspects(tankId).then(aspects => this.fillWaterAspects(aspects))
     }
     /** Volta para o tanque anterior (se existente) */
     previous(){
@@ -40,6 +54,7 @@ export default class VerTanques extends React.Component{
                                 <tr>
                                     <th>Espécie</th>
                                     <th>Nº de Indivíduos</th>
+                                    <th>Tipo de Comida</th>
                                 </tr>
                             </thead>
                         </table>
@@ -66,10 +81,10 @@ export default class VerTanques extends React.Component{
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>7</td>
-                                        <td>28ºC</td>
-                                        <td>1g/L</td>
-                                        <td>1g/L</td>
+                                        <td>{this.state.waterAspects.ph}</td>
+                                        <td>{this.state.waterAspects.temp}</td>
+                                        <td>{this.state.waterAspects.o2}</td>
+                                        <td>{this.state.waterAspects.salt}</td>
                                     </tr>
                                 </tbody>
                             </table>
