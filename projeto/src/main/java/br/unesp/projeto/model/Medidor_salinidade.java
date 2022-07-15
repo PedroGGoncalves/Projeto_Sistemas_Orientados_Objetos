@@ -18,7 +18,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
 
-@Entity(name="Medidor_salinidade")
+@Entity
 @Getter
 @Setter
 @EqualsAndHashCode
