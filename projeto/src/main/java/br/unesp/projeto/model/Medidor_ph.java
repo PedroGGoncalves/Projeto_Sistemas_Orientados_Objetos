@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import java.io.Serializable;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.OneToOne;
 
 @Getter
 @Setter
@@ -28,6 +29,10 @@ public class Medidor_ph implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long idMedidor_ph;
     private float ph;
+    
+    
+    @OneToOne
+    private Tanque tanque;
     
     public Medidor_ph () {
       
