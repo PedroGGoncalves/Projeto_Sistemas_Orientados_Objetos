@@ -24,7 +24,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
 
-@Entity(name = "Armazem")
+@Entity
 @Getter
 @Setter
 @EqualsAndHashCode
