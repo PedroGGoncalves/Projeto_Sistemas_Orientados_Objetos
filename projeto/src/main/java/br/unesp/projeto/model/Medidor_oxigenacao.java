@@ -17,7 +17,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
 
-@Entity(name="Medidor_oxigenacao")
+@Entity
 @Getter
 @Setter
 @EqualsAndHashCode
