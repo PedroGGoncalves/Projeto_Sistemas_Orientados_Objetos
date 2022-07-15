@@ -18,7 +18,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.OneToOne;
 
 
-@Entity(name="Termostato")
+@Entity
 @Getter
 @Setter
 @EqualsAndHashCode
