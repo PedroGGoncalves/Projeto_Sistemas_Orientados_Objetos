@@ -9,21 +9,19 @@ import br.unesp.projeto.model.Login;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.util.Collections;
 import br.unesp.projeto.repository.LoginRepository;
 
-@Component
-public class LoginServiceImpl {
 
-    @Autowired
+public class LoginServiceImpl implements LoginService {
+
+   
     private LoginRepository repository;
 
-    public LoginServiceImpl() {
-        
-    }
-
+    
+    
+    @Override
     public Login save(Login entity) {
         Login persistedEntity = null;
 
@@ -34,6 +32,7 @@ public class LoginServiceImpl {
         return persistedEntity;
     }
 
+    @Override
     public Login findByID(String ID) {
         Login insertedEntity = null;
 
@@ -44,6 +43,7 @@ public class LoginServiceImpl {
         return insertedEntity;
     }
 
+    @Override
     public void delete(Login entity) {
 
         if (repository != null) {
@@ -51,6 +51,7 @@ public class LoginServiceImpl {
         }
     }
 
+    @Override
     public Login update(Login entity) {
 
         Login persistedEntity = null;
@@ -61,6 +62,8 @@ public class LoginServiceImpl {
 
         return persistedEntity;
     }
+    
+    @Override
     public List<Login> findAll() {
         List<Login> list = null;
        
