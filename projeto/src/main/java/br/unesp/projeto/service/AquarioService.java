@@ -12,7 +12,7 @@ public interface AquarioService {
 
     List<Aquario> findAll();
 
-    Aquario findById(Long id);
+    Aquario findById(long id);
 
     Aquario save(Aquario entity);
 
