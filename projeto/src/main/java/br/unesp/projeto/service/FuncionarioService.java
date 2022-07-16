@@ -12,7 +12,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface FuncionarioService {
 
      List<Funcionario> findAll();
-    Funcionario findById(Long id);
+    Funcionario findById(long id);
     Funcionario save(Funcionario entity);
 
     public Funcionario update(Funcionario funcionarioUpdate);
