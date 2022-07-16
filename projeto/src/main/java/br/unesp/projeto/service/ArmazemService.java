@@ -12,7 +12,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface ArmazemService {
 
      List<Armazem> findAll();
-    Armazem findById(Long id);
+    Armazem findById(long id);
     Armazem save(Armazem entity);
 
     public void delete(Armazem armazemDelete);
