@@ -1,7 +1,7 @@
 package br.unesp.projeto.resource;
 
 import br.unesp.projeto.model.Medidor_ph;
-import br.unesp.projeto.service.medidor_pHService;
+import br.unesp.projeto.service.Medidor_pHService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,7 +25,7 @@ import java.util.List;
 public class Medidor_pHResource {
     
 
-    private medidor_pHService medidor_phService;
+    private Medidor_pHService medidor_phService;
     
     @GetMapping("/")
     public List<Medidor_ph> getAllmedidor_pH() {
