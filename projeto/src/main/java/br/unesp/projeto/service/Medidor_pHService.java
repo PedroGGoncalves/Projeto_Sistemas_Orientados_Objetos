@@ -8,10 +8,10 @@ import br.unesp.projeto.model.Medidor_ph;
 import java.util.List;
 
 
-public interface medidor_pHService {
+public interface Medidor_pHService {
 
     List<Medidor_ph> findAll();
-    Medidor_ph findById(Long id);
+    Medidor_ph findById(long id);
      Medidor_ph save(Medidor_ph entity);
 
     public void delete(Medidor_ph medidor_phDelete);
