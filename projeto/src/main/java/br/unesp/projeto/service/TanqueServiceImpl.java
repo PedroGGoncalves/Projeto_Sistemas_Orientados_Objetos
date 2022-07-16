@@ -14,16 +14,14 @@ import org.springframework.stereotype.Component;
 import java.util.Collections;
 import br.unesp.projeto.repository.TanqueRepository;
 
-@Component
-public class TanqueServiceImpl {
 
-    @Autowired
+public class TanqueServiceImpl implements TanqueService{
+
+    
     private TanqueRepository repository;
 
-    public TanqueServiceImpl() {
-        
-    }
-
+   
+    @Override
     public Tanque save(Tanque entity) {
         Tanque persistedEntity = null;
 
@@ -34,6 +32,7 @@ public class TanqueServiceImpl {
         return persistedEntity;
     }
 
+    @Override
     public Tanque findById(long Id) {
         Tanque insertedEntity = null;
 
@@ -44,6 +43,7 @@ public class TanqueServiceImpl {
         return insertedEntity;
     }
 
+    @Override
     public void delete(Tanque entity) {
 
         if (repository != null) {
@@ -51,6 +51,7 @@ public class TanqueServiceImpl {
         }
     }
 
+    @Override
     public Tanque update(Tanque entity) {
 
         Tanque persistedEntity = null;
@@ -62,6 +63,7 @@ public class TanqueServiceImpl {
         return persistedEntity;
     }
 
+    @Override
     public List<Tanque> findAll() {
         List<Tanque> list = null;
        
