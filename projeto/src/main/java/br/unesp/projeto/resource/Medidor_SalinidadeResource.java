@@ -1,7 +1,7 @@
 package br.unesp.projeto.resource;
 
 import br.unesp.projeto.model.Medidor_salinidade;
-import br.unesp.projeto.service.medidor_SalinidadeService;
+import br.unesp.projeto.service.Medidor_SalinidadeService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -24,7 +24,7 @@ import java.util.List;
 @Slf4j
 public class Medidor_SalinidadeResource {
     
-    private medidor_SalinidadeService medidor_salinidadeService;
+    private Medidor_SalinidadeService medidor_salinidadeService;
     
     @GetMapping("/")
     public List<Medidor_salinidade> getAllMedidor_salinidade() {
