@@ -12,7 +12,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface TermostatoService {
 
      List<Termostato> findAll();
-    Termostato findById(Long id);
+    Termostato findById(long id);
     Termostato save(Termostato entity);
 
     public void delete(Termostato termostatoDelete);
