@@ -14,16 +14,14 @@ import org.springframework.stereotype.Component;
 import java.util.Collections;
 import br.unesp.projeto.repository.Medidor_pHRepository;
 
-@Component
-public class Medidor_pHServiceImpl {
 
-    @Autowired
+public class Medidor_pHServiceImpl implements Medidor_pHService{
+
+   
     private Medidor_pHRepository repository;
 
-    public Medidor_pHServiceImpl() {
-        
-    }
-
+   
+    @Override
     public Medidor_ph save(Medidor_ph entity) {
         Medidor_ph persistedEntity = null;
 
@@ -34,6 +32,7 @@ public class Medidor_pHServiceImpl {
         return persistedEntity;
     }
 
+    @Override
     public Medidor_ph findById(long Id) {
         Medidor_ph insertedEntity = null;
 
@@ -44,6 +43,7 @@ public class Medidor_pHServiceImpl {
         return insertedEntity;
     }
 
+    @Override
     public void delete(Medidor_ph entity) {
 
         if (repository != null) {
@@ -51,6 +51,7 @@ public class Medidor_pHServiceImpl {
         }
     }
 
+    @Override
     public Medidor_ph update(Medidor_ph entity) {
 
         Medidor_ph persistedEntity = null;
@@ -62,6 +63,7 @@ public class Medidor_pHServiceImpl {
         return persistedEntity;
     }
 
+    @Override
     public List<Medidor_ph> findAll() {
         List<Medidor_ph> list = null;
        
