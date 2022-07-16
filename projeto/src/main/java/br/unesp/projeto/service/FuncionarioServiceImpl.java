@@ -14,16 +14,14 @@ import org.springframework.stereotype.Component;
 import java.util.Collections;
 import br.unesp.projeto.repository.FuncionarioRepository;
 
-@Component
-public class FuncionarioServiceImpl {
 
-    @Autowired
+public class FuncionarioServiceImpl implements FuncionarioService {
+
+  
     private FuncionarioRepository repository;
 
-    public FuncionarioServiceImpl() {
-        
-    }
-
+  
+    @Override
     public Funcionario save(Funcionario entity) {
         Funcionario persistedEntity = null;
 
@@ -34,6 +32,7 @@ public class FuncionarioServiceImpl {
         return persistedEntity;
     }
 
+    @Override
     public Funcionario findById(long Id) {
         Funcionario insertedEntity = null;
 
@@ -44,6 +43,7 @@ public class FuncionarioServiceImpl {
         return insertedEntity;
     }
 
+    @Override
     public void delete(Funcionario entity) {
 
         if (repository != null) {
@@ -51,6 +51,7 @@ public class FuncionarioServiceImpl {
         }
     }
 
+    @Override
     public Funcionario update(Funcionario entity) {
 
         Funcionario persistedEntity = null;
@@ -62,6 +63,7 @@ public class FuncionarioServiceImpl {
         return persistedEntity;
     }
 
+    @Override
     public List<Funcionario> findAll() {
         List<Funcionario> list = null;
        
