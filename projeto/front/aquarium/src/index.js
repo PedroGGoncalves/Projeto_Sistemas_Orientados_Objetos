@@ -1,14 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+
 import Header from './components/Header'
 import Footer from './components/Footer'
 import FormsPage from './components/FormsPage'
+import CadastrarAquario from './components/CadastrarAquario'
 import Login from './components/Login'
 import Cadastro from './components/Cadastro'
 import VerTanques from './components/VerTanques'
 import Armazem from './components/Armazem'
 import CadastrarTanque from './components/CadastrarTanque'
 import Home from './components/Home'
+
 import './assets/css/index.css'
 
 class Page extends React.Component{
@@ -20,8 +23,12 @@ class Page extends React.Component{
                 goToVerTanques = {() => this.goToVerTanques()}
                 goToArmazem ={() => this.goToArmazem()}
                 goToCadastrarTanque = {() => this.goToCadastrarTanque()}
+                goToCadastrarAquario = {() => this.goToCadastrarAquario()}
             />
         }
+    }
+    goToCadastrarAquario(){
+        this.setState({currentPage: <FormsPage page={<CadastrarAquario/>}/>})
     }
     goToLogin(){
         this.setState({currentPage: <FormsPage page={

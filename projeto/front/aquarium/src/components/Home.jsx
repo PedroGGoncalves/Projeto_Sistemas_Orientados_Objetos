@@ -7,6 +7,7 @@ export default class Home extends React.Component{
             <div>
                 <nav>
                     <ul className='pages-list'>
+                        <li onClick={this.props.goToCadastrarAquario}>Cadastrar Aquario</li>
                         <li onClick={this.props.goToLogin}>Login</li>
                         <li onClick={this.props.goToVerTanques}>Ver Tanques</li>
                         <li onClick={this.props.goToCadastrarTanque}>Cadastrar Tanque</li>
