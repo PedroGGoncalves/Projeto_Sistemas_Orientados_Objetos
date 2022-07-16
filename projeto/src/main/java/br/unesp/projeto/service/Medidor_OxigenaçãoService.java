@@ -5,10 +5,10 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface medidor_OxigenaçãoService {
+public interface Medidor_OxigenaçãoService {
 
      List<Medidor_oxigenacao> findAll();
-    Medidor_oxigenacao findById(Long id);
+    Medidor_oxigenacao findById(long id);
    Medidor_oxigenacao save(Medidor_oxigenacao entity);
 
     public void delete(Medidor_oxigenacao medidor_oxigenacaoDelete);
