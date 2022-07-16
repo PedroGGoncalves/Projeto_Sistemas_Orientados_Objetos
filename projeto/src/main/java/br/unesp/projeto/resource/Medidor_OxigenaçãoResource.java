@@ -1,7 +1,7 @@
 package br.unesp.projeto.resource;
 
 import br.unesp.projeto.model.Medidor_oxigenacao;
-import br.unesp.projeto.service.medidor_OxigenaçãoService;
+import br.unesp.projeto.service.Medidor_OxigenaçãoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,7 +25,7 @@ import java.util.List;
 public class Medidor_OxigenaçãoResource {
     
 
-    private medidor_OxigenaçãoService medidor_oxigenacaoService;
+    private Medidor_OxigenaçãoService medidor_oxigenacaoService;
     
     @GetMapping("/")
     public List<Medidor_oxigenacao> getAllMedidor_Oxigenação() {
