@@ -14,16 +14,14 @@ import org.springframework.stereotype.Component;
 
 import java.util.Collections;
 
-@Component
-public class ArmazemServiceImpl {
 
-    @Autowired
+public class ArmazemServiceImpl implements ArmazemService {
+
+    
     private ArmazemRepository repository;
 
-    public ArmazemServiceImpl() {
-        
-    }
-
+    
+    @Override
     public Armazem save(Armazem entity) {
         Armazem persistedEntity = null;
 
@@ -34,6 +32,8 @@ public class ArmazemServiceImpl {
         return persistedEntity;
     }
 
+    
+    @Override
     public Armazem findById(long Id) {
         Armazem insertedEntity = null;
 
@@ -44,6 +44,7 @@ public class ArmazemServiceImpl {
         return insertedEntity;
     }
 
+    @Override
     public void delete(Armazem entity) {
 
         if (repository != null) {
@@ -51,6 +52,7 @@ public class ArmazemServiceImpl {
         }
     }
 
+    @Override
     public Armazem update(Armazem entity) {
 
         Armazem persistedEntity = null;
@@ -62,6 +64,7 @@ public class ArmazemServiceImpl {
         return persistedEntity;
     }
 
+    @Override
     public List<Armazem> findAll() {
         List<Armazem> list = null;
        
