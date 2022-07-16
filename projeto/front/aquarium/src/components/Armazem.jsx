@@ -4,6 +4,7 @@ export default class Armazem extends React.Component{
     render(){
         return(
             <div className='armazem'>
+                <h1>Work in Progress</h1>
                 <table>
                     <thead>
                         <tr>
