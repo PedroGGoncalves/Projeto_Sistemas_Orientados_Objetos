@@ -14,16 +14,13 @@ import org.springframework.stereotype.Component;
 import java.util.Collections;
 import br.unesp.projeto.repository.TermostatoRepository;
 
-@Component
-public class TermostatoServiceImpl {
 
-    @Autowired
-    private TermostatoRepository repository;
+public class TermostatoServiceImpl implements TermostatoService {
 
-    public TermostatoServiceImpl() {
-        
-    }
-
+   
+  private TermostatoRepository repository;
+    
+    @Override
     public Termostato save(Termostato entity) {
         Termostato persistedEntity = null;
 
@@ -34,6 +31,7 @@ public class TermostatoServiceImpl {
         return persistedEntity;
     }
 
+    @Override
     public Termostato findById(long Id) {
         Termostato insertedEntity = null;
 
@@ -44,6 +42,7 @@ public class TermostatoServiceImpl {
         return insertedEntity;
     }
 
+    @Override
     public void delete(Termostato entity) {
 
         if (repository != null) {
@@ -51,6 +50,7 @@ public class TermostatoServiceImpl {
         }
     }
 
+    @Override
     public Termostato update(Termostato entity) {
 
         Termostato persistedEntity = null;
@@ -62,6 +62,7 @@ public class TermostatoServiceImpl {
         return persistedEntity;
     }
 
+    @Override
     public List<Termostato> findAll() {
         List<Termostato> list = null;
        
