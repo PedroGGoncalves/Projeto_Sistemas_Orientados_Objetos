@@ -14,16 +14,14 @@ import org.springframework.stereotype.Component;
 import java.util.Collections;
 import br.unesp.projeto.repository.Medidor_OxigenaçãoRepository;
 
-@Component
-public class Medidor_OxigenaçãoServiceImpl {
 
-    @Autowired
+public class Medidor_OxigenaçãoServiceImpl implements Medidor_OxigenaçãoService{
+
+    
     private Medidor_OxigenaçãoRepository repository;
 
-    public Medidor_OxigenaçãoServiceImpl() {
-        
-    }
 
+    @Override
     public Medidor_oxigenacao save(Medidor_oxigenacao entity) {
         Medidor_oxigenacao persistedEntity = null;
 
@@ -34,6 +32,7 @@ public class Medidor_OxigenaçãoServiceImpl {
         return persistedEntity;
     }
 
+    @Override
     public Medidor_oxigenacao findById(long Id) {
         Medidor_oxigenacao insertedEntity = null;
 
@@ -44,6 +43,7 @@ public class Medidor_OxigenaçãoServiceImpl {
         return insertedEntity;
     }
 
+    @Override
     public void delete(Medidor_oxigenacao entity) {
 
         if (repository != null) {
@@ -51,6 +51,7 @@ public class Medidor_OxigenaçãoServiceImpl {
         }
     }
 
+    @Override
     public Medidor_oxigenacao update(Medidor_oxigenacao entity) {
 
         Medidor_oxigenacao persistedEntity = null;
@@ -62,6 +63,7 @@ public class Medidor_OxigenaçãoServiceImpl {
         return persistedEntity;
     }
 
+    @Override
     public List<Medidor_oxigenacao> findAll() {
         List<Medidor_oxigenacao> list = null;
        
