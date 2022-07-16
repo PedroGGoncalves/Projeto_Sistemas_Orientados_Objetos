@@ -1,29 +1,47 @@
-export function getTankAspects(tankId){
+export async function getTankAspects(tankId){
     const url = '/tanks/'+tankId
-    let aspects
-    let fail = false
-    fetch(url)
-        .then(resp => resp.json())
-        .then(json => aspects = JSON.parse(json))
-        .catch(() => fail = true)
+    let aspects, success
+    try{
+        const resp = await fetch(url)
+        aspects = JSON.parse(resp.json())
+        success = resp.ok  // Se a requisição falhar, success = false
+    }
+    catch{
+        success = false
+    }
         
     return new Promise((resolve, reject) => {
-        if(!fail)
+        if(success)
             resolve(aspects)
         else
             reject()
     })
 }
 
-export function isAquariumRegistered(){
+export async function isAquariumRegistered(){
     const url = '/aquario'
     let status
-    fetch(url)
-        .then(() => status = true)
-        .catch(() => status = false)
-    
-    return new Promise((resolve, reject) => {
-        resolve(status)
-        reject(status)
-    })
+    try{
+        const resp = await fetch(url)
+        status = resp.ok
+    }
+    catch{
+        status = false
+    }
+
+    return new Promise((resolve) => resolve(status))
+}
+
+export async function getTicketPrice(){
+    const url = '/aquario/0'
+    let price
+    try{
+        const resp = await fetch(url)
+        price = JSON.parse(resp.json()).precoIngresso
+    }
+    catch{
+        price = null
+    }
+
+    return new Promise((resolve) => resolve(price))
 }

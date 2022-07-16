@@ -10,6 +10,7 @@ import Cadastro from './components/Cadastro'
 import VerTanques from './components/VerTanques'
 import Armazem from './components/Armazem'
 import CadastrarTanque from './components/CadastrarTanque'
+import Ingresso from './components/Ingresso'
 import Home from './components/Home'
 
 import './assets/css/index.css'
@@ -24,6 +25,7 @@ class Page extends React.Component{
                 goToArmazem ={() => this.goToArmazem()}
                 goToCadastrarTanque = {() => this.goToCadastrarTanque()}
                 goToCadastrarAquario = {() => this.goToCadastrarAquario()}
+                goToMudarIngresso = {() => this.goToMudarIngresso()}
             />
         }
     }
@@ -46,6 +48,9 @@ class Page extends React.Component{
     }
     goToArmazem(){
         this.setState({currentPage: <Armazem/>})
+    }
+    goToMudarIngresso(){
+        this.setState({currentPage: <FormsPage page={<Ingresso/>}/>})
     }
     render(){
         // Alterna a página atual dependendo do item do li clicado

@@ -9,8 +9,9 @@ export default class Home extends React.Component{
                     <ul className='pages-list'>
                         <li onClick={this.props.goToCadastrarAquario}>Cadastrar Aquario</li>
                         <li onClick={this.props.goToLogin}>Login</li>
-                        <li onClick={this.props.goToVerTanques}>Ver Tanques</li>
                         <li onClick={this.props.goToCadastrarTanque}>Cadastrar Tanque</li>
+                        <li onClick={this.props.goToMudarIngresso}>Alterar Preço do Ingresso</li>
+                        <li onClick={this.props.goToVerTanques}>Ver Tanques</li>
                         <li onClick={this.props.goToArmazem}>Ver Armazem</li>
                     </ul>
                 </nav>

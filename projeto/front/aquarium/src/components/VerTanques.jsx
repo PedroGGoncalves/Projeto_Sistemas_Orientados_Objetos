@@ -43,7 +43,6 @@ export default class VerTanques extends React.Component{
         getTankAspects(this.videosCon.i).then(aspects => this.fillWaterAspects(aspects))
     }
     render(){
-        console.log(this.state)
         return (
             <div className='ver-tanques'>
                 <div className='tanque-id'>
@@ -52,17 +51,6 @@ export default class VerTanques extends React.Component{
                     </h1>
                 </div>
                 <div className='tanque-content'>
-                    <div className='tanque-left'>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Espécie</th>
-                                    <th>Nº de Indivíduos</th>
-                                    <th>Tipo de Comida</th>
-                                </tr>
-                            </thead>
-                        </table>
-                    </div>
                     <div className='tanque-right'>
                         <div className='setas-e-video'>
                             <div className='arrow' onClick={() => this.previous()}>
@@ -74,28 +62,33 @@ export default class VerTanques extends React.Component{
                             </div>
                         </div>
                         <div className='tanque-info'>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>pH</th>
-                                        <th>Temperatura</th>
-                                        <th>Oxigenação</th>
-                                        <th>Salinidade</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>{this.state.waterAspects.ph}</td>
-                                        <td>{this.state.waterAspects.temp}</td>
-                                        <td>{this.state.waterAspects.o2}</td>
-                                        <td>{this.state.waterAspects.salt}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <Aspects waterAspects={this.state.waterAspects}/>
                         </div>
                     </div>
                 </div>
             </div>
         )
     }
+}
+function Aspects(props){
+    return(
+        <table>
+            <thead>
+                <tr>
+                    <th>pH</th>
+                    <th>Temperatura</th>
+                    <th>Oxigenação</th>
+                    <th>Salinidade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{props.waterAspects.ph}</td>
+                    <td>{props.waterAspects.temp}</td>
+                    <td>{props.waterAspects.o2}</td>
+                    <td>{props.waterAspects.salt}</td>
+                </tr>
+            </tbody>
+        </table>
+    )
 }

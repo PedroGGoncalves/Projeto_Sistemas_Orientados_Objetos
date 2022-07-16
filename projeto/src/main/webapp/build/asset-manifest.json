@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.b9c81a44.css",
-    "main.js": "/static/js/main.9def4b11.js",
+    "main.css": "/static/css/main.c990313e.css",
+    "main.js": "/static/js/main.bd36952a.js",
     "static/media/aquario.jpg": "/static/media/aquario.1bfb8ef1bc1c48bda5c7.jpg",
     "static/media/logo.png": "/static/media/logo.7d5c1c74a52ee4aff17b.png",
     "static/media/home.png": "/static/media/home.86c5c9508371add8b84c.png",
     "index.html": "/index.html",
-    "main.b9c81a44.css.map": "/static/css/main.b9c81a44.css.map",
-    "main.9def4b11.js.map": "/static/js/main.9def4b11.js.map"
+    "main.c990313e.css.map": "/static/css/main.c990313e.css.map",
+    "main.bd36952a.js.map": "/static/js/main.bd36952a.js.map"
   },
   "entrypoints": [
-    "static/css/main.b9c81a44.css",
-    "static/js/main.9def4b11.js"
+    "static/css/main.c990313e.css",
+    "static/js/main.bd36952a.js"
   ]
 }

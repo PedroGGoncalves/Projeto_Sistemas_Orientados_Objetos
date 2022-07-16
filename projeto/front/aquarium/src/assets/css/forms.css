@@ -33,10 +33,11 @@
     border: 1px black solid;
     border-radius: 8px;
 }
-/* Register */
-/* .radio-funcao{
-    grid-row: row-radios / span 2;
-} */
+.a-forms-info{
+    background-color: #ddd;
+    font-size: 1.2em;
+    margin-left: 10px;
+}
 .radio-funcao label{
     margin: 0px 2px;
 }
