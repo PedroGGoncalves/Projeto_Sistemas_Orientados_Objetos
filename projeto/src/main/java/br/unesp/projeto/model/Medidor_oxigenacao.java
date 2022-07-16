@@ -17,12 +17,11 @@ import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
 
-
+@Entity
 @Getter
 @Setter
 @EqualsAndHashCode
 @ToString
-@Entity(name="Medidor de oxigenacao")
 
 public class Medidor_oxigenacao implements Serializable {
     

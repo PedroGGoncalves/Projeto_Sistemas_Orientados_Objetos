@@ -27,7 +27,7 @@ import javax.persistence.TemporalType;
 
 
 
-@Entity(name="Funcionário")
+@Entity
 @Getter
 @Setter
 @EqualsAndHashCode

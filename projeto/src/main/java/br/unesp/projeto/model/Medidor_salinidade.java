@@ -14,9 +14,11 @@ import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import java.io.Serializable;
+import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
 
+@Entity
 @Getter
 @Setter
 @EqualsAndHashCode

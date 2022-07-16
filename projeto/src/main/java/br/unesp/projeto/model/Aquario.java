@@ -22,7 +22,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Id;
 
 
-@Entity(name = "Aquario")
+@Entity
 @Getter
 @Setter
 @EqualsAndHashCode
