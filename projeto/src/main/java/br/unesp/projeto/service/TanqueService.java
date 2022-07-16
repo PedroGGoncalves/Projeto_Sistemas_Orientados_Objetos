@@ -12,7 +12,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface TanqueService {
 
      List<Tanque> findAll();
-    Tanque findById(Long id);
+    Tanque findById(long id);
     Tanque save(Tanque entity);
 
     public void delete(Tanque tanqueDelete);
