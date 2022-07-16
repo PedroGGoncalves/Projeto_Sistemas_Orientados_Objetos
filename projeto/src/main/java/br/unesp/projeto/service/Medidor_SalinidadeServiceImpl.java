@@ -13,16 +13,14 @@ import org.springframework.stereotype.Component;
 import java.util.Collections;
 import br.unesp.projeto.repository.Medidor_SalinidadeRepository;
 
-@Component
-public class Medidor_SalinidadeServiceImpl {
 
-    @Autowired
+public class Medidor_SalinidadeServiceImpl implements Medidor_SalinidadeService {
+
+ 
     private Medidor_SalinidadeRepository repository;
 
-    public Medidor_SalinidadeServiceImpl() {
-        
-    }
-
+   
+    @Override
     public Medidor_salinidade save(Medidor_salinidade entity) {
         Medidor_salinidade persistedEntity = null;
 
@@ -33,6 +31,7 @@ public class Medidor_SalinidadeServiceImpl {
         return persistedEntity;
     }
 
+    @Override
     public Medidor_salinidade findById(long Id) {
         Medidor_salinidade insertedEntity = null;
 
@@ -43,6 +42,7 @@ public class Medidor_SalinidadeServiceImpl {
         return insertedEntity;
     }
 
+    @Override
     public void delete(Medidor_salinidade entity) {
 
         if (repository != null) {
@@ -50,6 +50,7 @@ public class Medidor_SalinidadeServiceImpl {
         }
     }
 
+    @Override
     public Medidor_salinidade update(Medidor_salinidade entity) {
 
         Medidor_salinidade persistedEntity = null;
