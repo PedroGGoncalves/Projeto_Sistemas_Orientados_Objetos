@@ -18,15 +18,13 @@ import org.springframework.stereotype.Component;
 
 
 @Component
-public class AquarioServiceImpl {
+public class AquarioServiceImpl implements AquarioService  {
 
-    @Autowired
+
     private AquarioRepository repository;
 
-    public AquarioServiceImpl() {
-        
-    }
-
+  
+    @Override
     public Aquario save(Aquario entity) {
         Aquario persistedEntity = null;
 
@@ -37,6 +35,7 @@ public class AquarioServiceImpl {
         return persistedEntity;
     }
 
+    @Override
     public Aquario findById(long Id) {
         Aquario insertedEntity = null;
 
@@ -47,6 +46,7 @@ public class AquarioServiceImpl {
         return insertedEntity;
     }
 
+    @Override
     public void delete(Aquario entity) {
 
         if (repository != null) {
@@ -54,6 +54,7 @@ public class AquarioServiceImpl {
         }
     }
 
+    @Override
     public Aquario update(Aquario entity) {
 
         Aquario persistedEntity = null;
@@ -65,6 +66,7 @@ public class AquarioServiceImpl {
         return persistedEntity;
     }
 
+    @Override
     public List<Aquario> findAll() {
         List<Aquario> list = null;
        
