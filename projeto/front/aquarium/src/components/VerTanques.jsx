@@ -28,12 +28,11 @@ export default class VerTanques extends React.Component{
     }
     /** Avança para o próximo tanque (se existente) */
     next(){
-        const tankId = this.videosCon.i
         this.setState({
             currentTank: this.videosCon.getNextVideo(),
-            tankId: tankId + 1
+            tankId: this.videosCon.i + 1
         })
-        getTankAspects(tankId).then(aspects => this.fillWaterAspects(aspects))
+        getTankAspects(this.videosCon.i).then(aspects => this.fillWaterAspects(aspects))
     }
     /** Volta para o tanque anterior (se existente) */
     previous(){
@@ -41,6 +40,7 @@ export default class VerTanques extends React.Component{
             currentTank: this.videosCon.getPreviousVideo(),
             tankId: this.videosCon.i + 1
         })
+        getTankAspects(this.videosCon.i).then(aspects => this.fillWaterAspects(aspects))
     }
     render(){
         console.log(this.state)
