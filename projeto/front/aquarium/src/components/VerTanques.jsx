@@ -17,11 +17,14 @@ export default class VerTanques extends React.Component{
                 salt: '---',
             }
         }
-        getTankAspects(0).then(aspects => this.fillWaterAspects(aspects))
     }
     /** Preenche os aspectos (pH, temperatura, etc) assim que carregá-las do servidor */
+    componentDidMount(){
+        getTankAspects(0).then(aspects => this.fillWaterAspects(aspects))
+    }
     fillWaterAspects(aspects){
-        this.setState({waterAspects: aspects})
+        if(aspects !== undefined)
+            this.setState({waterAspects: aspects})
     }
     /** Avança para o próximo tanque (se existente) */
     next(){
@@ -40,6 +43,7 @@ export default class VerTanques extends React.Component{
         })
     }
     render(){
+        console.log(this.state)
         return (
             <div className='ver-tanques'>
                 <div className='tanque-id'>

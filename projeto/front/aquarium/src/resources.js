@@ -1,14 +1,17 @@
 export function getTankAspects(tankId){
     const url = '/tanks/'+tankId
     let aspects
+    let fail = false
     fetch(url)
         .then(resp => resp.json())
-        .then(json => {
-            aspects = JSON.parse(json)
-        })
+        .then(json => aspects = JSON.parse(json))
+        .catch(() => fail = true)
         
     return new Promise((resolve, reject) => {
-        resolve(aspects)
+        if(!fail)
+            resolve(aspects)
+        else
+            reject()
     })
 }
 
