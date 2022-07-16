@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins="http://localhost:3000")
+@CrossOrigin(origins="http://localhost:8080")
 @RequestMapping("/medidor_oxigenacao")
 @Slf4j
 public class Medidor_OxigenaçãoResource {
