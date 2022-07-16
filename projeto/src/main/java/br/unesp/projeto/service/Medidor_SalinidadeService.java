@@ -9,10 +9,10 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface medidor_SalinidadeService {
+public interface Medidor_SalinidadeService {
 
-     List<Medidor_salinidade> findAll();
-    Medidor_salinidade findById(Long id);
+   List<Medidor_salinidade> findAll();
+   Medidor_salinidade findById(long id);
    Medidor_salinidade save(Medidor_salinidade entity);
 
     public void delete(Medidor_salinidade medidor_salinidadeDelete);
